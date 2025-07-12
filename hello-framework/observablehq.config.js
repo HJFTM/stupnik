@@ -63,21 +63,21 @@ const rodEntitetiIzvoriPages = [
   {
     name: `Rod (${CURRENT_PROJECT})`,
     pages: [
-      { name: "Prezime (R)", path: "/pages/1_Jularic/prezime_r" },
-      { name: "Generacije (R)", path: "/pages/ROD/Generacije_R" },
-      { name: "Obitelji (R)", path: "/pages/ROD/Obitelji_R" },
-      { name: "Stablo (R)", path: "/pages/ROD/Stablo_R" },
-      { name: "Zapisi (R)", path: "/pages/ROD/Zapisi_R" },
-      { name: "Migracije (R)", path: "/pages/ROD/Migracije_R" },
-      { name: "Mjesta (R)", path: "/pages/ROD/Mjesta_R" },
-      { name: "Mjesta-zapisi (R)", path: "/pages/KONCEPT/Mjesta_zapisi_R" },
-      { name: "Župe (R)", path: "/pages/ROD/Zupe_D" },
-      { name: "Župe Rodos. (R)", path: "/pages/ROD/Zupe_rodoslovlje_R" },
-      { name: "Župe Obitelji (R)", path: "/pages/ROD/Zupe_obitelji_R" },
-      { name: "Izvori* (D)", path: "/pages/ROD/Popisi_D" },
-      { name: "Pismo (D)", path: "/pages/ROD/Pismo_D" },
-      { name: "Bolesti (D)", path: "/pages/ROD/Bolesti_D" },
-      { name: "Groblje (D)", path: "/pages/ROD/Groblje_D" }
+      { name: "Prezime (R)", path: `/pages/ROD/prezime_r/${encodeURIComponent(CURRENT_PROJECT)}/` },
+      { name: "Generacije (R)", path: `/pages/ROD/Generacije_R/${encodeURIComponent(CURRENT_PROJECT)}/` },
+      { name: "Obitelji (R)", path: `/pages/ROD/Obitelji_R/${encodeURIComponent(CURRENT_PROJECT)}/` },
+      { name: "Stablo (R)", path: `/pages/ROD/Stablo_R/${encodeURIComponent(CURRENT_PROJECT)}/` },
+      { name: "Zapisi (R)", path: `/pages/ROD/Zapisi_R/${encodeURIComponent(CURRENT_PROJECT)}/` },
+      { name: "Migracije (R)", path: `/pages/ROD/Migracije_R/${encodeURIComponent(CURRENT_PROJECT)}/` },
+      { name: "Mjesta (R)", path: `/pages/ROD/Mjesta_R/${encodeURIComponent(CURRENT_PROJECT)}/` },
+      { name: "Mjesta-zapisi (R)", path: "/pages/KONCEPT/Mjesta_zapisi_R" }, // ostaje isto
+      { name: "Župe (R)", path: `/pages/ROD/Zupe_D/${encodeURIComponent(CURRENT_PROJECT)}/` },
+      { name: "Župe Rodos. (R)", path: `/pages/ROD/Zupe_rodoslovlje_R/${encodeURIComponent(CURRENT_PROJECT)}/` },
+      { name: "Župe Obitelji (R)", path: `/pages/ROD/Zupe_obitelji_R/${encodeURIComponent(CURRENT_PROJECT)}/` },
+      { name: "Izvori* (D)", path: `/pages/ROD/Popisi_D/${encodeURIComponent(CURRENT_PROJECT)}/` },
+      { name: "Pismo (D)", path: `/pages/ROD/Pismo_D/${encodeURIComponent(CURRENT_PROJECT)}/` },
+      { name: "Bolesti (D)", path: `/pages/ROD/Bolesti_D/${encodeURIComponent(CURRENT_PROJECT)}/` },
+      { name: "Groblje (D)", path: `/pages/ROD/Groblje_D/${encodeURIComponent(CURRENT_PROJECT)}/` }
     ]
   },
   ...obiteljiPoMjestuPages,
