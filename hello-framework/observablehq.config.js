@@ -59,7 +59,7 @@ const rodEntitetiIzvoriPages = [
   {
     name: `Rod (${CURRENT_PROJECT})`,
     pages: [
-      { name: "Prezime (R)", path: `/pages/ROD/prezime_r/${encodeURIComponent(CURRENT_PROJECT)}/` },
+      { name: "Prezime (R)", path: `/pages/1_Jularic/prezime_r/${encodeURIComponent(CURRENT_PROJECT)}/` },
       { name: "Generacije (R)", path: `/pages/ROD/Generacije_R/${encodeURIComponent(CURRENT_PROJECT)}/` },
       { name: "Obitelji (R)", path: `/pages/ROD/Obitelji_R/${encodeURIComponent(CURRENT_PROJECT)}/` },
       { name: "Stablo (R)", path: `/pages/ROD/Stablo_R/${encodeURIComponent(CURRENT_PROJECT)}/` },
