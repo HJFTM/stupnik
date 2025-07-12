@@ -59,7 +59,7 @@ export default {
       ]
     },
     {
-      name: "Rod (Bosna)",
+      name: `Rod (${CURRENT_PROJECT})`,
       pages: [
         { name: "Prezime (R)", path: "/pages/1_Jularic/prezime_r" },
         { name: "Generacije (R)", path: "/pages/ROD/Generacije_R" },
