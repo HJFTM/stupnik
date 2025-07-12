@@ -76,7 +76,7 @@ const rodEntitetiIzvoriPages = [
       { name: "Župe Obitelji (R)",    path: `/pages/ROD/Zupe_obitelji_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Izvori* (D)",          path: `/pages/ROD/Popisi_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Pismo (D)",            path: `/pages/ROD/Pismo_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Bolesti (D)",          path: `/pages/KONCEPT/Bolesti_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+      { name: "Bolesti (D)",          path: `/pages/ROD/Bolesti_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Groblje (D)",          path: `/pages/ROD/Groblje_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` }
     ]
 
