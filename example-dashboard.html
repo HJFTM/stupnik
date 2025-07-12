@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Observable Framework v1.13.3">
+<title>Example dashboard | Jularić</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="./_observablehq/theme-air,near-midnight,alt,wide.db1cdf55.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="./_observablehq/theme-air,near-midnight,alt,wide.db1cdf55.css">
+<link rel="modulepreload" href="./_observablehq/client.8d1cd726.js">
+<link rel="modulepreload" href="./_observablehq/runtime.e080113b.js">
+<link rel="modulepreload" href="./_observablehq/stdlib.24b62b2e.js">
+<link rel="modulepreload" href="./_npm/d3@7.9.0/e780feca.js">
+<link rel="modulepreload" href="./_npm/@observablehq/plot@0.6.17/d761ef9b.js">
+<link rel="modulepreload" href="./_npm/d3-dsv@3.0.1/9cffc2bd.js">
+<link rel="modulepreload" href="./_npm/d3-array@3.2.4/e93ca09f.js">
+<link rel="modulepreload" href="./_npm/d3-axis@3.0.0/0f2de24d.js">
+<link rel="modulepreload" href="./_npm/d3-brush@3.0.0/65eb105b.js">
+<link rel="modulepreload" href="./_npm/d3-chord@3.0.1/7ef8fb2e.js">
+<link rel="modulepreload" href="./_npm/d3-color@3.1.0/aeb57b94.js">
+<link rel="modulepreload" href="./_npm/d3-contour@4.0.2/1d2aed74.js">
+<link rel="modulepreload" href="./_npm/d3-delaunay@6.0.4/5ced1d52.js">
+<link rel="modulepreload" href="./_npm/d3-dispatch@3.0.1/9ba9c7f3.js">
+<link rel="modulepreload" href="./_npm/d3-drag@3.0.0/4202580c.js">
+<link rel="modulepreload" href="./_npm/d3-ease@3.0.1/cdd7e898.js">
+<link rel="modulepreload" href="./_npm/d3-fetch@3.0.1/b4e2ad9a.js">
+<link rel="modulepreload" href="./_npm/d3-force@3.0.0/5e804d15.js">
+<link rel="modulepreload" href="./_npm/d3-format@3.1.0/86074ef6.js">
+<link rel="modulepreload" href="./_npm/d3-geo@3.1.1/40599fb3.js">
+<link rel="modulepreload" href="./_npm/d3-hierarchy@3.1.2/e49e792c.js">
+<link rel="modulepreload" href="./_npm/d3-interpolate@3.0.1/8d1e5425.js">
+<link rel="modulepreload" href="./_npm/d3-path@3.1.0/20d3f133.js">
+<link rel="modulepreload" href="./_npm/d3-polygon@3.0.1/7553081f.js">
+<link rel="modulepreload" href="./_npm/d3-quadtree@3.0.1/0dfd751c.js">
+<link rel="modulepreload" href="./_npm/d3-random@3.0.1/3c90ee06.js">
+<link rel="modulepreload" href="./_npm/d3-scale@4.0.2/843b6a76.js">
+<link rel="modulepreload" href="./_npm/d3-scale-chromatic@3.1.0/ba24c2e7.js">
+<link rel="modulepreload" href="./_npm/d3-selection@3.0.0/4d94e5b7.js">
+<link rel="modulepreload" href="./_npm/d3-shape@3.2.0/6d3a6726.js">
+<link rel="modulepreload" href="./_npm/d3-time@3.1.0/9f03c579.js">
+<link rel="modulepreload" href="./_npm/d3-time-format@4.1.0/07c9626f.js">
+<link rel="modulepreload" href="./_npm/d3-timer@3.0.1/b58a267d.js">
+<link rel="modulepreload" href="./_npm/d3-transition@3.0.1/004da2ac.js">
+<link rel="modulepreload" href="./_npm/d3-zoom@3.0.0/b5786b3f.js">
+<link rel="modulepreload" href="./_npm/isoformat@0.2.1/18cbf477.js">
+<link rel="modulepreload" href="./_npm/interval-tree-1d@1.0.4/53fe8176.js">
+<link rel="modulepreload" href="./_npm/internmap@2.0.3/e08981d9.js">
+<link rel="modulepreload" href="./_npm/delaunator@5.0.1/02d43215.js">
+<link rel="modulepreload" href="./_npm/binary-search-bounds@2.0.5/cbf6ba23.js">
+<link rel="modulepreload" href="./_npm/robust-predicates@3.0.2/aa00730b.js">
+<link rel="icon" href="./_file/observable.1af93621.png" type="image/png" sizes="32x32">
+<script type="module">
+
+import {define} from "./_observablehq/client.8d1cd726.js";
+import {registerFile} from "./_observablehq/stdlib.24b62b2e.js";
+
+registerFile("./data/launches.csv", {"name":"./data/launches.csv","mimeType":"text/csv","path":"./_file/data/launches.e35ef0b8.csv","lastModified":1752347505101,"size":837123});
+
+define({id: "7a66a2dd", inputs: ["FileAttachment"], outputs: ["launches"], body: (FileAttachment) => {
+const launches = FileAttachment("./data/launches.csv").csv({typed: true});
+return {launches};
+}});
+
+define({id: "fdf7eadc", inputs: ["Plot","d3","launches"], outputs: ["color"], body: (Plot,d3,launches) => {
+const color = Plot.scale({
+  color: {
+    type: "categorical",
+    domain: d3.groupSort(launches, (D) => -D.length, (d) => d.state).filter((d) => d !== "Other"),
+    unknown: "var(--theme-foreground-muted)"
+  }
+});
+return {color};
+}});
+
+define({id: "92cac4f1", mode: "inline", inputs: ["launches","display"], body: async (launches,display) => {
+display(await(
+launches.filter((d) => d.stateId === "US").length.toLocaleString("en-US")
+))
+}});
+
+define({id: "f84e9749", mode: "inline", inputs: ["launches","display"], body: async (launches,display) => {
+display(await(
+launches.filter((d) => d.stateId === "SU" || d.stateId === "RU").length.toLocaleString("en-US")
+))
+}});
+
+define({id: "3f89d55f", mode: "inline", inputs: ["launches","display"], body: async (launches,display) => {
+display(await(
+launches.filter((d) => d.stateId === "CN").length.toLocaleString("en-US")
+))
+}});
+
+define({id: "d55bddad", mode: "inline", inputs: ["launches","display"], body: async (launches,display) => {
+display(await(
+launches.filter((d) => d.stateId !== "US" && d.stateId !== "SU" && d.stateId !== "RU" && d.stateId !== "CN").length.toLocaleString("en-US")
+))
+}});
+
+define({id: "a6446d56", inputs: ["Plot","color"], outputs: ["launchTimeline"], body: (Plot,color) => {
+function launchTimeline(data, {width} = {}) {
+  return Plot.plot({
+    title: "Launches over the years",
+    width,
+    height: 300,
+    y: {grid: true, label: "Launches"},
+    color: {...color, legend: true},
+    marks: [
+      Plot.rectY(data, Plot.binX({y: "count"}, {x: "date", fill: "state", interval: "year", tip: true})),
+      Plot.ruleY([0])
+    ]
+  });
+}
+return {launchTimeline};
+}});
+
+define({id: "da415336", mode: "inline", inputs: ["resize","launchTimeline","launches","display"], body: async (resize,launchTimeline,launches,display) => {
+display(await(
+resize((width) => launchTimeline(launches, {width}))
+))
+}});
+
+define({id: "bdc917ac", inputs: ["Plot","color"], outputs: ["vehicleChart"], body: (Plot,color) => {
+function vehicleChart(data, {width}) {
+  return Plot.plot({
+    title: "Popular launch vehicles",
+    width,
+    height: 300,
+    marginTop: 0,
+    marginLeft: 50,
+    x: {grid: true, label: "Launches"},
+    y: {label: null},
+    color: {...color, legend: true},
+    marks: [
+      Plot.rectX(data, Plot.groupY({x: "count"}, {y: "family", fill: "state", tip: true, sort: {y: "-x"}})),
+      Plot.ruleX([0])
+    ]
+  });
+}
+return {vehicleChart};
+}});
+
+define({id: "87987196", mode: "inline", inputs: ["resize","vehicleChart","launches","display"], body: async (resize,vehicleChart,launches,display) => {
+display(await(
+resize((width) => vehicleChart(launches, {width}))
+))
+}});
+
+</script>
+</head>
+<body>
+<input id="observablehq-sidebar-toggle" type="checkbox" title="Toggle sidebar">
+<label id="observablehq-sidebar-backdrop" for="observablehq-sidebar-toggle"></label>
+<nav id="observablehq-sidebar">
+  <ol>
+    <label id="observablehq-sidebar-close" for="observablehq-sidebar-toggle"></label>
+    <li class="observablehq-link"><a href="./">Jularić</a></li>
+  </ol>
+  <section>
+    <summary>Uvod</summary>
+    <ol>
+    <li class="observablehq-link"><a href="./pages/0%20Uvod/naslovnica">Naslovnica</a></li>
+    <li class="observablehq-link"><a href="./pages/0%20Uvod/uvod">Uvod</a></li>
+    <li class="observablehq-link"><a href="./pages/0%20Uvod/dogadjaji">Događaji</a></li>
+    </ol>
+  </section>
+  <section>
+    <summary>Jularić</summary>
+    <ol>
+    <li class="observablehq-link"><a href="./pages/1_Jularic/01.1.prezime_ilaric">Prezime Jular-ić (K)</a></li>
+    <li class="observablehq-link"><a href="./pages/1_Prezime/prezime_slicno">Slična prezimena (K)</a></li>
+    <li class="observablehq-link"><a href="./pages/1_Jularic/01.2.evolucija">Evolucija zapisa (V)</a></li>
+    <li class="observablehq-link"><a href="./pages/KONCEPT/Generacije_K">Generacije (K)</a></li>
+    <li class="observablehq-link"><a href="./pages/KONCEPT/Obitelji_K">Obitelji (K)</a></li>
+    <li class="observablehq-link"><a href="./pages/KONCEPT/Brakovi_K">Brakovi (K)</a></li>
+    <li class="observablehq-link"><a href="./pages/KONCEPT/Obitelji_povezane_K">Povezane obitelji (K)</a></li>
+    <li class="observablehq-link"><a href="./pages/KONCEPT/Zapisi_K">Zapisi (K)</a></li>
+    <li class="observablehq-link"><a href="./pages/KONCEPT/Migracije_K">Migracije (K)</a></li>
+    <li class="observablehq-link"><a href="./pages/KONCEPT/Migracije_masovne_K">Migracije (K)</a></li>
+    <li class="observablehq-link"><a href="./pages/KONCEPT/Mjesta_K">Mjesta (K)</a></li>
+    <li class="observablehq-link"><a href="./pages/KONCEPT/Kucedomacin_K">Kuće (K)</a></li>
+    <li class="observablehq-link"><a href="./pages/KONCEPT/Popis_stanovnika_K">Popis stanocnika (K)</a></li>
+    <li class="observablehq-link"><a href="./pages/KONCEPT/Drzava_K">Države (K)</a></li>
+    <li class="observablehq-link"><a href="./pages/KONCEPT/Zupe_K">Župe (K)</a></li>
+    <li class="observablehq-link"><a href="./pages/KONCEPT/Popisi_K">Izvori* (K)</a></li>
+    <li class="observablehq-link"><a href="./pages/KONCEPT/Pismo_K">Pismo (K)</a></li>
+    <li class="observablehq-link"><a href="./pages/KONCEPT/Bolesti_K">Bolesti (K)</a></li>
+    <li class="observablehq-link"><a href="./pages/KONCEPT/Groblje_K">Groblje (K)</a></li>
+    </ol>
+  </section>
+  <section>
+    <summary>Rod (Bosna)</summary>
+    <ol>
+    <li class="observablehq-link"><a href="./pages/1_Jularic/prezime_r">Prezime (R)</a></li>
+    <li class="observablehq-link"><a href="./pages/ROD/Generacije_R">Generacije (R)</a></li>
+    <li class="observablehq-link"><a href="./pages/ROD/Obitelji_R">Obitelji (R)</a></li>
+    <li class="observablehq-link"><a href="./pages/ROD/Stablo_R">Stablo (R)</a></li>
+    <li class="observablehq-link"><a href="./pages/ROD/Zapisi_R">Zapisi (R)</a></li>
+    <li class="observablehq-link"><a href="./pages/ROD/Migracije_R">Migracije (R)</a></li>
+    <li class="observablehq-link"><a href="./pages/ROD/Mjesta_R">Mjesta (R)</a></li>
+    <li class="observablehq-link"><a href="./pages/KONCEPT/Mjesta_zapisi_R">Mjesta-zapisi (R)</a></li>
+    <li class="observablehq-link"><a href="./pages/ROD/Zupe_D">Župe (R)</a></li>
+    <li class="observablehq-link"><a href="./pages/ROD/Zupe_rodoslovlje_R">Župe Rodos. (R)</a></li>
+    <li class="observablehq-link"><a href="./pages/ROD/Zupe_obitelji_R">Župe Obitelji (R)</a></li>
+    <li class="observablehq-link"><a href="./pages/ROD/Popisi_D">Izvori* (D)</a></li>
+    <li class="observablehq-link"><a href="./pages/ROD/Pismo_D">Pismo (D)</a></li>
+    <li class="observablehq-link"><a href="./pages/ROD/Bolesti_D">Bolesti (D)</a></li>
+    <li class="observablehq-link"><a href="./pages/ROD/Groblje_D">Groblje (D)</a></li>
+    </ol>
+  </section>
+  <section>
+    <summary>Popovići</summary>
+    <ol>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1700.%2520Marko">1700. Marko</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1714.%2520Mato">1714. Mato</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1725.%2520Ivan">1725. Ivan</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1741.%2520Matia">1741. Matia</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1727.%2520Petar">1727. Petar</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1742.%2520Stjepan">1742. Stjepan</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1748.%2520Nikola">1748. Nikola</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1753.%2520Ru%25C5%25BEica">1753. Ružica</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1758.%2520Petru%25C5%25A1a">1758. Petruša</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1746.%2520Vida">1746. Vida</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1760.%2520Ivana">1760. Ivana</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1765.%2520Ivan">1765. Ivan</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1770.%2520Ivan">1770. Ivan</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1770.%2520Kata">1770. Kata</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1772.%2520Bo%25C5%25BEo">1772. Božo</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1756.%2520Petar%2520">1756. Petar </a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1758.%2520Mio">1758. Mio</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1758.%2520Pavo">1758. Pavo</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1762.%2520Maria">1762. Maria</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1766.%2520Marko">1766. Marko</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1789.%2520Marko">1789. Marko</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1780.%2520Tomu%25C5%25A1a">1780. Tomuša</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1788.%2520Kata">1788. Kata</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1794.%2520Cecilia">1794. Cecilia</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1779.%2520Maria">1779. Maria</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1780.%2520Ru%25C5%25BEica">1780. Ružica</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1834.%2520Ivan">1834. Ivan</a></li>
+    </ol>
+  </section>
+  <section>
+    <summary>Miljanovci</summary>
+    <ol>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1777.%2520Stjepan">1777. Stjepan</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1775.%2520Ilija">1775. Ilija</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1780.%2520Lovro">1780. Lovro</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1800.%2520Anto">1800. Anto</a></li>
+    </ol>
+  </section>
+  <section>
+    <summary>Sivša</summary>
+    <ol>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1812.%2520Ivan">1812. Ivan</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1820.%2520Franjo">1820. Franjo</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1810.%2520Petra">1810. Petra</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1833.%2520Marko">1833. Marko</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1836.%2520Anto">1836. Anto</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1839.%2520Ilija">1839. Ilija</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1850.%2520Ivana">1850. Ivana</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1855.%2520Magdalena">1855. Magdalena</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1855.%2520Marko">1855. Marko</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1856.%2520Petar">1856. Petar</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1861.%2520Petar">1861. Petar</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1861.%2520Luka">1861. Luka</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1862.%2520Laurentius">1862. Laurentius</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1858.%2520Ivan">1858. Ivan</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1861.%2520Ilija">1861. Ilija</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1865.%2520Ilija">1865. Ilija</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1866.%2520Ana">1866. Ana</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1867.%2520Mato">1867. Mato</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1868.%2520Mato">1868. Mato</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1869.%2520Ivana">1869. Ivana</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1879.%2520Ana">1879. Ana</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1882.%2520Marko">1882. Marko</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1883.%2520Ru%25C5%25BEica">1883. Ružica</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1888.%2520Pavo">1888. Pavo</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1886.%2520Petra">1886. Petra</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1886.%2520Mato">1886. Mato</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1893.%2520Anto">1893. Anto</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1898.%2520Anto">1898. Anto</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1898.%2520Kata">1898. Kata</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1908.%2520Kata">1908. Kata</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1908.%2520Janja">1908. Janja</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1908.%2520Marko">1908. Marko</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1908.%2520Andja">1908. Andja</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1909.%2520Franjo">1909. Franjo</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1909.%2520Pejo">1909. Pejo</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1909.%2520Janja">1909. Janja</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1911.%2520Mijat">1911. Mijat</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1913.%2520Ivan">1913. Ivan</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1913.%2520Luka">1913. Luka</a></li>
+    </ol>
+  </section>
+  <section>
+    <summary>Dubočac</summary>
+    <ol>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1791.%2520Ilia">1791. Ilia</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1825.%2520Petar">1825. Petar</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1850.%2520%253F">1850. ?</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1884.%2520Marko">1884. Marko</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1884.%2520Stjepan">1884. Stjepan</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1884.%2520Ivan">1884. Ivan</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1884.%2520Jerko">1884. Jerko</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1885.%2520Josip">1885. Josip</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1885.%2520Mara">1885. Mara</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1905.%2520Ivo">1905. Ivo</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1905.%2520Pejo">1905. Pejo</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1910.%2520Nikola">1910. Nikola</a></li>
+    </ol>
+  </section>
+  <section>
+    <summary>Dragalovci</summary>
+    <ol>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1800.%2520Mato">1800. Mato</a></li>
+    </ol>
+  </section>
+  <section>
+    <summary>Pećnik</summary>
+    <ol>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1831.%2520Stjepan">1831. Stjepan</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1832.%2520Mijo">1832. Mijo</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1839.%2520Nikola">1839. Nikola</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1873.%2520Juro">1873. Juro</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1844.%2520Kata">1844. Kata</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1868.%2520Kata">1868. Kata</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1850.%2520Ana">1850. Ana</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1865.%2520Ana">1865. Ana</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1851.%2520Mato%2520%252F%2520Mijo">1851. Mato / Mijo</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1862.%2520Manda">1862. Manda</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1865.%2520Kata">1865. Kata</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1865.%2520Marko">1865. Marko</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1867.%2520Ivana">1867. Ivana</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1884.%2520Matija">1884. Matija</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1886.%2520Nikola">1886. Nikola</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1891.%2520Marija">1891. Marija</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1893.%2520Marija">1893. Marija</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1902.%2520Marija">1902. Marija</a></li>
+    </ol>
+  </section>
+  <section>
+    <summary>Grad Dubrovnik</summary>
+    <ol>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1650.%2520Petar">1650. Petar</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1664.%2520Joannes">1664. Joannes</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1664.%2520Andria">1664. Andria</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1678.%2520Margarita">1678. Margarita</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1689.%2520Mada">1689. Mada</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1695.%2520Jacob">1695. Jacob</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1717.%2520Jacob">1717. Jacob</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1726.%2520Joannis">1726. Joannis</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1719.%2520Margarita">1719. Margarita</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1728.%2520Pasqualitus">1728. Pasqualitus</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1732.%2520Pasqualitus">1732. Pasqualitus</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1728.%2520Bartholomei">1728. Bartholomei</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1737.%2520Margarita">1737. Margarita</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1738.%2520Michael">1738. Michael</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1750.%2520Pa%25C5%25A1ko">1750. Paško</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1759.%2520Josip">1759. Josip</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1761.%2520Marco">1761. Marco</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1783.%2520Nikola">1783. Nikola</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1787.%2520Jacob">1787. Jacob</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1674.%2520Bartol">1674. Bartol</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1699.%2520Thoma%2520(Bartol)">1699. Thoma (Bartol)</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1711.%2520Maria%2520(Bartol)">1711. Maria (Bartol)</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1674.%2520Ana%2520(Petar)">1674. Ana (Petar)</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1689.%2520Jeronimus%2520(Scarpa)">1689. Jeronimus (Scarpa)</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1690.%2520Pietro%2520Scarpa">1690. Pietro Scarpa</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1690.%2520Dominik%2520Scarpa">1690. Dominik Scarpa</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1726.%2520Magdalena">1726. Magdalena</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1747.%2520Maria">1747. Maria</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1747.%2520Maria">1747. Maria</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1789.%2520Ilaria">1789. Ilaria</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1695.%2520Petrus%2520(Joannes)">1695. Petrus (Joannes)</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1754.%2520Magdalena">1754. Magdalena</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1792.%2520Katarina">1792. Katarina</a></li>
+    </ol>
+  </section>
+  <section>
+    <summary>Gruž</summary>
+    <ol>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1718.%2520Maria%2520(Jakov)">1718. Maria (Jakov)</a></li>
+    </ol>
+  </section>
+  <section>
+    <summary>Pile</summary>
+    <ol>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1718.%2520Petrus%2520(Jakov)">1718. Petrus (Jakov)</a></li>
+    </ol>
+  </section>
+  <section>
+    <summary>Napulj</summary>
+    <ol>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1773.%2520Ur%25C5%25A1ula">1773. Uršula</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1788.%2520Stjepan">1788. Stjepan</a></li>
+    </ol>
+  </section>
+  <section>
+    <summary>Stupnik</summary>
+    <ol>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1720.%2520Petrus">1720. Petrus</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1734.%2520Antonius">1734. Antonius</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1750.%2520Joannes">1750. Joannes</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1764.%2520Petrus">1764. Petrus</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1772.%2520Agnetis%2520%252F%2520Joanna">1772. Agnetis / Joanna</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1776.%2520Antonius">1776. Antonius</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1780.%2520Marcus">1780. Marcus</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1803.%2520Antonius">1803. Antonius</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1812.%2520Matheus">1812. Matheus</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1836.%2520Marcus">1836. Marcus</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1840.%2520Michael">1840. Michael</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1847.%2520Anna">1847. Anna</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1850.%2520Marcus">1850. Marcus</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1858.%2520Catharina">1858. Catharina</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1862.%2520Emericus">1862. Emericus</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1862.%2520Maria">1862. Maria</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1867.%2520Joannes">1867. Joannes</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1879.%2520Emericus">1879. Emericus</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1887.%2520Michael">1887. Michael</a></li>
+    </ol>
+  </section>
+  <section>
+    <summary>Novo Selo</summary>
+    <ol>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1732.%2520Marianum">1732. Marianum</a></li>
+    </ol>
+  </section>
+  <section>
+    <summary>Lužani</summary>
+    <ol>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1741.%2520Mathei">1741. Mathei</a></li>
+    </ol>
+  </section>
+  <section>
+    <summary>Odvorci</summary>
+    <ol>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1812.%2520Joanna">1812. Joanna</a></li>
+    </ol>
+  </section>
+  <section>
+    <summary>Ciglenik</summary>
+    <ol>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1841.%2520Maria">1841. Maria</a></li>
+    </ol>
+  </section>
+  <section>
+    <summary>Živike</summary>
+    <ol>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1850.%2520Maria">1850. Maria</a></li>
+    </ol>
+  </section>
+  <section>
+    <summary>Slatinik</summary>
+    <ol>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1892.%2520Maria">1892. Maria</a></li>
+    </ol>
+  </section>
+  <section>
+    <summary>Slobodnica</summary>
+    <ol>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1893.%2520Barbara">1893. Barbara</a></li>
+    </ol>
+  </section>
+  <section>
+    <summary>Andrijevci</summary>
+    <ol>
+    <li class="observablehq-link"><a href="./pages/ENTITET/obitelj/1900.%2520Maria">1900. Maria</a></li>
+    </ol>
+  </section>
+  <section>
+    <summary>Entiteti</summary>
+    <ol>
+    <li class="observablehq-link"><a href="./pages/ENTITET/Zapisi_E">Zapisi (E)</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/Migracije_Individualne_E">Mig. Ind. (E)</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/Migracije_Masovne_E">Masovne (E)</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/Kucedomacin_E">Kuće (E)</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/Mjesta_E">Mjesta (E)</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/Zupe_E">Župe (E)</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/Drzava_E">Države (E)</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/Popisi_E">Izvori* (E)</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/Pismo_E">Pismo (E)</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/Bolesti_E">Bolesti (E)</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/Groblje_E">Groblje (E)</a></li>
+    </ol>
+  </section>
+  <section>
+    <summary>Izvori</summary>
+    <ol>
+    <li class="observablehq-link"><a href="./pages/1_Jularic/01.3.prezime_e">Prezime (E)</a></li>
+    <li class="observablehq-link"><a href="./pages/KONCEPT/Katastar_K">Katastar (K)</a></li>
+    <li class="observablehq-link"><a href="./pages/ROD/Katastar_D">Katastar (D)</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/Katastar_E">Katastar (E)</a></li>
+    <li class="observablehq-link"><a href="./pages/KONCEPT/Izvori_K">Izvori (K)</a></li>
+    <li class="observablehq-link"><a href="./pages/ROD/Izvori_D">Izvori (D)</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/Izvori_E">Izvori (E)</a></li>
+    </ol>
+  </section>
+</nav>
+<script>{const e=document.querySelector("#observablehq-sidebar"),o=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?o.checked=r==="true":o.indeterminate=!0;for(const t of document.querySelectorAll("#observablehq-sidebar summary")){const s=t.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${t.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
+<div id="observablehq-center">
+<main id="observablehq-main" class="observablehq">
+<h1 id="rocket-launches" tabindex="-1"><a class="observablehq-header-anchor" href="#rocket-launches">Rocket launches 🚀</a></h1>
+<!-- Load and transform the data -->
+<div class="observablehq observablehq--block"><!--:7a66a2dd:--></div>
+<!-- A shared color scale for consistency, sorted by the number of launches -->
+<div class="observablehq observablehq--block"><!--:fdf7eadc:--></div>
+<!-- Cards with big numbers -->
+<div class="grid grid-cols-4">
+  <div class="card">
+    <h2>United States 🇺🇸</h2>
+    <span class="big"><observablehq-loading></observablehq-loading><!--:92cac4f1:--></span>
+  </div>
+  <div class="card">
+    <h2>Russia 🇷🇺 <span class="muted">/ Soviet Union</span></h2>
+    <span class="big"><observablehq-loading></observablehq-loading><!--:f84e9749:--></span>
+  </div>
+  <div class="card">
+    <h2>China 🇨🇳</h2>
+    <span class="big"><observablehq-loading></observablehq-loading><!--:3f89d55f:--></span>
+  </div>
+  <div class="card">
+    <h2>Other</h2>
+    <span class="big"><observablehq-loading></observablehq-loading><!--:d55bddad:--></span>
+  </div>
+</div>
+<!-- Plot of launch history -->
+<div class="observablehq observablehq--block"><!--:a6446d56:--></div>
+<div class="grid grid-cols-1">
+  <div class="card">
+    <observablehq-loading></observablehq-loading><!--:da415336:-->
+  </div>
+</div>
+<!-- Plot of launch vehicles -->
+<div class="observablehq observablehq--block"><!--:bdc917ac:--></div>
+<div class="grid grid-cols-1">
+  <div class="card">
+    <observablehq-loading></observablehq-loading><!--:87987196:-->
+  </div>
+</div>
+<p>Data: Jonathan C. McDowell, <a href="https://planet4589.org/space/gcat" target="_blank" rel="noopener noreferrer">General Catalog of Artificial Space Objects</a></p>
+</main>
+<footer id="observablehq-footer">
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-12T19:11:29">Jul 12, 2025</a>.</div>
+</footer>
+</div>
+</body>
+</html>
