@@ -34,23 +34,27 @@ const uvodPages = [
   },
   {
     name: "Jularić",
-    pages: [
-      { name: "Prezime (R)", path: `/pages/1_Jularic/prezime_r?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Generacije (R)", path: `/pages/ROD/Generacije_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Obitelji (R)", path: `/pages/ROD/Obitelji_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Stablo (R)", path: `/pages/ROD/Stablo_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Zapisi (R)", path: `/pages/ROD/Zapisi_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Migracije (R)", path: `/pages/ROD/Migracije_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Mjesta (R)", path: `/pages/ROD/Mjesta_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Mjesta-zapisi (R)", path: "/pages/KONCEPT/Mjesta_zapisi_R" }, // ostaje isto
-      { name: "Župe (R)", path: `/pages/ROD/Zupe_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Župe Rodos. (R)", path: `/pages/ROD/Zupe_rodoslovlje_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Župe Obitelji (R)", path: `/pages/ROD/Zupe_obitelji_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Izvori* (D)", path: `/pages/ROD/Popisi_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Pismo (D)", path: `/pages/ROD/Pismo_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Bolesti (D)", path: `/pages/ROD/Bolesti_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Groblje (D)", path: `/pages/ROD/Groblje_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` }
-    ]
+      pages: [
+        { name: "Prezime Jular-ić (K)", path: "/pages/1_Jularic/01.1.prezime_ilaric" },
+        { name: "Slična prezimena (K)", path: "/pages/1_Prezime/prezime_slicno" },
+        { name: "Evolucija zapisa (V)", path: "/pages/1_Jularic/01.2.evolucija" },
+        { name: "Generacije (K)", path: "/pages/KONCEPT/Generacije_K" },
+        { name: "Obitelji (K)", path: "/pages/KONCEPT/Obitelji_K" },
+        { name: "Brakovi (K)", path: "/pages/KONCEPT/Brakovi_K" },
+        { name: "Povezane obitelji (K)", path: "/pages/KONCEPT/Obitelji_povezane_K" },
+        { name: "Zapisi (K)", path: "/pages/KONCEPT/Zapisi_K" },
+        { name: "Migracije (K)", path: "/pages/KONCEPT/Migracije_K" },
+        { name: "Migracije (K)", path: "/pages/KONCEPT/Migracije_masovne_K" },
+        { name: "Mjesta (K)", path: "/pages/KONCEPT/Mjesta_K" },
+        { name: "Kuće (K)", path: "/pages/KONCEPT/Kucedomacin_K" },
+        { name: "Popis stanocnika (K)", path: "/pages/KONCEPT/Popis_stanovnika_K" },
+        { name: "Države (K)", path: "/pages/KONCEPT/Drzava_K" },
+        { name: "Župe (K)", path: "/pages/KONCEPT/Zupe_K" },
+        { name: "Izvori* (K)", path: "/pages/KONCEPT/Popisi_K" },
+        { name: "Pismo (K)", path: "/pages/KONCEPT/Pismo_K" },
+        { name: "Bolesti (K)", path: "/pages/KONCEPT/Bolesti_K" },
+        { name: "Groblje (K)", path: "/pages/KONCEPT/Groblje_K" }
+      ]
   }
 ];
 
