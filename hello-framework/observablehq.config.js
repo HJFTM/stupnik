@@ -1,15 +1,19 @@
 import fs from "fs";
 import path from "path";
 
+// REPOR VAIRABLE
+// CURRENT_PROJECT = "Bosna", "Dubrovnik", "Stupnik", "svi_rodovi"
+
+const CURRENT_PROJECT = process.env.CURRENT_PROJECT || 'svi_rodovi';
+
 // 1. Učitaj JSON datoteku odmah
 const filePath = path.resolve("src/data/obitelji.json");
 const jsonString = fs.readFileSync(filePath, "utf-8");
 const data = JSON.parse(jsonString);
 
 // 2. Uzmi obitelji iz data.json
-const obiteljiPoMjestuPages = generirajObiteljiPoMjestu(data, "Bosna");
-const obiteljiPoMjestuPages_du = generirajObiteljiPoMjestu(data, "Dubrovnik");
-const obiteljiPoMjestuPages_st = generirajObiteljiPoMjestu(data, "Stupnik");
+const obiteljiPoMjestuPages = generirajObiteljiPoMjestu(data, CURRENT_PROJECT);
+
 
 export async function setup() {
   return {
@@ -75,8 +79,7 @@ export default {
       ]
     },
         ...obiteljiPoMjestuPages, 
-        ...obiteljiPoMjestuPages_du,
-        ...obiteljiPoMjestuPages_st,
+
     {
       name: "Entiteti",
       pages: [
