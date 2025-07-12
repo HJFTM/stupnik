@@ -13,6 +13,8 @@ jobs:
     defaults:
       run:
         working-directory: ./hello-framework
+    env:
+      CURRENT_PROJECT: ${{ vars.CURRENT_PROJECT }}  # ili secrets.CURRENT_PROJECT ako je secret
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
