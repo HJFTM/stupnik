@@ -4,7 +4,7 @@ import path from "path";
 // REPOR VAIRABLE
 // CURRENT_PROJECT = "Bosna", "Dubrovnik", "Stupnik", "svi_rodovi"
 
-const CURRENT_PROJECT = process.env.CURRENT_PROJECT || 'svi_rodovi';
+const CURRENT_PROJECT = process.env.CURRENT_PROJECT || 'NOT_FOUND';
 
 // 1. Učitaj JSON datoteku odmah
 const filePath = path.resolve("src/data/obitelji.json");
