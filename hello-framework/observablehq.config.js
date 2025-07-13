@@ -91,7 +91,7 @@ const rodEntitetiIzvoriPages = [
       { name: "Generacije (R)",       path: `/pages/ROD/Generacije_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Obitelji (R)",         path: `/pages/ROD/Obitelji_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Stablo (R)",           path: `/pages/ROD/Stablo_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Zapisi (R)",           path: `/pages/ROD/Zapisi_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },       
+     
     ]
 
   },
@@ -152,11 +152,19 @@ const rodEntitetiIzvoriPages = [
       { name: "Katastar (E)", path: "/pages/ENTITET/Katastar_E" },
     ]
   },  
+    {
+    name: "Zapisi",
+      pages: [ 
+      { name: "Zapisi (R)",           path: `/pages/ROD/Zapisi_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },          
+      { name: "Zapisi (E)",     path: `/pages/ENTITET/Zapisi_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+    ]
+  }, 
+  
  // ...obiteljiPoMjestuPages,
   {
     name: "Entiteti",
     pages: [
-      { name: "Zapisi (E)",     path: `/pages/ENTITET/Zapisi_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+
       { name: "Kuće (E)",       path: `/pages/ENTITET/Kucedomacin_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Pismo (D)",            path: `/pages/ROD/Pismo_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Pismo (E)",      path: `/pages/ENTITET/Pismo_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
