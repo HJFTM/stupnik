@@ -67,29 +67,3 @@ new Runtime().module(define, name => {
 </style>
 
 ---
-
-function ToggleSidebar() {
-  const [open, setOpen] = useState(false);
-  return html`
-    <div>
-      <button
-        class="fixed top-4 left-4 z-50 p-2 bg-blue-600 text-white rounded-md shadow-md"
-        onclick=${() => setOpen(!open)}
-      >
-        ${open ? "✖" : "☰"} Izbornik
-      </button>
-
-      <aside
-        class=${`fixed top-0 left-0 h-full w-64 bg-gray-100 p-4 transition-transform transform z-40 ${
-          open ? "translate-x-0" : "-translate-x-full"
-        }`}
-      >
-        <h2 class="text-lg font-semibold mb-4">Navigacija</h2>
-        <ul class="space-y-2">
-          <li><a href="/" class="text-blue-600">Početna</a></li>
-          <li><a href="/drugo" class="text-blue-600">Druga stranica</a></li>
-        </ul>
-      </aside>
-    </div>
-  `;
-}
