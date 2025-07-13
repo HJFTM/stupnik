@@ -46,7 +46,6 @@ const uvodPages = [
         { name: "Države",     path: "/pages/KONCEPT/Drzava_K" },
         { name: "Župe", path: "/pages/KONCEPT/Zupe_K" },   
         { name: "Mjesta",     path: "/pages/KONCEPT/Mjesta_K" },
-        { name: "Groblja",     path: "/pages/KONCEPT/Groblje_K" },
     ]
   },
   {
@@ -57,7 +56,8 @@ const uvodPages = [
         { name: "Brakovi", path: "/pages/KONCEPT/Brakovi_K" },
         { name: "Povezane obitelji", path: "/pages/KONCEPT/Obitelji_povezane_K" },
         { name: "Događaji - zapisi", path: "/pages/KONCEPT/Zapisi_K" },
-        { name: "Bolesti", path: "/pages/KONCEPT/Bolesti_K" },   
+        { name: "Bolesti", path: "/pages/KONCEPT/Bolesti_K" },  
+        { name: "Groblja",     path: "/pages/KONCEPT/Groblje_K" },
     ]
   },
     {
