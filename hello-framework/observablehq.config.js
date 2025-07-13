@@ -160,7 +160,7 @@ const rodEntitetiIzvoriPages = [
     ]
   }, 
   
- // ...obiteljiPoMjestuPages,
+
   {
     name: "Pismo",
     pages: [
@@ -186,6 +186,7 @@ const rodEntitetiIzvoriPages = [
       
     ]
   }
+   // ...obiteljiPoMjestuPages,
 ];
 
 const pages = (CURRENT_PROJECT === 'svi_rodovi')
