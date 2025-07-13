@@ -103,17 +103,27 @@ const rodEntitetiIzvoriPages = [
 
   },
       {
-    name: "Rodovi",
+    name: "Mjesta",
       pages: [        
       { name: "Mjesta (R)",           path: `/pages/ROD/Mjesta_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Mjesta-zapisi (R)",    path: `/pages/KONCEPT/Mjesta_zapisi_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Mjesta (E)",     path: `/pages/ENTITET/Mjesta_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },    
-        
+    ]
+
+  },
+      {
+    name: "Župe",
+      pages: [          
       { name: "Župe (R)",             path: `/pages/ROD/Zupe_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Župe Rodos. (R)",      path: `/pages/ROD/Zupe_rodoslovlje_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Župe Obitelji (R)",    path: `/pages/ROD/Zupe_obitelji_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Župe (E)",       path: `/pages/ENTITET/Zupe_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-        
+     ]
+
+  },
+      {
+    name: "Države",
+      pages: [         
       { name: "Države (E)",     path: `/pages/ENTITET/Drzava_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },  
 
   
