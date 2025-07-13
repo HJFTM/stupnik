@@ -51,15 +51,21 @@ const uvodPages = [
         { name: "Bolesti", path: "/pages/KONCEPT/Bolesti_K" },   
     ]
   },
+    {
+    name: "Migracije",
+      pages: [        
+        { name: "Migracije",   path: "/pages/KONCEPT/Migracije_K" },
+        { name: "Migracije",   path: "/pages/KONCEPT/Migracije_masovne_K" },
+    ]
+  },
   {
-    name: "Države / Mjesta",
+    name: "Države / Mjesta / Župe",
       pages: [        
         { name: "Države",     path: "/pages/KONCEPT/Drzava_K" },
         { name: "Mjesta",     path: "/pages/KONCEPT/Mjesta_K" },
-        { name: "Migracije",   path: "/pages/KONCEPT/Migracije_K" },
-        { name: "Migracije",   path: "/pages/KONCEPT/Migracije_masovne_K" },
         { name: "Kuće",       path: "/pages/KONCEPT/Kucedomacin_K" },
-        { name: "Groblje",     path: "/pages/KONCEPT/Groblje_K" }
+        { name: "Groblje",     path: "/pages/KONCEPT/Groblje_K" },
+        { name: "Župe", path: "/pages/KONCEPT/Zupe_K" },   
     ]
   },
   {
@@ -67,7 +73,7 @@ const uvodPages = [
       pages: [        
         { name: "Popis stanovnika", path: "/pages/KONCEPT/Popis_stanovnika_K" },
 
-        { name: "Župe", path: "/pages/KONCEPT/Zupe_K" },
+
         { name: "Izvori*", path: "/pages/KONCEPT/Popisi_K" },
         { name: "Pismo", path: "/pages/KONCEPT/Pismo_K" },
 
