@@ -71,8 +71,10 @@ const uvodPages = [
     name: "Izvori",
       pages: [        
         { name: "Izvori*", path: "/pages/KONCEPT/Popisi_K" },
+        { name: "Izvori (K)", path: "/pages/KONCEPT/Izvori_K" },
         { name: "Popisi kuća",       path: "/pages/KONCEPT/Kucedomacin_K" },
         { name: "Popisi stanovnika", path: "/pages/KONCEPT/Popis_stanovnika_K" },
+        { name: "Katastar (K)", path: "/pages/KONCEPT/Katastar_K" },
         { name: "Pismo", path: "/pages/KONCEPT/Pismo_K" },
       ]
   }
@@ -122,10 +124,8 @@ const rodEntitetiIzvoriPages = [
     name: "Izvori",
     pages: [
       { name: "Prezime (E)", path: "/pages/1_Jularic/01.3.prezime_e" },
-      { name: "Katastar (K)", path: "/pages/KONCEPT/Katastar_K" },
       { name: "Katastar (D)", path: "/pages/ROD/Katastar_D" },
       { name: "Katastar (E)", path: "/pages/ENTITET/Katastar_E" },
-      { name: "Izvori (K)", path: "/pages/KONCEPT/Izvori_K" },
       { name: "Izvori (D)", path: "/pages/ROD/Izvori_D" },
       { name: "Izvori (E)", path: "/pages/ENTITET/Izvori_E" }
     ]
