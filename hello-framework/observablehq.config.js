@@ -91,11 +91,7 @@ const rodEntitetiIzvoriPages = [
       { name: "Stablo (R)",           path: `/pages/ROD/Stablo_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Zapisi (R)",           path: `/pages/ROD/Zapisi_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Migracije (R)",        path: `/pages/ROD/Migracije_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Mjesta (R)",           path: `/pages/ROD/Mjesta_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Mjesta-zapisi (R)",    path: `/pages/KONCEPT/Mjesta_zapisi_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Župe (R)",             path: `/pages/ROD/Zupe_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Župe Rodos. (R)",      path: `/pages/ROD/Zupe_rodoslovlje_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Župe Obitelji (R)",    path: `/pages/ROD/Zupe_obitelji_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+
       { name: "Izvori* (D)",          path: `/pages/ROD/Popisi_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Pismo (D)",            path: `/pages/ROD/Pismo_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Bolesti (D)",          path: `/pages/ROD/Bolesti_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
@@ -106,6 +102,24 @@ const rodEntitetiIzvoriPages = [
     ]
 
   },
+      {
+    name: "Rodovi",
+      pages: [        
+      { name: "Mjesta (R)",           path: `/pages/ROD/Mjesta_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+      { name: "Mjesta-zapisi (R)",    path: `/pages/KONCEPT/Mjesta_zapisi_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+      { name: "Mjesta (E)",     path: `/pages/ENTITET/Mjesta_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },    
+        
+      { name: "Župe (R)",             path: `/pages/ROD/Zupe_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+      { name: "Župe Rodos. (R)",      path: `/pages/ROD/Zupe_rodoslovlje_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+      { name: "Župe Obitelji (R)",    path: `/pages/ROD/Zupe_obitelji_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+      { name: "Župe (E)",       path: `/pages/ENTITET/Zupe_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+        
+      { name: "Države (E)",     path: `/pages/ENTITET/Drzava_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },  
+
+  
+    ]
+  },
+  
  // ...obiteljiPoMjestuPages,
   {
     name: "Entiteti",
@@ -114,9 +128,7 @@ const rodEntitetiIzvoriPages = [
       { name: "Mig. Ind. (E)",  path: `/pages/ENTITET/Migracije_Individualne_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Masovne (E)",    path: `/pages/ENTITET/Migracije_Masovne_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Kuće (E)",       path: `/pages/ENTITET/Kucedomacin_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Mjesta (E)",     path: `/pages/ENTITET/Mjesta_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Župe (E)",       path: `/pages/ENTITET/Zupe_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Države (E)",     path: `/pages/ENTITET/Drzava_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+
       { name: "Izvori* (E)",    path: `/pages/ENTITET/Popisi_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Pismo (E)",      path: `/pages/ENTITET/Pismo_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Bolesti (E)",    path: `/pages/ENTITET/Bolesti_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
