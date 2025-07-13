@@ -16,19 +16,7 @@
 <link rel="icon" href="./_file/observable.1af93621.png" type="image/png" sizes="32x32">
 <script type="module">
 
-import {define} from "./_observablehq/client.8d1cd726.js";
-
-define({id: "726fc0dd", mode: "inline", inputs: ["setOpen","open","display"], body: async (setOpen,open,display) => {
-display(await(
-() => setOpen(!open)
-))
-}});
-
-define({id: "999aaf29", mode: "inline", inputs: ["open","display"], body: async (open,display) => {
-display(await(
-open ? "✖" : "☰"
-))
-}});
+import "./_observablehq/client.8d1cd726.js";
 
 </script>
 </head>
@@ -225,35 +213,10 @@ new Runtime().module(define, name => {
 
 </style>
 <hr>
-<p>function ToggleSidebar() {
-const [open, setOpen] = useState(false);
-return html`
-</p><div>
-&lt;button
-class="fixed top-4 left-4 z-50 p-2 bg-blue-600 text-white rounded-md shadow-md"
-onclick=<observablehq-loading></observablehq-loading><!--:726fc0dd:-->
-&gt;
-<observablehq-loading></observablehq-loading><!--:999aaf29:--> Izbornik
-<p></p>
-<pre><code>  &lt;aside
-    class=${`fixed top-0 left-0 h-full w-64 bg-gray-100 p-4 transition-transform transform z-40 ${
-      open ? "translate-x-0" : "-translate-x-full"
-    }`}
-  &gt;
-    &lt;h2 class="text-lg font-semibold mb-4"&gt;Navigacija&lt;/h2&gt;
-    &lt;ul class="space-y-2"&gt;
-      &lt;li&gt;&lt;a href="/" class="text-blue-600"&gt;Početna&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href="/drugo" class="text-blue-600"&gt;Druga stranica&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/aside&gt;
-&lt;/div&gt;
-</code></pre>
-<p>`;
-}</p>
-</div></main>
+</main>
 <footer id="observablehq-footer">
 <nav><a rel="next" href="./pages/1_Jularic/prezime_r?ROD=Stupnik"><span>Prezime (R)</span></a></nav>
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-13T07:38:29">Jul 13, 2025</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-13T07:53:56">Jul 13, 2025</a>.</div>
 </footer>
 </div>
 </body>
