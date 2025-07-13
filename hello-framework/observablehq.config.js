@@ -96,7 +96,6 @@ const rodEntitetiIzvoriPages = [
 
       { name: "Izvori* (D)",          path: `/pages/ROD/Popisi_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Pismo (D)",            path: `/pages/ROD/Pismo_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Katastar (D)",         path: `/pages/ROD/Katastar_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Izvori (D)",           path: `/pages/ROD/Izvori_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
        
     ]
@@ -144,16 +143,21 @@ const rodEntitetiIzvoriPages = [
       { name: "Bolesti (D)",          path: `/pages/ROD/Bolesti_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Bolesti (E)",    path: `/pages/ENTITET/Bolesti_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
          ]
-  },
-  
+  },  
     {
     name: "Groblje",
       pages: [    
-      { name: "Groblje (E)",    path: `/pages/ENTITET/Groblje_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },        
       { name: "Groblje (D)",          path: `/pages/ROD/Groblje_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+        { name: "Groblje (E)",    path: `/pages/ENTITET/Groblje_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },        
     ]
   },
-  
+    {
+    name: "Katastar",
+      pages: [ 
+      { name: "Katastar (D)",         path: `/pages/ROD/Katastar_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },        
+      { name: "Katastar (E)", path: "/pages/ENTITET/Katastar_E" },
+    ]
+  },  
  // ...obiteljiPoMjestuPages,
   {
     name: "Entiteti",
@@ -171,7 +175,6 @@ const rodEntitetiIzvoriPages = [
     name: "Izvori",
     pages: [
       { name: "Prezime (E)", path: "/pages/1_Jularic/01.3.prezime_e" },
-      { name: "Katastar (E)", path: "/pages/ENTITET/Katastar_E" },
       { name: "Izvori (E)", path: "/pages/ENTITET/Izvori_E" }
     ]
   }
