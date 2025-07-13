@@ -186,7 +186,7 @@ const rodEntitetiIzvoriPages = [
       
     ]
   }
-   // ...obiteljiPoMjestuPages,
+  ...obiteljiPoMjestuPages,
 ];
 
 const pages = (CURRENT_PROJECT === 'svi_rodovi')
