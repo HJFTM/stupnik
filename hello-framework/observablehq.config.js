@@ -162,10 +162,8 @@ const rodEntitetiIzvoriPages = [
   
  // ...obiteljiPoMjestuPages,
   {
-    name: "Entiteti",
+    name: "Pismo",
     pages: [
-
-      { name: "Kuće (E)",       path: `/pages/ENTITET/Kucedomacin_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Pismo (D)",            path: `/pages/ROD/Pismo_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Pismo (E)",      path: `/pages/ENTITET/Pismo_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
 
@@ -183,7 +181,7 @@ const rodEntitetiIzvoriPages = [
       { name: "Izvori* (D)",          path: `/pages/ROD/Popisi_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Izvori* (E)",          path: `/pages/ENTITET/Popisi_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       
-
+      { name: "Kuće (E)",       path: `/pages/ENTITET/Kucedomacin_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
 
       
     ]
