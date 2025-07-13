@@ -57,7 +57,7 @@
 import {define} from "./_observablehq/client.8d1cd726.js";
 import {registerFile} from "./_observablehq/stdlib.24b62b2e.js";
 
-registerFile("./data/launches.csv", {"name":"./data/launches.csv","mimeType":"text/csv","path":"./_file/data/launches.e35ef0b8.csv","lastModified":1752403251152,"size":837123});
+registerFile("./data/launches.csv", {"name":"./data/launches.csv","mimeType":"text/csv","path":"./_file/data/launches.e35ef0b8.csv","lastModified":1752403632141,"size":837123});
 
 define({id: "7a66a2dd", inputs: ["FileAttachment"], outputs: ["launches"], body: (FileAttachment) => {
 const launches = FileAttachment("./data/launches.csv").csv({typed: true});
@@ -166,9 +166,6 @@ resize((width) => vehicleChart(launches, {width}))
     <li class="observablehq-link"><a href="./pages/ROD/Obitelji_R?ROD=Stupnik">Obitelji (R)</a></li>
     <li class="observablehq-link"><a href="./pages/ROD/Stablo_R?ROD=Stupnik">Stablo (R)</a></li>
     <li class="observablehq-link"><a href="./pages/ROD/Zapisi_R?ROD=Stupnik">Zapisi (R)</a></li>
-    <li class="observablehq-link"><a href="./pages/ROD/Popisi_D?ROD=Stupnik">Izvori* (D)</a></li>
-    <li class="observablehq-link"><a href="./pages/ROD/Pismo_D?ROD=Stupnik">Pismo (D)</a></li>
-    <li class="observablehq-link"><a href="./pages/ROD/Izvori_D?ROD=Stupnik">Izvori (D)</a></li>
     </ol>
   </section>
   <section>
@@ -228,7 +225,7 @@ resize((width) => vehicleChart(launches, {width}))
     <ol>
     <li class="observablehq-link"><a href="./pages/ENTITET/Zapisi_E?ROD=Stupnik">Zapisi (E)</a></li>
     <li class="observablehq-link"><a href="./pages/ENTITET/Kucedomacin_E?ROD=Stupnik">Kuće (E)</a></li>
-    <li class="observablehq-link"><a href="./pages/ENTITET/Popisi_E?ROD=Stupnik">Izvori* (E)</a></li>
+    <li class="observablehq-link"><a href="./pages/ROD/Pismo_D?ROD=Stupnik">Pismo (D)</a></li>
     <li class="observablehq-link"><a href="./pages/ENTITET/Pismo_E?ROD=Stupnik">Pismo (E)</a></li>
     </ol>
   </section>
@@ -236,7 +233,10 @@ resize((width) => vehicleChart(launches, {width}))
     <summary>Izvori</summary>
     <ol>
     <li class="observablehq-link"><a href="./pages/1_Jularic/01.3.prezime_e">Prezime (E)</a></li>
+    <li class="observablehq-link"><a href="./pages/ROD/Izvori_D?ROD=Stupnik">Izvori (D)</a></li>
     <li class="observablehq-link"><a href="./pages/ENTITET/Izvori_E">Izvori (E)</a></li>
+    <li class="observablehq-link"><a href="./pages/ROD/Popisi_D?ROD=Stupnik">Izvori* (D)</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/Popisi_E?ROD=Stupnik">Izvori* (E)</a></li>
     </ol>
   </section>
 </nav>
@@ -284,7 +284,7 @@ resize((width) => vehicleChart(launches, {width}))
 <p>Data: Jonathan C. McDowell, <a href="https://planet4589.org/space/gcat" target="_blank" rel="noopener noreferrer">General Catalog of Artificial Space Objects</a></p>
 </main>
 <footer id="observablehq-footer">
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-13T10:40:37">Jul 13, 2025</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-13T10:46:58">Jul 13, 2025</a>.</div>
 </footer>
 </div>
 </body>
