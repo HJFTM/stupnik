@@ -41,6 +41,8 @@ toc: false
   font-size: 0.9rem;
   margin: 1rem auto;
   flex-wrap: wrap;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .top-links a {
