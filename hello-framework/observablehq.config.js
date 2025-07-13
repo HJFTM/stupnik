@@ -35,41 +35,41 @@ const uvodPages = [
   {
     name: "Prezime",
       pages: [
-        { name: "Prezime Jular-ić (K)", path: "/pages/1_Jularic/01.1.prezime_ilaric" },
-        { name: "Evolucija zapisa (V)", path: "/pages/1_Jularic/01.2.evolucija" },
-        { name: "Slična prezimena (K)", path: "/pages/1_Prezime/prezime_slicno" },
+        { name: "Prezime Jular-ić", path: "/pages/1_Jularic/01.1.prezime_ilaric" },
+        { name: "Evolucija zapisa", path: "/pages/1_Jularic/01.2.evolucija" },
+        { name: "Slična prezimena", path: "/pages/1_Prezime/prezime_slicno" },
     ]
   },
   {
     name: "Obitelji",
       pages: [        
-        { name: "Generacije (K)", path: "/pages/KONCEPT/Generacije_K" },
-        { name: "Obitelji (K)", path: "/pages/KONCEPT/Obitelji_K" },
-        { name: "Brakovi (K)", path: "/pages/KONCEPT/Brakovi_K" },
-        { name: "Povezane obitelji (K)", path: "/pages/KONCEPT/Obitelji_povezane_K" },
-        { name: "Događaji - zapisi (K)", path: "/pages/KONCEPT/Zapisi_K" },
-        { name: "Bolesti (K)", path: "/pages/KONCEPT/Bolesti_K" },   
+        { name: "Generacije", path: "/pages/KONCEPT/Generacije_K" },
+        { name: "Obitelji", path: "/pages/KONCEPT/Obitelji_K" },
+        { name: "Brakovi", path: "/pages/KONCEPT/Brakovi_K" },
+        { name: "Povezane obitelji", path: "/pages/KONCEPT/Obitelji_povezane_K" },
+        { name: "Događaji - zapisi", path: "/pages/KONCEPT/Zapisi_K" },
+        { name: "Bolesti", path: "/pages/KONCEPT/Bolesti_K" },   
     ]
   },
   {
     name: "Države / Mjesta",
       pages: [        
-        { name: "Države (K)",     path: "/pages/KONCEPT/Drzava_K" },
-        { name: "Mjesta (K)",     path: "/pages/KONCEPT/Mjesta_K" },
-        { name: "Migracije (K)",   path: "/pages/KONCEPT/Migracije_K" },
-        { name: "Migracije (K)",   path: "/pages/KONCEPT/Migracije_masovne_K" },
-        { name: "Kuće (K)",       path: "/pages/KONCEPT/Kucedomacin_K" },
-        { name: "Groblje (K)",     path: "/pages/KONCEPT/Groblje_K" }
+        { name: "Države",     path: "/pages/KONCEPT/Drzava_K" },
+        { name: "Mjesta",     path: "/pages/KONCEPT/Mjesta_K" },
+        { name: "Migracije",   path: "/pages/KONCEPT/Migracije_K" },
+        { name: "Migracije",   path: "/pages/KONCEPT/Migracije_masovne_K" },
+        { name: "Kuće",       path: "/pages/KONCEPT/Kucedomacin_K" },
+        { name: "Groblje",     path: "/pages/KONCEPT/Groblje_K" }
     ]
   },
   {
     name: "Izvori",
       pages: [        
-        { name: "Popis stanovnika (K)", path: "/pages/KONCEPT/Popis_stanovnika_K" },
+        { name: "Popis stanovnika", path: "/pages/KONCEPT/Popis_stanovnika_K" },
 
-        { name: "Župe (K)", path: "/pages/KONCEPT/Zupe_K" },
-        { name: "Izvori* (K)", path: "/pages/KONCEPT/Popisi_K" },
-        { name: "Pismo (K)", path: "/pages/KONCEPT/Pismo_K" },
+        { name: "Župe", path: "/pages/KONCEPT/Zupe_K" },
+        { name: "Izvori*", path: "/pages/KONCEPT/Popisi_K" },
+        { name: "Pismo", path: "/pages/KONCEPT/Pismo_K" },
 
 
       ]
