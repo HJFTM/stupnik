@@ -110,17 +110,17 @@ const rodEntitetiIzvoriPages = [
   {
     name: "Entiteti",
     pages: [
-      { name: "Zapisi (E)", path: "/pages/ENTITET/Zapisi_E" },
-      { name: "Mig. Ind. (E)", path: "/pages/ENTITET/Migracije_Individualne_E" },
-      { name: "Masovne (E)", path: "/pages/ENTITET/Migracije_Masovne_E" },
-      { name: "Kuće (E)", path: "/pages/ENTITET/Kucedomacin_E" },
-      { name: "Mjesta (E)", path: "/pages/ENTITET/Mjesta_E" },
-      { name: "Župe (E)", path: "/pages/ENTITET/Zupe_E" },
-      { name: "Države (E)", path: "/pages/ENTITET/Drzava_E" },
-      { name: "Izvori* (E)", path: "/pages/ENTITET/Popisi_E" },
-      { name: "Pismo (E)", path: "/pages/ENTITET/Pismo_E" },
-      { name: "Bolesti (E)", path: "/pages/ENTITET/Bolesti_E" },
-      { name: "Groblje (E)", path: "/pages/ENTITET/Groblje_E" }
+      { name: "Zapisi (E)",     path: `/pages/ENTITET/Zapisi_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+      { name: "Mig. Ind. (E)",  path: `/pages/ENTITET/Migracije_Individualne_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+      { name: "Masovne (E)",    path: `/pages/ENTITET/Migracije_Masovne_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+      { name: "Kuće (E)",       path: `/pages/ENTITET/Kucedomacin_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+      { name: "Mjesta (E)",     path: `/pages/ENTITET/Mjesta_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+      { name: "Župe (E)",       path: `/pages/ENTITET/Zupe_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+      { name: "Države (E)",     path: `/pages/ENTITET/Drzava_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+      { name: "Izvori* (E)",    path: `/pages/ENTITET/Popisi_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+      { name: "Pismo (E)",      path: `/pages/ENTITET/Pismo_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+      { name: "Bolesti (E)",    path: `/pages/ENTITET/Bolesti_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+      { name: "Groblje (E)",    path: `/pages/ENTITET/Groblje_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` }
     ]
   },
   {
