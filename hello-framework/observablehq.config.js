@@ -40,6 +40,15 @@ const uvodPages = [
         { name: "Slična prezimena", path: "/pages/1_Prezime/prezime_slicno" },
     ]
   },
+    {
+    name: "Države / Mjesta / Župe",
+      pages: [        
+        { name: "Države",     path: "/pages/KONCEPT/Drzava_K" },
+        { name: "Župe", path: "/pages/KONCEPT/Zupe_K" },   
+        { name: "Mjesta",     path: "/pages/KONCEPT/Mjesta_K" },
+        { name: "Groblja",     path: "/pages/KONCEPT/Groblje_K" },
+    ]
+  },
   {
     name: "Obitelji",
       pages: [        
@@ -56,15 +65,6 @@ const uvodPages = [
       pages: [        
         { name: "Individualne",   path: "/pages/KONCEPT/Migracije_K" },
         { name: "Masovne",   path: "/pages/KONCEPT/Migracije_masovne_K" },
-    ]
-  },
-  {
-    name: "Države / Mjesta / Župe",
-      pages: [        
-        { name: "Države",     path: "/pages/KONCEPT/Drzava_K" },
-        { name: "Mjesta",     path: "/pages/KONCEPT/Mjesta_K" },
-        { name: "Groblje",     path: "/pages/KONCEPT/Groblje_K" },
-        { name: "Župe", path: "/pages/KONCEPT/Zupe_K" },   
     ]
   },
   {
