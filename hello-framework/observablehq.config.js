@@ -67,6 +67,8 @@ const uvodPages = [
         { name: "Masovne",   path: "/pages/KONCEPT/Migracije_masovne_K" },
     ]
   },
+
+  
   {
     name: "Izvori",
       pages: [        
@@ -94,8 +96,6 @@ const rodEntitetiIzvoriPages = [
 
       { name: "Izvori* (D)",          path: `/pages/ROD/Popisi_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Pismo (D)",            path: `/pages/ROD/Pismo_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Bolesti (D)",          path: `/pages/ROD/Bolesti_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Groblje (D)",          path: `/pages/ROD/Groblje_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Katastar (D)",         path: `/pages/ROD/Katastar_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Izvori (D)",           path: `/pages/ROD/Izvori_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
        
@@ -138,6 +138,21 @@ const rodEntitetiIzvoriPages = [
     ]
   },
   
+    {
+    name: "Bolesti",
+      pages: [        
+      { name: "Bolesti (D)",          path: `/pages/ROD/Bolesti_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+      { name: "Bolesti (E)",    path: `/pages/ENTITET/Bolesti_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+         ]
+  },
+  
+    {
+    name: "Groblje",
+      pages: [    
+      { name: "Groblje (E)",    path: `/pages/ENTITET/Groblje_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },        
+      { name: "Groblje (D)",          path: `/pages/ROD/Groblje_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+    ]
+  },
   
  // ...obiteljiPoMjestuPages,
   {
@@ -149,8 +164,7 @@ const rodEntitetiIzvoriPages = [
 
       { name: "Izvori* (E)",    path: `/pages/ENTITET/Popisi_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Pismo (E)",      path: `/pages/ENTITET/Pismo_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Bolesti (E)",    path: `/pages/ENTITET/Bolesti_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Groblje (E)",    path: `/pages/ENTITET/Groblje_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` }
+
     ]
   },
   {
