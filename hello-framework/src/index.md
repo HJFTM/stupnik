@@ -2,27 +2,59 @@
 toc: false
 ---
 
+<div class="top-links">
+  <a href="https://hjftm.github.io/observablehq_iframe/" target="_blank">Uvod</a>
+  <a href="https://hjftm.github.io/bosna/" target="_blank">Bosna</a>
+  <a href="https://hjftm.github.io/dubrovnik/" target="_blank">Dubrovnik</a>
+  <a href="https://hjftm.github.io/stupnik/" target="_blank">Stupnik</a>
+</div>
+
+---
+
 <div class="hero">
   <h1>Jularić / Ilarić</h1>
   <h2>Dobrodošli na stranice prezimena Jularić.</h2>
 </div>
 
 <div class="hero">
-<div id="observablehq-mapa-ecaa107d"></div>
-<p>Credit: <a href="https://observablehq.com/d/b313e21d5ed7eb88@247">Sela (Mjesta) (K) by FTM</a></p>
+  <div id="observablehq-mapa-ecaa107d"></div>
+  <p>Credit: <a href="https://observablehq.com/d/b313e21d5ed7eb88@247">Sela (Mjesta) (K) by FTM</a></p>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
-<script type="module">
-import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-import define from "https://api.observablehq.com/d/b313e21d5ed7eb88.js?v=4";
-new Runtime().module(define, name => {
-  if (name === "mapa") return new Inspector(document.querySelector("#observablehq-mapa-ecaa107d"));
-});
-</script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+  <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+    import define from "https://api.observablehq.com/d/b313e21d5ed7eb88.js?v=4";
+    new Runtime().module(define, name => {
+      if (name === "mapa") return new Inspector(document.querySelector("#observablehq-mapa-ecaa107d"));
+    });
+  </script>
 </div>
+
 ---
 
 <style>
+
+.top-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+  margin: 1rem auto;
+  flex-wrap: wrap;
+}
+
+.top-links a {
+  padding: 0.25rem 0.75rem;
+  background-color: var(--theme-background-code);
+  color: var(--theme-foreground);
+  text-decoration: none;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s ease;
+}
+
+.top-links a:hover {
+  background-color: var(--theme-background);
+}
 
 .hero {
   display: flex;
@@ -64,22 +96,3 @@ new Runtime().module(define, name => {
 }
 
 </style>
-
----
-<div class="next-links">
-  <a href="https://hjftm.github.io/observablehq_iframe/" target="_blank">Uvod</a>
-  <a href="https://hjftm.github.io/bosna/" target="_blank">Bosna</a>
-  <a href="https://hjftm.github.io/dubrovnik/" target="_blank">Dubrovnik</a>
-  <a href="https://hjftm.github.io/stupnik/" target="_blank">Stupnik</a>
-</div>
-
----
-
-<style>
-.next-links {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  margin-top: 3rem;
-  padding: 1rem;
-}
