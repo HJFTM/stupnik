@@ -106,7 +106,7 @@ const rodEntitetiIzvoriPages = [
     ]
 
   },
-  ...obiteljiPoMjestuPages,
+ // ...obiteljiPoMjestuPages,
   {
     name: "Entiteti",
     pages: [
