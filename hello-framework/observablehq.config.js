@@ -48,27 +48,29 @@ const uvodPages = [
         { name: "Brakovi (K)", path: "/pages/KONCEPT/Brakovi_K" },
         { name: "Povezane obitelji (K)", path: "/pages/KONCEPT/Obitelji_povezane_K" },
         { name: "Događaji - zapisi (K)", path: "/pages/KONCEPT/Zapisi_K" },
+        { name: "Bolesti (K)", path: "/pages/KONCEPT/Bolesti_K" },   
     ]
   },
   {
-    name: "Mjesta",
+    name: "Države / Mjesta",
       pages: [        
-        { name: "Mjesta (K)", path: "/pages/KONCEPT/Mjesta_K" },
-        { name: "Migracije (K)", path: "/pages/KONCEPT/Migracije_K" },
-        { name: "Migracije (K)", path: "/pages/KONCEPT/Migracije_masovne_K" },
-        { name: "Kuće (K)", path: "/pages/KONCEPT/Kucedomacin_K" },
-        { name: "Groblje (K)", path: "/pages/KONCEPT/Groblje_K" }
+        { name: "Države (K)",     path: "/pages/KONCEPT/Drzava_K" },
+        { name: "Mjesta (K)",     path: "/pages/KONCEPT/Mjesta_K" },
+        { name: "Migracije (K)",   path: "/pages/KONCEPT/Migracije_K" },
+        { name: "Migracije (K)",   path: "/pages/KONCEPT/Migracije_masovne_K" },
+        { name: "Kuće (K)",       path: "/pages/KONCEPT/Kucedomacin_K" },
+        { name: "Groblje (K)",     path: "/pages/KONCEPT/Groblje_K" }
     ]
   },
   {
-    name: "Ostalo",
+    name: "Izvori",
       pages: [        
         { name: "Popis stanovnika (K)", path: "/pages/KONCEPT/Popis_stanovnika_K" },
-        { name: "Države (K)", path: "/pages/KONCEPT/Drzava_K" },
+
         { name: "Župe (K)", path: "/pages/KONCEPT/Zupe_K" },
         { name: "Izvori* (K)", path: "/pages/KONCEPT/Popisi_K" },
         { name: "Pismo (K)", path: "/pages/KONCEPT/Pismo_K" },
-        { name: "Bolesti (K)", path: "/pages/KONCEPT/Bolesti_K" },
+
 
       ]
   }
