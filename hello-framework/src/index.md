@@ -3,7 +3,7 @@ toc: false
 ---
 
 <div class="top-links">
-  <a href="https://hjftm.github.io/observablehq_iframe/">Uvod</a>
+  <a href="https://hjftm.github.io/uvod/">Uvod</a>
   <a href="https://hjftm.github.io/bosna/">Bosna</a>
   <a href="https://hjftm.github.io/dubrovnik/">Dubrovnik</a>
   <a href="https://hjftm.github.io/stupnik/">Stupnik</a>
