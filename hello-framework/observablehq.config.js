@@ -54,8 +54,8 @@ const uvodPages = [
     {
     name: "Migracije",
       pages: [        
-        { name: "Migracije",   path: "/pages/KONCEPT/Migracije_K" },
-        { name: "Migracije",   path: "/pages/KONCEPT/Migracije_masovne_K" },
+        { name: "Individualne",   path: "/pages/KONCEPT/Migracije_K" },
+        { name: "Masovne",   path: "/pages/KONCEPT/Migracije_masovne_K" },
     ]
   },
   {
