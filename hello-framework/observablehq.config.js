@@ -41,7 +41,7 @@ const uvodPages = [
     ]
   },
     {
-    name: "Države / Mjesta / Župe",
+    name: "Rodovi",
       pages: [        
         { name: "Države",     path: "/pages/KONCEPT/Drzava_K" },
         { name: "Župe", path: "/pages/KONCEPT/Zupe_K" },   
