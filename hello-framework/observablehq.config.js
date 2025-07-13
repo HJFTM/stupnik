@@ -70,8 +70,8 @@ const uvodPages = [
   {
     name: "Izvori",
       pages: [        
-        { name: "Izvori*", path: "/pages/KONCEPT/Popisi_K" },
-        { name: "Izvori (K)", path: "/pages/KONCEPT/Izvori_K" },
+        { name: "Popisi*", path: "/pages/KONCEPT/Popisi_K" },
+        { name: "Izvori", path: "/pages/KONCEPT/Izvori_K" },
         { name: "Popisi kuća",       path: "/pages/KONCEPT/Kucedomacin_K" },
         { name: "Popisi stanovnika", path: "/pages/KONCEPT/Popis_stanovnika_K" },
         { name: "Katastar (K)", path: "/pages/KONCEPT/Katastar_K" },
