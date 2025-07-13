@@ -90,7 +90,7 @@ const rodEntitetiIzvoriPages = [
       { name: "Obitelji (R)",         path: `/pages/ROD/Obitelji_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Stablo (R)",           path: `/pages/ROD/Stablo_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Zapisi (R)",           path: `/pages/ROD/Zapisi_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Migracije (R)",        path: `/pages/ROD/Migracije_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+
 
       { name: "Izvori* (D)",          path: `/pages/ROD/Popisi_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Pismo (D)",            path: `/pages/ROD/Pismo_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
@@ -129,14 +129,22 @@ const rodEntitetiIzvoriPages = [
   
     ]
   },
+      {
+    name: "Migracije",
+      pages: [    
+      { name: "Migracije (R)",        path: `/pages/ROD/Migracije_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },  
+      { name: "Mig. Ind. (E)",  path: `/pages/ENTITET/Migracije_Individualne_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+      { name: "Masovne (E)",    path: `/pages/ENTITET/Migracije_Masovne_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+    ]
+  },
+  
   
  // ...obiteljiPoMjestuPages,
   {
     name: "Entiteti",
     pages: [
       { name: "Zapisi (E)",     path: `/pages/ENTITET/Zapisi_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Mig. Ind. (E)",  path: `/pages/ENTITET/Migracije_Individualne_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Masovne (E)",    path: `/pages/ENTITET/Migracije_Masovne_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+
       { name: "Kuće (E)",       path: `/pages/ENTITET/Kucedomacin_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
 
       { name: "Izvori* (E)",    path: `/pages/ENTITET/Popisi_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
