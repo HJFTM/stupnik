@@ -36,8 +36,8 @@ const uvodPages = [
     name: "Prezime",
       pages: [
         { name: "Prezime Jular-ić (K)", path: "/pages/1_Jularic/01.1.prezime_ilaric" },
-        { name: "Slična prezimena (K)", path: "/pages/1_Prezime/prezime_slicno" },
         { name: "Evolucija zapisa (V)", path: "/pages/1_Jularic/01.2.evolucija" },
+        { name: "Slična prezimena (K)", path: "/pages/1_Prezime/prezime_slicno" },
     ]
   },
   {
@@ -53,10 +53,11 @@ const uvodPages = [
   {
     name: "Mjesta",
       pages: [        
+        { name: "Mjesta (K)", path: "/pages/KONCEPT/Mjesta_K" },
         { name: "Migracije (K)", path: "/pages/KONCEPT/Migracije_K" },
         { name: "Migracije (K)", path: "/pages/KONCEPT/Migracije_masovne_K" },
-        { name: "Mjesta (K)", path: "/pages/KONCEPT/Mjesta_K" },
         { name: "Kuće (K)", path: "/pages/KONCEPT/Kucedomacin_K" },
+        { name: "Groblje (K)", path: "/pages/KONCEPT/Groblje_K" }
     ]
   },
   {
@@ -68,7 +69,7 @@ const uvodPages = [
         { name: "Izvori* (K)", path: "/pages/KONCEPT/Popisi_K" },
         { name: "Pismo (K)", path: "/pages/KONCEPT/Pismo_K" },
         { name: "Bolesti (K)", path: "/pages/KONCEPT/Bolesti_K" },
-        { name: "Groblje (K)", path: "/pages/KONCEPT/Groblje_K" }
+
       ]
   }
 ];
