@@ -57,7 +57,7 @@
 import {define} from "./_observablehq/client.8d1cd726.js";
 import {registerFile} from "./_observablehq/stdlib.24b62b2e.js";
 
-registerFile("./data/launches.csv", {"name":"./data/launches.csv","mimeType":"text/csv","path":"./_file/data/launches.e35ef0b8.csv","lastModified":1752402665712,"size":837123});
+registerFile("./data/launches.csv", {"name":"./data/launches.csv","mimeType":"text/csv","path":"./_file/data/launches.e35ef0b8.csv","lastModified":1752402987463,"size":837123});
 
 define({id: "7a66a2dd", inputs: ["FileAttachment"], outputs: ["launches"], body: (FileAttachment) => {
 const launches = FileAttachment("./data/launches.csv").csv({typed: true});
@@ -168,8 +168,6 @@ resize((width) => vehicleChart(launches, {width}))
     <li class="observablehq-link"><a href="./pages/ROD/Zapisi_R?ROD=Stupnik">Zapisi (R)</a></li>
     <li class="observablehq-link"><a href="./pages/ROD/Popisi_D?ROD=Stupnik">Izvori* (D)</a></li>
     <li class="observablehq-link"><a href="./pages/ROD/Pismo_D?ROD=Stupnik">Pismo (D)</a></li>
-    <li class="observablehq-link"><a href="./pages/ROD/Bolesti_D?ROD=Stupnik">Bolesti (D)</a></li>
-    <li class="observablehq-link"><a href="./pages/ROD/Groblje_D?ROD=Stupnik">Groblje (D)</a></li>
     <li class="observablehq-link"><a href="./pages/ROD/Katastar_D?ROD=Stupnik">Katastar (D)</a></li>
     <li class="observablehq-link"><a href="./pages/ROD/Izvori_D?ROD=Stupnik">Izvori (D)</a></li>
     </ol>
@@ -206,14 +204,26 @@ resize((width) => vehicleChart(launches, {width}))
     </ol>
   </section>
   <section>
+    <summary>Bolesti</summary>
+    <ol>
+    <li class="observablehq-link"><a href="./pages/ROD/Bolesti_D?ROD=Stupnik">Bolesti (D)</a></li>
+    <li class="observablehq-link"><a href="./pages/ENTITET/Bolesti_E?ROD=Stupnik">Bolesti (E)</a></li>
+    </ol>
+  </section>
+  <section>
+    <summary>Groblje</summary>
+    <ol>
+    <li class="observablehq-link"><a href="./pages/ENTITET/Groblje_E?ROD=Stupnik">Groblje (E)</a></li>
+    <li class="observablehq-link"><a href="./pages/ROD/Groblje_D?ROD=Stupnik">Groblje (D)</a></li>
+    </ol>
+  </section>
+  <section>
     <summary>Entiteti</summary>
     <ol>
     <li class="observablehq-link"><a href="./pages/ENTITET/Zapisi_E?ROD=Stupnik">Zapisi (E)</a></li>
     <li class="observablehq-link"><a href="./pages/ENTITET/Kucedomacin_E?ROD=Stupnik">Kuće (E)</a></li>
     <li class="observablehq-link"><a href="./pages/ENTITET/Popisi_E?ROD=Stupnik">Izvori* (E)</a></li>
     <li class="observablehq-link"><a href="./pages/ENTITET/Pismo_E?ROD=Stupnik">Pismo (E)</a></li>
-    <li class="observablehq-link"><a href="./pages/ENTITET/Bolesti_E?ROD=Stupnik">Bolesti (E)</a></li>
-    <li class="observablehq-link"><a href="./pages/ENTITET/Groblje_E?ROD=Stupnik">Groblje (E)</a></li>
     </ol>
   </section>
   <section>
@@ -269,7 +279,7 @@ resize((width) => vehicleChart(launches, {width}))
 <p>Data: Jonathan C. McDowell, <a href="https://planet4589.org/space/gcat" target="_blank" rel="noopener noreferrer">General Catalog of Artificial Space Objects</a></p>
 </main>
 <footer id="observablehq-footer">
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-13T10:30:51">Jul 13, 2025</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-13T10:36:13">Jul 13, 2025</a>.</div>
 </footer>
 </div>
 </body>
