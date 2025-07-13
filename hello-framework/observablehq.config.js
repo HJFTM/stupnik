@@ -47,7 +47,7 @@ const uvodPages = [
         { name: "Obitelji (K)", path: "/pages/KONCEPT/Obitelji_K" },
         { name: "Brakovi (K)", path: "/pages/KONCEPT/Brakovi_K" },
         { name: "Povezane obitelji (K)", path: "/pages/KONCEPT/Obitelji_povezane_K" },
-        { name: "Zapisi (K)", path: "/pages/KONCEPT/Zapisi_K" },
+        { name: "Događaji - zapisi (K)", path: "/pages/KONCEPT/Zapisi_K" },
     ]
   },
   {
