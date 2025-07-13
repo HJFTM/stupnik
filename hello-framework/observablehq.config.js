@@ -70,7 +70,7 @@ const rodEntitetiIzvoriPages = [
       { name: "Zapisi (R)",           path: `/pages/ROD/Zapisi_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Migracije (R)",        path: `/pages/ROD/Migracije_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Mjesta (R)",           path: `/pages/ROD/Mjesta_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Mjesta-zapisi (R)",    path: "/pages/KONCEPT/Mjesta_zapisi_R" }, // ostaje isto
+      { name: "Mjesta-zapisi (R)",    path: `/pages/KONCEPT/Mjesta_zapisi_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Župe (R)",             path: `/pages/ROD/Zupe_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Župe Rodos. (R)",      path: `/pages/ROD/Zupe_rodoslovlje_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Župe Obitelji (R)",    path: `/pages/ROD/Zupe_obitelji_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
