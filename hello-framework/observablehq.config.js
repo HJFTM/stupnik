@@ -185,7 +185,7 @@ const rodEntitetiIzvoriPages = [
 
       
     ]
-  }
+  },
   ...obiteljiPoMjestuPages,
 ];
 
