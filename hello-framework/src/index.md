@@ -66,10 +66,8 @@ new Runtime().module(define, name => {
 </style>
 
 ---
-
-## 📚 Ostali rodovi
-
 <div class="next-links">
+  <a href="https://hjftm.github.io/observablehq_iframe/" target="_blank">Uvod</a>
   <a href="https://hjftm.github.io/bosna/" target="_blank">Bosna</a>
   <a href="https://hjftm.github.io/dubrovnik/" target="_blank">Dubrovnik</a>
   <a href="https://hjftm.github.io/stupnik/" target="_blank">Stupnik</a>
