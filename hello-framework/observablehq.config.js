@@ -63,7 +63,6 @@ const uvodPages = [
       pages: [        
         { name: "Države",     path: "/pages/KONCEPT/Drzava_K" },
         { name: "Mjesta",     path: "/pages/KONCEPT/Mjesta_K" },
-        { name: "Kuće",       path: "/pages/KONCEPT/Kucedomacin_K" },
         { name: "Groblje",     path: "/pages/KONCEPT/Groblje_K" },
         { name: "Župe", path: "/pages/KONCEPT/Zupe_K" },   
     ]
@@ -71,13 +70,10 @@ const uvodPages = [
   {
     name: "Izvori",
       pages: [        
-        { name: "Popis stanovnika", path: "/pages/KONCEPT/Popis_stanovnika_K" },
-
-
         { name: "Izvori*", path: "/pages/KONCEPT/Popisi_K" },
+        { name: "Popisi kuća",       path: "/pages/KONCEPT/Kucedomacin_K" },
+        { name: "Popisi stanovnika", path: "/pages/KONCEPT/Popis_stanovnika_K" },
         { name: "Pismo", path: "/pages/KONCEPT/Pismo_K" },
-
-
       ]
   }
 ];
