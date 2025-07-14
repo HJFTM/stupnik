@@ -1,5 +1,5 @@
 <div id="observablehq-700686fe"></div>
-<p>Credit: <a href="https://observablehq.com/d/7e80c377ee6aaeaf@1416">Mjesto (E) by FTM</a></p>
+<p>Credit: <a href="https://observablehq.com/d/7e80c377ee6aaeaf">Mjesto (E) by FTM</a></p>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
