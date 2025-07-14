@@ -13,6 +13,7 @@ const data = JSON.parse(jsonString);
 
 // 2. Uzmi obitelji iz data.json
 const obiteljiPoMjestuPages = generirajObiteljiPoMjestu(data, CURRENT_PROJECT);
+cosnt mjestaPages = generirajMjestaOdObitelji(data, CURRENT_PROJECT(;
 
 
 export async function setup() {
@@ -100,7 +101,8 @@ const rodEntitetiIzvoriPages = [
       pages: [        
       { name: "Mjesta (R)",           path: `/pages/ROD/Mjesta_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Mjesta-zapisi (R)",    path: `/pages/KONCEPT/Mjesta_zapisi_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Mjesta (E)",     path: `/pages/ENTITET/Mjesta_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },    
+      { name: "Mjesta (E)",     path: `/pages/ENTITET/Mjesta_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` }, 
+      ...mjestaPages,
     ]
 
   },
@@ -224,6 +226,27 @@ function generirajObiteljiPoMjestu(data, rod) {
     mapaMjesta[mjesto].push({
       name: o.OBITELJ,
       path: `/pages/ENTITET/obitelj/${encodeURIComponent(o.OBITELJ)}`
+    });
+  }
+
+  return Object.entries(mapaMjesta).map(([mjesto, obitelji]) => ({
+    name: mjesto,
+    pages: obitelji
+  }));
+}
+function generirajMjestaOdObitelji(data, rod) {
+  if (rod == null) rod = "Bosna"; // pokriva i null i undefined
+  const mapaMjesta = {};
+
+  for (const o of data) {
+    if (!o.ROD || o.ROD !== rod || !o.MJESTO || !o.OBITELJ) continue;
+
+    const mjesto = o.MJESTO.trim();
+    if (!mapaMjesta[mjesto]) mapaMjesta[mjesto] = [];
+
+    mapaMjesta[mjesto].push({
+      name: o.MJESTO,
+      path: `/pages/ENTITET/mjesto/${encodeURIComponent(o.MJESTO)}`
     });
   }
 
