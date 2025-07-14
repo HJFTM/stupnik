@@ -13,7 +13,8 @@ const data = JSON.parse(jsonString);
 
 // 2. Uzmi obitelji iz data.json
 const obiteljiPoMjestuPages = generirajObiteljiPoMjestu(data, CURRENT_PROJECT);
-cosnt mjestaPages = generirajMjestaOdObitelji(data, CURRENT_PROJECT);
+const mjestaPages = generirajMjestaOdObitelji(data, CURRENT_PROJECT);
+
 
 
 export async function setup() {
@@ -234,24 +235,22 @@ function generirajObiteljiPoMjestu(data, rod) {
     pages: obitelji
   }));
 }
+
 function generirajMjestaOdObitelji(data, rod) {
-  if (rod == null) rod = "Bosna"; // pokriva i null i undefined
-  const mapaMjesta = {};
+  if (rod == null) rod = "Bosna";
+  const mjesta = new Set();
 
   for (const o of data) {
     if (!o.ROD || o.ROD !== rod || !o.MJESTO || !o.OBITELJ) continue;
-
-    const mjesto = o.MJESTO.trim();
-    if (!mapaMjesta[mjesto]) mapaMjesta[mjesto] = [];
-
-    mapaMjesta[mjesto].push({
-      name: o.MJESTO,
-      path: `/pages/ENTITET/mjesto/${encodeURIComponent(o.MJESTO)}`
-    });
+    mjesta.add(o.MJESTO.trim());
   }
 
-  return Object.entries(mapaMjesta).map(([mjesto, obitelji]) => ({
+  return Array.from(mjesta).map(mjesto => ({
     name: mjesto,
-    pages: obitelji
+    pages: [{
+      name: mjesto,
+      path: `/pages/ENTITET/mjesto/${encodeURIComponent(mjesto)}`
+    }]
   }));
 }
+
