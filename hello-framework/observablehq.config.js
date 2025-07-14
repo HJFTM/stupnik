@@ -103,11 +103,11 @@ const rodEntitetiIzvoriPages = [
       { name: "Mjesta (R)",           path: `/pages/ROD/Mjesta_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Mjesta-zapisi (R)",    path: `/pages/KONCEPT/Mjesta_zapisi_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Mjesta (E)",     path: `/pages/ENTITET/Mjesta_E?ROD=${encodeURIComponent(CURRENT_PROJECT)}` }, 
-
+        ...mjestaPages,
     ]
 
   },
-        ...mjestaPages,
+
   
       {
     name: "Župe",
