@@ -233,7 +233,7 @@ function generirajObiteljiPoMjestu(data, rod) {
   }
 
   return Object.entries(mapaMjesta).map(([mjesto, obitelji]) => ({
-    name: mjesto,
+    name: `Obitelji: ${mjesto}`,
     pages: obitelji
   }));
 }
