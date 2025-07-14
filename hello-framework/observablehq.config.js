@@ -239,20 +239,30 @@ function generirajObiteljiPoMjestu(data, rod) {
 }
 
 function generirajMjestaOdObitelji(data, rod) {
-  if (rod == null) rod = "Bosna";
-  const mjesta = new Set();
+    if (rod == null) rod = "Bosna";
+    const mjestaMap = new Map();
 
-  for (const o of data) {
-    if (!o.ROD || o.ROD !== rod || !o.MJESTO || !o.OBITELJ) continue;
-    mjesta.add(o.MJESTO.trim());
-  }
+    for (const o of data) {
+        if (!o.ROD || o.ROD !== rod || !o.MJESTO || !o.OBITELJ || !o.GODINA) continue;
+        const mjesto = o.MJESTO.trim();
+        const godina = parseInt(o.GODINA);
 
-  return Array.from(mjesta).map(mjesto => ({
-   // name: mjesto,
-   // pages: [{
-      name: mjesto,
-      path: `/pages/ENTITET/mjesto/${encodeURIComponent(mjesto)}`
-   // }]
-  }));
+        if (!mjestaMap.has(mjesto)) {
+            mjestaMap.set(mjesto, godina);
+        } else {
+            const postojecaGodina = mjestaMap.get(mjesto);
+            if (godina < postojecaGodina) {
+                mjestaMap.set(mjesto, godina);
+            }
+        }
+    }
+
+    return Array.from(mjestaMap.entries())
+        .sort((a, b) => a[1] - b[1])  // sortiraj po godini (a[1] je godina)
+        .map(([mjesto, godina]) => ({
+            name: `${godina}. ${mjesto}`,
+            path: `/pages/ENTITET/mjesto/${encodeURIComponent(mjesto)}`
+        }));
 }
+
 
