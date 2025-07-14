@@ -233,7 +233,7 @@ function generirajObiteljiPoMjestu(data, rod) {
     name: mjesto,
     pages: obitelji
   }));
-}
+},
 function generirajMjestaOdObitelji(data, rod) {
   if (rod == null) rod = "Bosna"; // pokriva i null i undefined
   const mapaMjesta = {};
