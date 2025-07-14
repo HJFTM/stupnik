@@ -248,11 +248,11 @@ function generirajMjestaOdObitelji(data, rod) {
   }
 
   return Array.from(mjesta).map(mjesto => ({
-    name: mjesto,
-    pages: [{
+   // name: mjesto,
+   // pages: [{
       name: mjesto,
       path: `/pages/ENTITET/Mjesto_E?MJESTO=${encodeURIComponent(mjesto)}`
-    }]
+   // }]
   }));
 }
 
