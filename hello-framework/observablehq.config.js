@@ -251,7 +251,7 @@ function generirajMjestaOdObitelji(data, rod) {
    // name: mjesto,
    // pages: [{
       name: mjesto,
-      path: `/pages/ENTITET/Mjesta_E?MJESTO=${encodeURIComponent(mjesto)}`
+      path: `/pages/ENTITET/Mjesta_E?MJESTO=${mjesto}`
    // }]
   }));
 }
