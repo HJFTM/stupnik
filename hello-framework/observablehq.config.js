@@ -13,7 +13,7 @@ const data = JSON.parse(jsonString);
 
 // 2. Uzmi obitelji iz data.json
 const obiteljiPoMjestuPages = generirajObiteljiPoMjestu(data, CURRENT_PROJECT);
-cosnt mjestaPages = generirajMjestaOdObitelji(data, CURRENT_PROJECT(;
+cosnt mjestaPages = generirajMjestaOdObitelji(data, CURRENT_PROJECT);
 
 
 export async function setup() {
@@ -233,7 +233,7 @@ function generirajObiteljiPoMjestu(data, rod) {
     name: mjesto,
     pages: obitelji
   }));
-},
+}
 function generirajMjestaOdObitelji(data, rod) {
   if (rod == null) rod = "Bosna"; // pokriva i null i undefined
   const mapaMjesta = {};
