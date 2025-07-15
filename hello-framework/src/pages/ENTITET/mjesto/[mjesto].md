@@ -8,12 +8,12 @@
 <div id="observablehq-viewof-table-b81a69a6"></div>
 <div id="observablehq-zupe_table-b81a69a6"></div>
 <div id="observablehq-zupe_plot-b81a69a6"></div>
-<p>Credit: <a href="https://observablehq.com/d/7e80c377ee6aaeaf@>Mjesto (E) by FTM</a></p>
+<p>Credit: <a href="https://observablehq.com/d/7e80c377ee6aaeaf>Mjesto (E) by FTM</a></p>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-import define from "https://api.observablehq.com/d/7e80c377ee6aaeaf@js?v=4";
+import define from "https://api.observablehq.com/d/7e80c377ee6aaeafjs?v=4";
 new Runtime().module(define, name => {
   if (name === "mjesto_header") return new Inspector(document.querySelector("#observablehq-mjesto_header-b81a69a6"));
   if (name === "mjesto_geo") return new Inspector(document.querySelector("#observablehq-mjesto_geo-b81a69a6"));
