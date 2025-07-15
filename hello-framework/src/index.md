@@ -28,7 +28,7 @@ toc: false
       if (name === "mapa") return new Inspector(document.querySelector("#observablehq-mapa-ecaa107d"));
     });
   </script>
-</div>**
+</div>
 
 ---
 
