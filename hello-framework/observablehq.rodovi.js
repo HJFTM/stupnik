@@ -21,5 +21,5 @@ export const rodEntitetiIzvoriPages = [
       ...mjestaPages,
     ]
   },
-  ...obiteljiPoMjestuPages
+  //...obiteljiPoMjestuPages
 ];
