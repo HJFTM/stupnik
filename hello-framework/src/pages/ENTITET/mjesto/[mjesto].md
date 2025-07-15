@@ -5,7 +5,6 @@
 <div id="observablehq-obitelji_table-d9248225"></div>
 <div id="observablehq-obitelji_plot-d9248225"></div>
 <div id="observablehq-migracije_table-d9248225"></div>
-<div id="observablehq-viewof-table-d9248225"></div>
 <div id="observablehq-zupe_table-d9248225"></div>
 <div id="observablehq-zupe_plot-d9248225"></div>
 <p>Credit: <a href="https://observablehq.com/d/7e80c377ee6aaeaf">Mjesto (E) by FTM</a></p>
@@ -22,7 +21,6 @@ new Runtime().module(define, name => {
   if (name === "obitelji_table") return new Inspector(document.querySelector("#observablehq-obitelji_table-d9248225"));
   if (name === "obitelji_plot") return new Inspector(document.querySelector("#observablehq-obitelji_plot-d9248225"));
   if (name === "migracije_table") return new Inspector(document.querySelector("#observablehq-migracije_table-d9248225"));
-  if (name === "viewof table") return new Inspector(document.querySelector("#observablehq-viewof-table-d9248225"));
   if (name === "zupe_table") return new Inspector(document.querySelector("#observablehq-zupe_table-d9248225"));
   if (name === "zupe_plot") return new Inspector(document.querySelector("#observablehq-zupe_plot-d9248225"));
 });
