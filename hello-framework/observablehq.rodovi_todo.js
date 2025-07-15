@@ -1,4 +1,4 @@
-const todoPages = [
+export const todoPages = [
   
       {
     name: "Župe",
