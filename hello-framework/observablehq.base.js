@@ -25,7 +25,7 @@ export function generirajObiteljiPoMjestu(data, rod) {
   }));
 }
 
-function generirajMjestaOdObitelji(obitelji, rod) {
+export function generirajMjestaOdObitelji(obitelji, rod) {
     if (rod == null) rod = "Bosna";
     const mjestaMap = new Map();
     const obitelj_m = obitelji.filter(o => o.TIP == "M");
