@@ -1,4 +1,4 @@
-import { CURRENT_PROJECT, data } from "./config/config_base.js";
+import { CURRENT_PROJECT, data } from "./observablehq.base.js";
 import { uvodPages } from "./observablehq.uvod.js";
 import { rodEntitetiIzvoriPages } from "./observablehq.rodovi.js";
 
