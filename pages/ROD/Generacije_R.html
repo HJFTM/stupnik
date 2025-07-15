@@ -61,18 +61,24 @@ import "../../_observablehq/client.8d1cd726.js";
 </nav>
 </aside>
 <main id="observablehq-main" class="observablehq">
-<div id="observablehq-9e560aac"></div>
+<div id="observablehq-generacija_header-91586f1c"></div>
+<div id="observablehq-generacija_plot-91586f1c"></div>
+<div id="observablehq-generacije_table1-91586f1c"></div>
 <p>Credit: <a href="https://observablehq.com/d/410aa8aa83984092" target="_blank" rel="noopener noreferrer">Generacije (R) by FTM</a></p>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
 import define from "https://api.observablehq.com/d/410aa8aa83984092.js?v=4";
-new Runtime().module(define, Inspector.into("#observablehq-9e560aac"));
+new Runtime().module(define, name => {
+  if (name === "generacija_header") return new Inspector(document.querySelector("#observablehq-generacija_header-91586f1c"));
+  if (name === "generacija_plot") return new Inspector(document.querySelector("#observablehq-generacija_plot-91586f1c"));
+  if (name === "generacije_table1") return new Inspector(document.querySelector("#observablehq-generacije_table1-91586f1c"));
+});
 </script>
 </main>
 <footer id="observablehq-footer">
 <nav><a rel="prev" href="../1_Jularic/prezime_r?ROD=Stupnik"><span>Prezime (R)</span></a><a rel="next" href="./Obitelji_R?ROD=Stupnik"><span>Obitelji (R)</span></a></nav>
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-15T15:01:35">Jul 15, 2025</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-15T15:32:21">Jul 15, 2025</a>.</div>
 </footer>
 </div>
 </body>
