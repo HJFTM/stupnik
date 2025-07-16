@@ -1,8 +1,15 @@
 import { CURRENT_PROJECT, data } from "./observablehq.base.js";
 import { uvodPages } from "./observablehq.uvod.js";
 import { rodEntitetiIzvoriPages } from "./observablehq.rodovi.js";
+import { obiteljiPages } from "./observablehq.obitelji.js"; // ➕ Dodaj ovo
 
-const pages = (CURRENT_PROJECT === "svi_rodovi") ? uvodPages : rodEntitetiIzvoriPages;
+if (CURRENT_PROJECT === "svi_rodovi") {
+  pages = uvodPages;
+} else if (CURRENT_PROJECT === "obitelji") {
+  pages = obiteljiPages;
+} else {
+  pages = rodEntitetiIzvoriPages;
+}
 
 export default {
   title: `Jularić (${CURRENT_PROJECT})`,
