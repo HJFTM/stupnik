@@ -1,6 +1,6 @@
 <div class="hero">
-  <h1>Jularić (Ilarić) obitelji u periodu od 1650 do 1900 godine.</h1>
-  <h2>Tri roda (Bosna, Austrougarska, Dubrovaöka republika)!</h2>
+  <h1>Obitelji Jularić (Ilarić) </h1>
+  <h3> u periodu od 1650 do 1900 godine na podruöju Bosne, Austrougarska i Dubrovaöke republike!</h3>
 </div>
 
 <div id="observablehq-mjesta_geo-f5bd7d45"></div>
