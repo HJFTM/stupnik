@@ -3,6 +3,8 @@ import { uvodPages } from "./observablehq.uvod.js";
 import { rodEntitetiIzvoriPages } from "./observablehq.rodovi.js";
 import { obiteljiPages } from "./observablehq.obitelji.js"; // ➕ Dodaj ovo
 
+let pages;
+
 if (CURRENT_PROJECT === "svi_rodovi") {
   pages = uvodPages;
 } else if (CURRENT_PROJECT === "obitelji") {
