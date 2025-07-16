@@ -18,7 +18,7 @@ export const rodEntitetiIzvoriPages = [
     name: "Mjesta ➔ Migracije",
     pages: [
       { name: "Mjesta",          path: `/pages/ROD/Mjesta_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Mjesta-zapisi",   path: `/pages/KONCEPT/Mjesta_zapisi_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+      //{ name: "Mjesta-zapisi",   path: `/pages/KONCEPT/Mjesta_zapisi_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Migracije",       path: `/pages/ROD/Migracije_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       ...mjestaPages,
     ]
