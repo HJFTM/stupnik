@@ -8,19 +8,39 @@ const jsonString = fs.readFileSync(filePath, "utf-8");
 export const data = JSON.parse(jsonString);
 
 export function generirajObiteljiPoMjestu(data, rod) {
-  if (!rod) rod = "Bosna";
-  const mapaMjesta = {};
+  if (rod == null) rod = "Bosna";
+
+  // Sakupi samo mjesta iz atributa MJESTO
+  const mjestaSet = new Set();
+
   for (const o of data) {
     if (!o.ROD || o.ROD !== rod || !o.MJESTO || !o.OBITELJ) continue;
-    const mjesto = o.MJESTO.trim();
-    if (!mapaMjesta[mjesto]) mapaMjesta[mjesto] = [];
-    mapaMjesta[mjesto].push({
-      name: o.OBITELJ,
-      path: `/pages/ENTITET/obitelj/${encodeURIComponent(o.OBITELJ)}`
-    });
+    mjestaSet.add(o.MJESTO.trim());
   }
+
+  const mjesta = Array.from(mjestaSet);
+
+  // Za svako mjesto, obitelji koje su tu živjele ili migrirale u to mjesto
+  const mapaMjesta = {};
+
+  for (const mjesto of mjesta) {
+    mapaMjesta[mjesto] = data
+      .filter(o =>
+        o.ROD === rod &&
+        o.OBITELJ &&
+        (
+          (o.MJESTO && o.MJESTO.trim() === mjesto) ||
+          (o.MIGRACIJA && o.MIGRACIJA.split(/[,;]/).map(s => s.trim()).includes(mjesto))
+        )
+      )
+      .map(o => ({
+        name: o.OBITELJ,
+        path: `/pages/ENTITET/obitelj/${encodeURIComponent(o.OBITELJ)}`
+      }));
+  }
+
   return Object.entries(mapaMjesta).map(([mjesto, obitelji]) => ({
-    name: `Obitelji: ${mjesto}`,
+    name: mjesto,
     pages: obitelji
   }));
 }
