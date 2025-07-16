@@ -47,25 +47,47 @@ export function generirajObiteljiPoMjestu(data, rod) {
 
 export function generirajMjestaOdObitelji(obitelji, rod) {
     if (rod == null) rod = "Bosna";
-    const mjestaMap = new Map();
-    const obitelj_m = obitelji.filter(o => o.TIP == "M");
-    for (const o of obitelj_m) {
-        if (!o.ROD || o.ROD !== rod || !o.MJESTO || !o.OBITELJ || !o.GODINA) continue;
-        const mjesto = o.MJESTO.trim();
-        const godina = parseInt(o.GODINA);
 
-        if (!mjestaMap.has(mjesto)) {
-            mjestaMap.set(mjesto, godina);
-        } else {
-            const postojecaGodina = mjestaMap.get(mjesto);
-            if (godina < postojecaGodina) {
-                mjestaMap.set(mjesto, godina);
-            }
+    const mjestaMap = new Map();
+    const obitelj_m = obitelji.filter(o => o.TIP === "M" && o.ROD === rod && o.OBITELJ);
+
+    // Prvo sakupi sva mjesta iz MJESTO
+    const mjestaSet = new Set();
+    for (const o of obitelj_m) {
+        if (o.MJESTO) {
+            mjestaSet.add(o.MJESTO.trim());
         }
     }
 
+    // Za svako mjesto, pronađi najstariju GODINU (iz MJESTO ili MIGRACIJA)
+    for (const mjesto of mjestaSet) {
+        let najstarijaGodina = null;
+
+        for (const o of obitelj_m) {
+            const godina = parseInt(o.GODINA);
+            if (!isFinite(godina)) continue;
+
+            const migracije = (o.MIGRACIJA || "").split(/[,;]/).map(s => s.trim());
+
+            const mjestoMatch =
+                (o.MJESTO && o.MJESTO.trim() === mjesto) ||
+                migracije.includes(mjesto);
+
+            if (mjestoMatch) {
+                if (najstarijaGodina == null || godina < najstarijaGodina) {
+                    najstarijaGodina = godina;
+                }
+            }
+        }
+
+        if (najstarijaGodina != null) {
+            mjestaMap.set(mjesto, najstarijaGodina);
+        }
+    }
+
+    // Vrati sortirano po godini
     return Array.from(mjestaMap.entries())
-        .sort((a, b) => a[1] - b[1])  // sortiraj po godini (a[1] je godina)
+        .sort((a, b) => a[1] - b[1])
         .map(([mjesto, godina]) => ({
             name: `${godina}. ${mjesto}`,
             path: `/pages/ENTITET/mjesto/${encodeURIComponent(mjesto)}`
