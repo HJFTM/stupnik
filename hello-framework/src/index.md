@@ -1,6 +1,5 @@
 # Obitelji Jularić (Ilarić) 
-u periodu od 1650 do 1900 godine na podruöju Bosne, Austrougarska i Dubrovaöke republike!
-[Bosna](https://hjftm.github.io/bosna/)
+u periodu od 1650 do 1900 godine na području Bosne, Austrougarska i Dubrovačke Republike živjele su 161 obitelji!
 
 <div id="observablehq-mjesta_geo-f5bd7d45"></div>
 
