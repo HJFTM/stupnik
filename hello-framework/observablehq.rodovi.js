@@ -7,10 +7,11 @@ export const rodEntitetiIzvoriPages = [
   {
     name: `Rod (${CURRENT_PROJECT})`,
     pages: [
-      { name: "Prezime", path: `/pages/1_Jularic/prezime_r?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Generacije", path: `/pages/ROD/Generacije_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Obitelji", path: `/pages/ROD/Obitelji_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Stablo", path: `/pages/ROD/Stablo_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+      { name: "Prezime",      path: `/pages/1_Jularic/prezime_r?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+      { name: "Generacije",   path: `/pages/ROD/Generacije_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+      { name: "Obitelji",     path: `/pages/ROD/Obitelji_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+      { name: "Doga+aji",     path: `/pages/ROD/Dogadjaji_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },      
+      { name: "Stablo",       path: `/pages/ROD/Stablo_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
     ]
   },
   {
