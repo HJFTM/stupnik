@@ -1,3 +1,4 @@
+
 import { CURRENT_PROJECT, data, generirajObiteljiPoMjestu, generirajMjestaOdObitelji } from "./observablehq.base.js";
 
 const obiteljiPoMjestuPages = generirajObiteljiPoMjestu(data, CURRENT_PROJECT);
@@ -19,5 +20,6 @@ export const obiteljiPages = [
       { name: "Migracije", path: "/pages/OBITELJI/migracije" },
       { name: "Groblja", path: "/pages/OBITELJI/groblja" }
     ]
-  }
+  },
+  ...obiteljiPoMjestuPages
 ];
