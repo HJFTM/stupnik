@@ -1,3 +1,4 @@
+
 import { CURRENT_PROJECT, data } from "./observablehq.base.js";
 import { uvodPages } from "./observablehq.uvod.js";
 import { rodEntitetiIzvoriPages } from "./observablehq.rodovi.js";
@@ -14,6 +15,7 @@ if (CURRENT_PROJECT === "svi_rodovi") {
 }
 
 export default {
+   theme: "./src/layout.js"
   title: `Jularić (${CURRENT_PROJECT})`,
   pages,
   dynamicPaths: () => {
@@ -23,4 +25,7 @@ export default {
   },
   head: '<link rel="icon" href="observable.png" type="image/png" sizes="32x32">',
   root: "src",
+};
+export default1 {
+ 
 };
