@@ -1,5 +1,3 @@
----
-
 <div class="hero">
   <h1>Jularić (Ilarić) Obitelji u periodu od 1650 do 1900 godine.</h1>
   <h2>Dobrodošli!</h2>
