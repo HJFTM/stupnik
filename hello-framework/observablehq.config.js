@@ -15,7 +15,7 @@ if (CURRENT_PROJECT === "svi_rodovi") {
 }
 
 export default {
-  layout: "./src/layout.js",
+  // layout: "./src/layout.js",
   title: `Jularić (${CURRENT_PROJECT})`,
   pages,
   dynamicPaths: () => {
