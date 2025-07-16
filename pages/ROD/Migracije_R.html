@@ -57,18 +57,26 @@ import "../../_observablehq/client.8d1cd726.js";
 </nav>
 </aside>
 <main id="observablehq-main" class="observablehq">
-<div id="observablehq-3953e99a"></div>
+<div id="observablehq-migracije_header-f431a396"></div>
+<div id="observablehq-migracije_plot-f431a396"></div>
+<div id="observablehq-migracije_table-f431a396"></div>
+<div id="observablehq-migracije_text-f431a396"></div>
 <p>Credit: <a href="https://observablehq.com/d/406804dcf91a0e67" target="_blank" rel="noopener noreferrer">Migracije (R) by FTM</a></p>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
 import define from "https://api.observablehq.com/d/406804dcf91a0e67.js?v=4";
-new Runtime().module(define, Inspector.into("#observablehq-3953e99a"));
+new Runtime().module(define, name => {
+  if (name === "migracije_header") return new Inspector(document.querySelector("#observablehq-migracije_header-f431a396"));
+  if (name === "migracije_plot") return new Inspector(document.querySelector("#observablehq-migracije_plot-f431a396"));
+  if (name === "migracije_table") return new Inspector(document.querySelector("#observablehq-migracije_table-f431a396"));
+  if (name === "migracije_text") return new Inspector(document.querySelector("#observablehq-migracije_text-f431a396"));
+});
 </script>
 </main>
 <footer id="observablehq-footer">
 <nav><a rel="prev" href="../KONCEPT/Mjesta_zapisi_R?ROD=Stupnik"><span>Mjesta-zapisi</span></a><a rel="next" href="../ENTITET/mjesto/Stupnik"><span>1720. Stupnik</span></a></nav>
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-16T11:20:42">Jul 16, 2025</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-16T11:21:56">Jul 16, 2025</a>.</div>
 </footer>
 </div>
 </body>
