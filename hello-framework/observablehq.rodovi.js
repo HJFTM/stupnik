@@ -5,7 +5,7 @@ const mjestaPages = generirajMjestaOdObitelji(data, CURRENT_PROJECT);
 
 export const rodEntitetiIzvoriPages = [
   {
-    name: `Rod (${CURRENT_PROJECT})`,
+    name: `Rod / Obitelji`,
     pages: [
       { name: "Prezime",      path: `/pages/1_Jularic/prezime_r?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Generacije",   path: `/pages/ROD/Generacije_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
