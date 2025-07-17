@@ -59,7 +59,6 @@ export const todoPages = [
   {
     name: "Pismo",
     pages: [
-      { name: "Pismo (D)",            path: /pages/ROD/Pismo_D?ROD=${encodeURIComponent(CURRENT_PROJECT)} },
       { name: "Pismo (E)",      path: /pages/ENTITET/Pismo_E?ROD=${encodeURIComponent(CURRENT_PROJECT)} },
     ]
   },
