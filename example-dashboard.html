@@ -57,7 +57,7 @@
 import {define} from "./_observablehq/client.8d1cd726.js";
 import {registerFile} from "./_observablehq/stdlib.24b62b2e.js";
 
-registerFile("./data/launches.csv", {"name":"./data/launches.csv","mimeType":"text/csv","path":"./_file/data/launches.860d698b.csv","lastModified":1752757682416,"size":838119});
+registerFile("./data/launches.csv", {"name":"./data/launches.csv","mimeType":"text/csv","path":"./_file/data/launches.860d698b.csv","lastModified":1752757767486,"size":838119});
 
 define({id: "7a66a2dd", inputs: ["FileAttachment"], outputs: ["launches"], body: (FileAttachment) => {
 const launches = FileAttachment("./data/launches.csv").csv({typed: true});
@@ -159,17 +159,18 @@ resize((width) => vehicleChart(launches, {width}))
     <li class="observablehq-link"><a href="./">Jularić (Stupnik)</a></li>
   </ol>
   <section>
-    <summary>Rod ➔ Obitelji</summary>
+    <summary>Obitelji</summary>
     <ol>
     <li class="observablehq-link"><a href="./pages/1_Jularic/prezime_r?ROD=Stupnik">Prezime</a></li>
     <li class="observablehq-link"><a href="./pages/ROD/Generacije_R?ROD=Stupnik">Generacije</a></li>
     <li class="observablehq-link"><a href="./pages/ROD/Obitelji_R?ROD=Stupnik">Obitelji</a></li>
     <li class="observablehq-link"><a href="./pages/ROD/Dogadjaji_R?ROD=Stupnik">Događaji</a></li>
     <li class="observablehq-link"><a href="./pages/ROD/Stablo_R?ROD=Stupnik">Stablo</a></li>
+    <li class="observablehq-link"><a href="./pages/ROD/Bolesti_D?ROD=Stupnik">Bolesti</a></li>
     </ol>
   </section>
   <section>
-    <summary>Mjesta ➔ Migracije</summary>
+    <summary>Mjesta</summary>
     <ol>
     <li class="observablehq-link"><a href="./pages/ROD/Mjesta_R?ROD=Stupnik">Mjesta</a></li>
     <li class="observablehq-link"><a href="./pages/ROD/Migracije_R?ROD=Stupnik">Migracije</a></li>
@@ -233,7 +234,7 @@ resize((width) => vehicleChart(launches, {width}))
 <p>Data: Jonathan C. McDowell, <a href="https://planet4589.org/space/gcat" target="_blank" rel="noopener noreferrer">General Catalog of Artificial Space Objects</a></p>
 </main>
 <footer id="observablehq-footer">
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-17T13:07:48">Jul 17, 2025</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-17T13:09:14">Jul 17, 2025</a>.</div>
 </footer>
 </div>
 </body>
