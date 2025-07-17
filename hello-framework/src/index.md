@@ -12,13 +12,11 @@ new Runtime().module(define, name => {
 </script>
 
 <div class="bottom-links">
-  <div class="uvod-links">
-    <a href="https://hjftm.github.io/uvod/" target="_self">Uvod</a>
-  </div>
 <div class="rod-links">
-  <a href="https://hjftm.github.io/bosna/" target="_self">Bosna</a> ✦ 
-  <a href="https://hjftm.github.io/dubrovnik/" target="_self">Dubrovnik</a> ✦ 
-  <a href="https://hjftm.github.io/stupnik/" target="_self">Stupnik</a> ✦ 
+  <a href="https://hjftm.github.io/uvod/" target="_self">Uvod</a> ✦  
+  <a href="https://hjftm.github.io/bosna/" target="_self">Bosna</a> ✦  
+  <a href="https://hjftm.github.io/dubrovnik/" target="_self">Dubrovnik</a> ✦  
+  <a href="https://hjftm.github.io/stupnik/" target="_self">Stupnik</a> ✦  
   <a href="https://hjftm.github.io/obitelji/" target="_self">Obitelji</a>
 </div>
 </div>
