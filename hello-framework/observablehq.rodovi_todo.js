@@ -30,7 +30,6 @@ export const todoPages = [
     {
     name: "Bolesti",
       pages: [        
-      { name: "Bolesti (D)",          path: /pages/ROD/Bolesti_D?ROD=${encodeURIComponent(CURRENT_PROJECT)} },
       { name: "Bolesti (E)",    path: /pages/ENTITET/Bolesti_E?ROD=${encodeURIComponent(CURRENT_PROJECT)} },
          ]
   },  
