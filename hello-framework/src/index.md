@@ -1,7 +1,16 @@
-# Obitelji Jularić (Ilarić) 
-u periodu od 1650 do 1900 godine na području Bosne, Austrougarska i Dubrovačke Republike živjele su 161 obitelji!
+<div id="observablehq-index_header-e2851b41"></div>
+<div id="observablehq-mjesta_geo-e2851b41"></div>
+<p>Credit: <a href="https://observablehq.com/d/d1e5e12448b03e80">Index.md by FTM</a></p>
 
-<div id="observablehq-mjesta_geo-f5bd7d45"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+import define from "https://api.observablehq.com/d/d1e5e12448b03e80.js?v=4";
+new Runtime().module(define, name => {
+  if (name === "index_header") return new Inspector(document.querySelector("#observablehq-index_header-e2851b41"));
+  if (name === "mjesta_geo") return new Inspector(document.querySelector("#observablehq-mjesta_geo-e2851b41"));
+});
+</script>
 
 <div class="bottom-links">
   <div class="uvod-links">
@@ -17,10 +26,3 @@ u periodu od 1650 do 1900 godine na području Bosne, Austrougarska i Dubrovačke
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
-<script type="module">
-import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-import define from "https://api.observablehq.com/d/b313e21d5ed7eb88.js?v=4";
-new Runtime().module(define, name => {
-  if (name === "mjesta_geo") return new Inspector(document.querySelector("#observablehq-mjesta_geo-f5bd7d45"));
-});
-</script>
