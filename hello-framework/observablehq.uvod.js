@@ -45,8 +45,8 @@ export const uvodPages = [
   {
     name: "Izvori",
     pages: [
-      { name: "Popisi*", path: "/pages/KONCEPT/Popisi_K" },
       { name: "Izvori", path: "/pages/KONCEPT/Izvori_K" },
+      { name: "Izvori zapisi", path: "/pages/KONCEPT/Izvori_zapisi_K" },
       { name: "Popisi kuća", path: "/pages/KONCEPT/Kucedomacin_K" },
       { name: "Popisi stanovnika", path: "/pages/KONCEPT/Popis_stanovnika_K" },
       { name: "Katastar (K)", path: "/pages/KONCEPT/Katastar_K" },
