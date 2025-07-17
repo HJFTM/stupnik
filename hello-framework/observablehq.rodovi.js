@@ -13,14 +13,14 @@ export const rodEntitetiIzvoriPages = [
       { name: "Događaji",     path: `/pages/ROD/Dogadjaji_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },      
       { name: "Stablo",       path: `/pages/ROD/Stablo_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "Bolesti",      path: `/pages/ROD/Bolesti_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+      { name: "Mjesta",          path: `/pages/ROD/Mjesta_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+      //{ name: "Mjesta-zapisi",   path: `/pages/KONCEPT/Mjesta_zapisi_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
+      { name: "Migracije",       path: `/pages/ROD/Migracije_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },      
     ]
   },
   {
     name: "Mjesta",
     pages: [
-      { name: "Mjesta",          path: `/pages/ROD/Mjesta_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      //{ name: "Mjesta-zapisi",   path: `/pages/KONCEPT/Mjesta_zapisi_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
-      { name: "Migracije",       path: `/pages/ROD/Migracije_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       ...mjestaPages,
     ]
   },
