@@ -37,14 +37,13 @@ export const todoPages = [
     {
     name: "Groblje",
       pages: [    
-      { name: "Groblje (D)",          path: /pages/ROD/Groblje_D?ROD=${encodeURIComponent(CURRENT_PROJECT)} },
         { name: "Groblje (E)",    path: /pages/ENTITET/Groblje_E?ROD=${encodeURIComponent(CURRENT_PROJECT)} },        
     ]
   },
     {
     name: "Katastar",
       pages: [ 
-      { name: "Katastar (D)",         path: /pages/ROD/Katastar_D?ROD=${encodeURIComponent(CURRENT_PROJECT)} },        
+     
       { name: "Katastar (E)", path: "/pages/ENTITET/Katastar_E" },
     ]
   },  
@@ -62,24 +61,15 @@ export const todoPages = [
     pages: [
       { name: "Pismo (D)",            path: /pages/ROD/Pismo_D?ROD=${encodeURIComponent(CURRENT_PROJECT)} },
       { name: "Pismo (E)",      path: /pages/ENTITET/Pismo_E?ROD=${encodeURIComponent(CURRENT_PROJECT)} },
-
     ]
   },
   {
     name: "Izvori",
     pages: [
       { name: "Prezime (E)", path: "/pages/1_Jularic/01.3.prezime_e" },
-      
-      { name: "Izvori (D)",           path: /pages/ROD/Izvori_D?ROD=${encodeURIComponent(CURRENT_PROJECT)} },      
       { name: "Izvori (E)",           path: "/pages/ENTITET/Izvori_E" },
-
-
-      { name: "Izvori* (D)",          path: /pages/ROD/Popisi_D?ROD=${encodeURIComponent(CURRENT_PROJECT)} },
-      { name: "Izvori* (E)",          path: /pages/ENTITET/Popisi_E?ROD=${encodeURIComponent(CURRENT_PROJECT)} },
-      
+      { name: "Izvori* (E)",          path: /pages/ENTITET/Popisi_E?ROD=${encodeURIComponent(CURRENT_PROJECT)} },      
       { name: "Kuće (E)",       path: /pages/ENTITET/Kucedomacin_E?ROD=${encodeURIComponent(CURRENT_PROJECT)} },
-
-      
     ]
   },
   ...obiteljiPoMjestuPages,
