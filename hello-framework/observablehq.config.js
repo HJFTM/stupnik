@@ -6,9 +6,9 @@ import { obiteljiPages } from "./observablehq.obitelji.js"; // ➕ Dodaj ovo
 
 let pages;
 
-if (CURRENT_PROJECT === "svi_rodovi") {
+if (CURRENT_PROJECT === "Uvod") {
   pages = uvodPages;
-} else if (CURRENT_PROJECT === "obitelji") {
+} else if (CURRENT_PROJECT === "Obitelji") {
   pages = obiteljiPages;
 } else {
   pages = rodEntitetiIzvoriPages;
