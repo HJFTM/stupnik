@@ -73,16 +73,23 @@ import "../../_observablehq/client.8d1cd726.js";
 </nav>
 </aside>
 <main id="observablehq-main" class="observablehq">
-<div id="observablehq-6d6406ec"></div>
+<div id="observablehq-bolesti_header-eecc8182"></div>
+<div id="observablehq-bolest_plot-eecc8182"></div>
+<div id="observablehq-bolesti_footer-eecc8182"></div>
+<p>Credit: <a href="https://observablehq.com/d/f777e930c0aec7f8@252" target="_blank" rel="noopener noreferrer">Bolesti (K) by FTM</a></p>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-import define from "https://api.observablehq.com/d/f777e930c0aec7f8.js?v=4&api_key=f00e9ae962f96bed434f4b361d3155d62ae57bef";
-new Runtime().module(define, Inspector.into("#observablehq-6d6406ec"));
+import define from "https://api.observablehq.com/d/f777e930c0aec7f8@252.js?v=4";
+new Runtime().module(define, name => {
+  if (name === "bolesti_header") return new Inspector(document.querySelector("#observablehq-bolesti_header-eecc8182"));
+  if (name === "bolest_plot") return new Inspector(document.querySelector("#observablehq-bolest_plot-eecc8182"));
+  if (name === "bolesti_footer") return new Inspector(document.querySelector("#observablehq-bolesti_footer-eecc8182"));
+});
 </script>
 </main>
 <footer id="observablehq-footer">
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-18T19:51:38">Jul 18, 2025</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-18T19:55:03">Jul 18, 2025</a>.</div>
 </footer>
 </div>
 </body>
