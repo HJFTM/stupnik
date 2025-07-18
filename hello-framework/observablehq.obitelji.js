@@ -10,5 +10,11 @@ const mjestaPages = generirajMjestaOdObitelji(data, CURRENT_PROJECT);
 export const obiteljiPages = [
   ...obiteljiBH,
   ...obiteljiST,
-  ...obiteljiDU,  
+  ...obiteljiDU,
+  {
+    name: "Navigacija",
+    pages: [
+      { name: "Navigacija", path: "/pages/KONCEPT/Navigacija" }
+    ]
+  }
 ];
