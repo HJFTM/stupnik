@@ -1,5 +1,4 @@
 <div id="observablehq-200e2b67"></div>
-<p>Credit: <a href="https://observablehq.com/d/fb586fa98300545b">Masovne Migracije (E) by FTM</a></p>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
