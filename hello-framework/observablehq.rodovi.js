@@ -34,5 +34,11 @@ export const rodEntitetiIzvoriPages = [
       { name: "  Pismo / Jezik",    path: `/pages/ROD/Pismo_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
   
     ]
+  },
+      {
+    name: "Navigacija",
+    pages: [
+      { name: "Navigacija", path: "/pages/KONCEPT/Navigacija" }
+    ]
   }
 ];
