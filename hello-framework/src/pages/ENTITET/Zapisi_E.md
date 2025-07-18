@@ -1,5 +1,4 @@
 <div id="observablehq-1a278d71"></div>
-<p>Credit: <a href="https://observablehq.com/d/8d42cbf55cf81616">ZAPIS (E) by FTM</a></p>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
