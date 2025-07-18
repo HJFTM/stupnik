@@ -1,5 +1,4 @@
 <div id="observablehq-394c972c"></div>
-<p>Credit: <a href="https://observablehq.com/d/00ac78dced40db9f">Katastar (D) by FTM</a></p>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
