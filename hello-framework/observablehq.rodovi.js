@@ -16,6 +16,7 @@ export const rodEntitetiIzvoriPages = [
       { name: "  Mjesta",          path: `/pages/ROD/Mjesta_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       //{ name: "Mjesta-zapisi",   path: `/pages/KONCEPT/Mjesta_zapisi_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "  Migracije",       path: `/pages/ROD/Migracije_R?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },      
+      { name: "  Izvori*",         path: `/pages/ROD/Izvori_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
     ]
   },
   {
@@ -27,7 +28,6 @@ export const rodEntitetiIzvoriPages = [
   {
     name: "Izvori",
     pages: [      
-      { name: "  Izvori*",          path: `/pages/ROD/Izvori_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },
       { name: "  Matice",           path: `/pages/ROD/Matice_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` }, 
       { name: "  Katastar",         path: `/pages/ROD/Katastar_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` }, 
       { name: "  Groblje",          path: `/pages/ROD/Groblje_D?ROD=${encodeURIComponent(CURRENT_PROJECT)}` },  
