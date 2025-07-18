@@ -1,5 +1,4 @@
 <div id="observablehq-d397f413"></div>
-<p>Credit: <a href="https://observablehq.com/d/3fc8f447188ee038">GROBLJE (E) by FTM</a></p>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
