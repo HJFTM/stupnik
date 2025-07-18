@@ -57,7 +57,7 @@
 import {define} from "./_observablehq/client.8d1cd726.js";
 import {registerFile} from "./_observablehq/stdlib.24b62b2e.js";
 
-registerFile("./data/launches.csv", {"name":"./data/launches.csv","mimeType":"text/csv","path":"./_file/data/launches.02c21839.csv","lastModified":1752859554519,"size":838983});
+registerFile("./data/launches.csv", {"name":"./data/launches.csv","mimeType":"text/csv","path":"./_file/data/launches.02c21839.csv","lastModified":1752859578950,"size":838983});
 
 define({id: "7a66a2dd", inputs: ["FileAttachment"], outputs: ["launches"], body: (FileAttachment) => {
 const launches = FileAttachment("./data/launches.csv").csv({typed: true});
@@ -189,6 +189,12 @@ resize((width) => vehicleChart(launches, {width}))
     <li class="observablehq-link"><a href="./pages/ROD/Pismo_D?ROD=Stupnik">  Pismo / Jezik</a></li>
     </ol>
   </section>
+  <section>
+    <summary>Navigacija</summary>
+    <ol>
+    <li class="observablehq-link"><a href="./pages/KONCEPT/Navigacija">Navigacija</a></li>
+    </ol>
+  </section>
 </nav>
 <script>{const e=document.querySelector("#observablehq-sidebar"),o=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?o.checked=r==="true":o.indeterminate=!0;for(const t of document.querySelectorAll("#observablehq-sidebar summary")){const s=t.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${t.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
 <div id="observablehq-center">
@@ -234,7 +240,7 @@ resize((width) => vehicleChart(launches, {width}))
 <p>Data: Jonathan C. McDowell, <a href="https://planet4589.org/space/gcat" target="_blank" rel="noopener noreferrer">General Catalog of Artificial Space Objects</a></p>
 </main>
 <footer id="observablehq-footer">
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-18T17:25:41">Jul 18, 2025</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-18T17:26:04">Jul 18, 2025</a>.</div>
 </footer>
 </div>
 </body>
