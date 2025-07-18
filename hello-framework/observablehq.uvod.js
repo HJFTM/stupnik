@@ -3,6 +3,7 @@ export const uvodPages = [
     name: "Uvod",
     pages: [
       { name: "Naslovnica", path: "/pages/0 Uvod/naslovnica" },
+      { name: "Navigacija", path: "/pages/KONCEPT/Navigacija" },      
       { name: "Uvod", path: "/pages/0 Uvod/uvod" },
       { name: "Događaji", path: "/pages/0 Uvod/dogadjaji" }
     ]
@@ -51,6 +52,12 @@ export const uvodPages = [
       { name: "Popisi stanovnika", path: "/pages/KONCEPT/Popis_stanovnika_K" },
       { name: "Katastar (K)", path: "/pages/KONCEPT/Katastar_K" },
       { name: "Pismo", path: "/pages/KONCEPT/Pismo_K" },
+    ]
+  },
+    {
+    name: "Navigacija",
+    pages: [
+      { name: "Navigacija", path: "/pages/KONCEPT/Navigacija" }
     ]
   }
 ];
