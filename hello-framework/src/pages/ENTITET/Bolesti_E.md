@@ -1,5 +1,4 @@
 <div id="observablehq-fe81a032"></div>
-<p>Credit: <a href="https://observablehq.com/d/3782f7950df08aaf">BOLEST (E) by FTM</a></p>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
