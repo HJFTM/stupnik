@@ -1,6 +1,5 @@
 <div id="observablehq-povezane_header-1d28f2cf"></div>
 <div id="observablehq-povezane_plot-1d28f2cf"></div>
-<p>Credit: <a href="https://observablehq.com/d/87534d5fe682f6a0">Povezane Obitelji by FTM</a></p>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
