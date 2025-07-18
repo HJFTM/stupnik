@@ -67,17 +67,23 @@ import "../../_observablehq/client.8d1cd726.js";
 </nav>
 </aside>
 <main id="observablehq-main" class="observablehq">
-<div id="observablehq-82c1c0c3"></div>
-<p>Credit: <a href="https://observablehq.com/d/3aea42249930354f" target="_blank" rel="noopener noreferrer">Obitelj (K) by FTM</a></p>
+<div id="observablehq-obitelji_header-ec9c2790"></div>
+<div id="observablehq-obitelji_plot-ec9c2790"></div>
+<div id="observablehq-obitelji_footer-ec9c2790"></div>
+<p>Credit: <a href="https://observablehq.com/d/3aea42249930354f" target="_blank" rel="noopener noreferrer">Obitelji (K) by FTM</a></p>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
 import define from "https://api.observablehq.com/d/3aea42249930354f.js?v=4";
-new Runtime().module(define, Inspector.into("#observablehq-82c1c0c3"));
+new Runtime().module(define, name => {
+  if (name === "obitelji_header") return new Inspector(document.querySelector("#observablehq-obitelji_header-ec9c2790"));
+  if (name === "obitelji_plot") return new Inspector(document.querySelector("#observablehq-obitelji_plot-ec9c2790"));
+  if (name === "obitelji_footer") return new Inspector(document.querySelector("#observablehq-obitelji_footer-ec9c2790"));
+});
 </script>
 </main>
 <footer id="observablehq-footer">
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-18T13:51:46">Jul 18, 2025</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-18T13:53:56">Jul 18, 2025</a>.</div>
 </footer>
 </div>
 </body>
