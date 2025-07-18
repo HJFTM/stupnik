@@ -1,6 +1,5 @@
 <div id="observablehq-obitelji_header-22bc43ba"></div>
 <div id="observablehq-obitelji_plot-22bc43ba"></div>
-<p>Credit: <a href="https://observablehq.com/d/e61464c9bcf6d8de">Obitelji (R)  Bosna  by FTM</a></p>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
