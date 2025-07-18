@@ -12,9 +12,9 @@ export const obiteljiPages = [
   ...obiteljiST,
   ...obiteljiDU,
   {
-    name: "Navigacija",
+    name: "------",
     pages: [
-      { name: "Navigacija", path: "/pages/KONCEPT/Navigacija" }
+      { name: "Sadržaj", path: "/pages/KONCEPT/Navigacija" }
     ]
   }
 ];
