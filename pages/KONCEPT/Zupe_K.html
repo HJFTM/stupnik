@@ -67,17 +67,23 @@ import "../../_observablehq/client.8d1cd726.js";
 </nav>
 </aside>
 <main id="observablehq-main" class="observablehq">
-<div id="observablehq-3d66f55d"></div>
+<div id="observablehq-zupe_header-baa70286"></div>
+<div id="observablehq-zupe_plot-baa70286"></div>
+<div id="observablehq-zupe_GEO-baa70286"></div>
 <p>Credit: <a href="https://observablehq.com/d/426321f4775c6ab3" target="_blank" rel="noopener noreferrer">Župe (K) by FTM</a></p>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
 import define from "https://api.observablehq.com/d/426321f4775c6ab3.js?v=4";
-new Runtime().module(define, Inspector.into("#observablehq-3d66f55d"));
+new Runtime().module(define, name => {
+  if (name === "zupe_header") return new Inspector(document.querySelector("#observablehq-zupe_header-baa70286"));
+  if (name === "zupe_plot") return new Inspector(document.querySelector("#observablehq-zupe_plot-baa70286"));
+  if (name === "zupe_GEO") return new Inspector(document.querySelector("#observablehq-zupe_GEO-baa70286"));
+});
 </script>
 </main>
 <footer id="observablehq-footer">
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-18T13:31:14">Jul 18, 2025</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-18T13:34:00">Jul 18, 2025</a>.</div>
 </footer>
 </div>
 </body>
