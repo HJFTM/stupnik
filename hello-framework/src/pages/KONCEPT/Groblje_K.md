@@ -1,7 +1,6 @@
 <div id="observablehq-groblja_header-44d0bcf7"></div>
 <div id="observablehq-groblja_plot-44d0bcf7"></div>
 <div id="observablehq-groblja_tekst2-44d0bcf7"></div>
-<p>Credit: <a href="https://observablehq.com/d/623145465ad87736">Groblja (K) by FTM</a></p>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
