@@ -3,7 +3,6 @@ export const uvodPages = [
     name: "Uvod",
     pages: [
       { name: "Naslovnica", path: "/pages/0 Uvod/naslovnica" },
-      { name: "Navigacija", path: "/pages/KONCEPT/Navigacija" },      
       { name: "Uvod", path: "/pages/0 Uvod/uvod" },
       { name: "Događaji", path: "/pages/0 Uvod/dogadjaji" }
     ]
