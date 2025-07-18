@@ -67,17 +67,23 @@ import "../../_observablehq/client.8d1cd726.js";
 </nav>
 </aside>
 <main id="observablehq-main" class="observablehq">
-<div id="observablehq-3da36af4"></div>
-<p>Credit: <a href="https://observablehq.com/d/b313e21d5ed7eb88" target="_blank" rel="noopener noreferrer">Sela (Mjesta) (K) by FTM</a></p>
+<div id="observablehq-mjesta_header-d06179e2"></div>
+<div id="observablehq-mjesta_geo-d06179e2"></div>
+<div id="observablehq-mjesta_footer-d06179e2"></div>
+<p>Credit: <a href="https://observablehq.com/d/b313e21d5ed7eb88" target="_blank" rel="noopener noreferrer">Mjesta (K) by FTM</a></p>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
 import define from "https://api.observablehq.com/d/b313e21d5ed7eb88.js?v=4";
-new Runtime().module(define, Inspector.into("#observablehq-3da36af4"));
+new Runtime().module(define, name => {
+  if (name === "mjesta_header") return new Inspector(document.querySelector("#observablehq-mjesta_header-d06179e2"));
+  if (name === "mjesta_geo") return new Inspector(document.querySelector("#observablehq-mjesta_geo-d06179e2"));
+  if (name === "mjesta_footer") return new Inspector(document.querySelector("#observablehq-mjesta_footer-d06179e2"));
+});
 </script>
 </main>
 <footer id="observablehq-footer">
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-18T13:34:00">Jul 18, 2025</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-18T13:35:56">Jul 18, 2025</a>.</div>
 </footer>
 </div>
 </body>
