@@ -1,5 +1,4 @@
 <div id="observablehq-8410d0d0"></div>
-<p>Credit: <a href="https://observablehq.com/d/332bec005dcd94b3">Slična prezimena by FTM</a></p>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
