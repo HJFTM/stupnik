@@ -36,9 +36,9 @@ export const rodEntitetiIzvoriPages = [
     ]
   },
       {
-    name: "Navigacija",
+    name: "Sadržaj",
     pages: [
-      { name: "Kraj", path: "/pages/KONCEPT/Navigacija" }
+      { name: "Sadržaj", path: "/pages/KONCEPT/Navigacija" }
     ]
   }
 ];
