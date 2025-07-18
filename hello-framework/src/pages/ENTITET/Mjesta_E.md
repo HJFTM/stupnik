@@ -3,7 +3,6 @@
 <div id="observablehq-obitelji_plot-8fdb0c8c"></div>
 <div id="observablehq-viewof-table-8fdb0c8c"></div>
 <div id="observablehq-zupe_plot-8fdb0c8c"></div>
-<p>Credit: <a href="https://observablehq.com/d/7e80c377ee6aaeaf">Mjesto (E) by FTM</a></p>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
