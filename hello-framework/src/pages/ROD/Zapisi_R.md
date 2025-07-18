@@ -1,5 +1,4 @@
 <div id="observablehq-5fa12906"></div>
-<p>Credit: <a href="https://observablehq.com/d/87f319bb88634d47">Zapisi - Događaji (R) by FTM</a></p>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
