@@ -73,17 +73,21 @@ import "../../_observablehq/client.8d1cd726.js";
 </nav>
 </aside>
 <main id="observablehq-main" class="observablehq">
-<div id="observablehq-78edc4cd"></div>
+<div id="observablehq-jezik_pismo_header-df03caef"></div>
+<div id="observablehq-jezik_pirmo_plot-df03caef"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
 import define from "https://api.observablehq.com/d/233b533788f65a58.js?v=4";
-new Runtime().module(define, Inspector.into("#observablehq-78edc4cd"));
+new Runtime().module(define, name => {
+  if (name === "jezik_pismo_header") return new Inspector(document.querySelector("#observablehq-jezik_pismo_header-df03caef"));
+  if (name === "jezik_pirmo_plot") return new Inspector(document.querySelector("#observablehq-jezik_pirmo_plot-df03caef"));
+});
 </script>
 </main>
 <footer id="observablehq-footer">
 <nav><a rel="prev" href="./Groblje_D?ROD=Stupnik"><span>  Groblje</span></a><a rel="next" href="../KONCEPT/Navigacija"><span>Sadržaj</span></a></nav>
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-18T20:13:20">Jul 18, 2025</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-18T20:19:59">Jul 18, 2025</a>.</div>
 </footer>
 </div>
 </body>
