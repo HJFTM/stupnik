@@ -67,17 +67,21 @@ import "../../_observablehq/client.8d1cd726.js";
 </nav>
 </aside>
 <main id="observablehq-main" class="observablehq">
-<div id="observablehq-1c71b6dc"></div>
+<div id="observablehq-dogadjaji_header-0167287f"></div>
+<div id="observablehq-dogadjaji_plot-0167287f"></div>
 <p>Credit: <a href="https://observablehq.com/d/53574256bf5221eb" target="_blank" rel="noopener noreferrer">Događaji by FTM</a></p>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
 import define from "https://api.observablehq.com/d/53574256bf5221eb.js?v=4";
-new Runtime().module(define, Inspector.into("#observablehq-1c71b6dc"));
+new Runtime().module(define, name => {
+  if (name === "dogadjaji_header") return new Inspector(document.querySelector("#observablehq-dogadjaji_header-0167287f"));
+  if (name === "dogadjaji_plot") return new Inspector(document.querySelector("#observablehq-dogadjaji_plot-0167287f"));
+});
 </script>
 </main>
 <footer id="observablehq-footer">
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-18T13:28:25">Jul 18, 2025</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-18T13:31:14">Jul 18, 2025</a>.</div>
 </footer>
 </div>
 </body>
