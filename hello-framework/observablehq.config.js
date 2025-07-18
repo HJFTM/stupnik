@@ -17,6 +17,12 @@ if (CURRENT_PROJECT === "Uvod") {
 export default {
   // layout: "./src/layout.js",
   title: `${CURRENT_PROJECT}`,
+  {
+    name: "Navigacija",
+    pages: [
+      { name: "Navigacija", path: "/pages/KONCEPT/Navigacija" }
+    ]
+  },
   pages,
   dynamicPaths: () => {
     return data
