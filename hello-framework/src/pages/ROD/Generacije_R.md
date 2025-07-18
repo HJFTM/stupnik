@@ -1,7 +1,6 @@
 <div id="observablehq-generacija_header-91586f1c"></div>
 <div id="observablehq-generacija_plot-91586f1c"></div>
 <div id="observablehq-generacije_table1-91586f1c"></div>
-<p>Credit: <a href="https://observablehq.com/d/410aa8aa83984092">Generacije (R) by FTM</a></p>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
