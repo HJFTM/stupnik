@@ -1,5 +1,4 @@
 <div id="observablehq-42a24255"></div>
-<p>Credit: <a href="https://observablehq.com/d/f849a901f8f49e21">IZVOR / MATICA (E) by FTM</a></p>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
