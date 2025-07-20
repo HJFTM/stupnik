@@ -73,16 +73,22 @@ import "../../_observablehq/client.8d1cd726.js";
 </nav>
 </aside>
 <main id="observablehq-main" class="observablehq">
-<div id="observablehq-f4cb2a2e"></div>
+<div id="observablehq-prezime_zapis_header-38a8215c"></div>
+<div id="observablehq-prezime_zapis_plot-38a8215c"></div>
+<div id="observablehq-prezime_zapis_text-38a8215c"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
 import define from "https://api.observablehq.com/d/7b83ddecd6457679.js?v=4";
-new Runtime().module(define, Inspector.into("#observablehq-f4cb2a2e"));
+new Runtime().module(define, name => {
+  if (name === "prezime_zapis_header") return new Inspector(document.querySelector("#observablehq-prezime_zapis_header-38a8215c"));
+  if (name === "prezime_zapis_plot") return new Inspector(document.querySelector("#observablehq-prezime_zapis_plot-38a8215c"));
+  if (name === "prezime_zapis_text") return new Inspector(document.querySelector("#observablehq-prezime_zapis_text-38a8215c"));
+});
 </script>
 </main>
 <footer id="observablehq-footer">
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-20T15:23:46">Jul 20, 2025</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-20T16:30:06">Jul 20, 2025</a>.</div>
 </footer>
 </div>
 </body>
