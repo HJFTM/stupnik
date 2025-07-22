@@ -8,12 +8,12 @@ export const uvodPages = [
     ]
   },
   {
-    name: "Istaživanjr",
+    name: "Istaživanje",
     pages: [
-      { name: "Cilj i metodologija", path: "/pages/0 Uvod/naslovnica" },
-      { name: "Obitelj i Rod", path: "/pages/0 Uvod/uvod" },
-      { name: "Izvori i Evidencija", path: "/pages/0 Uvod/dogadjaji" },
-      { name: "Ogranicenja i pristup", path: "/pages/0 Uvod/dogadjaji" },      
+      { name: "Cilj i metodologija",   path: "/pages/0 Uvod/1_Cilj" },
+      { name: "Obitelj i Rod",         path: "/pages/0 Uvod/2_Obitelj_Rod" },
+      { name: "Izvori i Evidencija",   path: "/pages/0 Uvod/3_Izvori" },
+      { name: "Ogranicenja i pristup", path: "/pages/0 Uvod/4_Ogranicenja" },      
     ]
   },
   {
