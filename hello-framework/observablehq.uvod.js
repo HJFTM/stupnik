@@ -8,6 +8,15 @@ export const uvodPages = [
     ]
   },
   {
+    name: "Istaživanjr",
+    pages: [
+      { name: "Cilj i metodologija", path: "/pages/0 Uvod/naslovnica" },
+      { name: "Obitelj i Rod", path: "/pages/0 Uvod/uvod" },
+      { name: "Izvori i Evidencija", path: "/pages/0 Uvod/dogadjaji" },
+      { name: "Ogranicenja i pristup", path: "/pages/0 Uvod/dogadjaji" },      
+    ]
+  },
+  {
     name: "Prezime",
     pages: [
       { name: "Prezime Jular-ić", path: "/pages/1_Jularic/01.1.prezime_ilaric" },
