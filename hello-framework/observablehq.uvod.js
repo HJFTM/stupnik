@@ -13,7 +13,7 @@ export const uvodPages = [
       { name: "Cilj i metodologija",   path: "/pages/0 Uvod/1_Cilj" },
       { name: "Obitelj i Rod",         path: "/pages/0 Uvod/2_Obitelj_Rod" },
       { name: "Izvori i Evidencija",   path: "/pages/0 Uvod/3_Izvori" },
-      { name: "Ogranicenja i pristup", path: "/pages/0 Uvod/4_Ogranicenja" },      
+      { name: "Ograničenja i pristup", path: "/pages/0 Uvod/4_Ogranicenja" },      
     ]
   },
   {
