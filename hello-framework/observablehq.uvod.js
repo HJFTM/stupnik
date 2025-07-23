@@ -54,11 +54,12 @@ export const uvodPages = [
   {
     name: "Izvori",
     pages: [
-      { name: "Izvori", path: "/pages/KONCEPT/Izvori_K" },
-      { name: "Crkveni", path: "/pages/KONCEPT/Izvori_Crkveni" },
-      { name: "Državni", path: "/pages/KONCEPT/Izvori_Drzavni" },      
-      { name: "Gradski", path: "/pages/KONCEPT/Izvori_Gradski" },  
-
+      { name: "Izvori",    path: "/pages/KONCEPT/Izvori_K" },
+      { name: "Crkveni",   path: "/pages/KONCEPT/Izvori_Crkveni" },
+      { name: "Državni",   path: "/pages/KONCEPT/Izvori_Drzavni" },      
+      { name: "Gradski",   path: "/pages/KONCEPT/Izvori_Gradski" },  
+      { name: "Radovi",    path: "/pages/KONCEPT/Izvori_Radovi" },
+      { name: "Groblja",   path: "/pages/KONCEPT/Izvori_Groblja" },  
        ]
   },
   {
