@@ -63,7 +63,7 @@ export const uvodPages = [
        ]
   },
   {
-    name: "Zapisi",
+    name: "Događaji - Zapisi",
     pages: [   
       { name: "Matice",           path: "/pages/KONCEPT/Izvori_zapisi_K" },
       { name: "Kućedomaćini",     path: "/pages/KONCEPT/Kucedomacin_K" },
