@@ -67,8 +67,8 @@ export const uvodPages = [
     pages: [   
       { name: "Matice",           path: "/pages/KONCEPT/Izvori_zapisi_K" },
       { name: "Kućedomaćini",     path: "/pages/KONCEPT/Kucedomacin_K" },
-      { name: "Stanovnici",       path: "/pages/KONCEPT/Popis_stanovnika_K" },
       { name: "Katastar",         path: "/pages/KONCEPT/Katastar_K" },
+      { name: "Stanovnici",       path: "/pages/KONCEPT/Popis_stanovnika_K" },
       { name: "Pismo",            path: "/pages/KONCEPT/Pismo_K" },
     ]
   },
