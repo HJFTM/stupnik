@@ -76,6 +76,8 @@ export const uvodPages = [
     {
     name: "---------",
     pages: [
+      { name: "Alati",   path: "/pages/alati" },
+      { name: "Autor",   path: "/pages/autor" },
       { name: "Sadržaj", path: "/pages/KONCEPT/Navigacija" }
     ]
   }
