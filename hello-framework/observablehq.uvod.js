@@ -4,7 +4,7 @@ export const uvodPages = [
     pages: [
       { name: "Naslovnica",   path: "/pages/0 Uvod/naslovnica" },
       { name: "Uvod",         path: "/pages/0 Uvod/uvod" },
-      { name: "Događaji",     path: "/pages/0 Uvod/dogadjaji" }
+      { name: "Događaji",     path: "/pages/0 Uvod/dogadjaji" },
       { name: "Rodovi",       path: "/pages/0 Uvod/rodovi" }
     ]
   },
