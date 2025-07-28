@@ -74,16 +74,18 @@ import "../../_observablehq/client.8d1cd726.js";
 </nav>
 </aside>
 <main id="observablehq-main" class="observablehq">
-<div id="observablehq-401c1a38"></div>
+<div id="observablehq-image-85720b62"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
 import define from "https://api.observablehq.com/d/03a9d649093847ef.js?v=4";
-new Runtime().module(define, Inspector.into("#observablehq-401c1a38"));
+new Runtime().module(define, name => {
+  if (name === "image") return new Inspector(document.querySelector("#observablehq-image-85720b62"));
+});
 </script>
 </main>
 <footer id="observablehq-footer">
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-28T05:27:51">Jul 28, 2025</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-07-28T08:58:27">Jul 28, 2025</a>.</div>
 </footer>
 </div>
 </body>
