@@ -2,19 +2,19 @@ export const uvodPages = [
   {
     name: "Predgovor",
     pages: [
-      { name: "Naslovnica",   path: "/pages/0 Uvod/naslovnica" },
-      { name: "Tragovi kroz vrijeme", path: "/pages/0 Uvod/uvod" },
-      { name: "Događaji",     path: "/pages/0 Uvod/dogadjaji" },
-      { name: "Rodovi",       path: "/pages/0 Uvod/rodovi" }
+      { name: "Naslovnica",   path: "/pages/0 Uvod/1_Naslovnica" },
+      { name: "Mapa",         path: "/pages/0 Uvod/2_Geomapa" },
+      { name: "Događaji",     path: "/pages/0 Uvod/3_Jularic" },
+      { name: "Mapa",         path: "/pages/0 Uvod/4_Ilaric" },
+      { name: "Događaji",     path: "/pages/0 Uvod/5_Rodovi_obitelji" },   
+      { name: "Rodovi",       path: "/pages/0 Uvod/6_Dogadjaji" }
     ]
   },
   {
     name: "Istaživanje",
     pages: [
-      { name: "Cilj i metodologija",   path: "/pages/0 Uvod/1_Cilj" },
-      { name: "Obitelj i Rod",         path: "/pages/0 Uvod/2_Obitelj_Rod" },
-      { name: "Izvori i Evidencija",   path: "/pages/0 Uvod/3_Izvori" },
-      { name: "Ograničenja i pristup", path: "/pages/0 Uvod/4_Ogranicenja" },      
+      { name: "Cilj i metodologija",   path: "/pages/0 Uvod/7_Cilj" },
+  
     ]
   },
   {
