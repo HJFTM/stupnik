@@ -4,10 +4,10 @@ export const uvodPages = [
     pages: [
       { name: "Naslovnica",   path: "/pages/0 Uvod/1_Naslovnica" },
       { name: "Mapa",         path: "/pages/0 Uvod/2_Geomapa" },
-      { name: "Događaji",     path: "/pages/0 Uvod/3_Jularic" },
-      { name: "Mapa",         path: "/pages/0 Uvod/4_Ilaric" },
-      { name: "Događaji",     path: "/pages/0 Uvod/5_Rodovi_obitelji" },   
-      { name: "Rodovi",       path: "/pages/0 Uvod/6_Dogadjaji" }
+      { name: "Jularić",      path: "/pages/0 Uvod/3_Jularic" },
+      { name: "Ilarić",       path: "/pages/0 Uvod/4_Ilaric" },
+      { name: "Rodovi",       path: "/pages/0 Uvod/5_Rodovi_obitelji" },   
+      { name: "Događaji",     path: "/pages/0 Uvod/6_Dogadjaji" }
     ]
   },
   {
