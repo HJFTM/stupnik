@@ -1,25 +1,25 @@
+import puppeteer from 'puppeteer';
+import fs from 'fs';
+import path from 'path';
+import fetch from 'node-fetch';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
-const puppeteer = require('puppeteer');
-const fs = require('fs');
+// Omogućuje __dirname i __filename u ES modu
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-const path = require('path');
-const fetch = require('node-fetch'); // Ensure you have node-fetch installed
-
-const baseURL = "https://hjftm.github.io/uvod"; // Replace with your base URL
-
-// URL of the RAW file
+const baseURL = "https://hjftm.github.io/uvod";
 const rawURL = "https://raw.githubusercontent.com/hjftm/uvod/main/hello-framework/observablehq.uvod.js";
-
 
 const urls = [
   'https://hjftm.github.io/uvod/pages/0%20Uvod/1_Naslovnica',
   'https://hjftm.github.io/uvod/',
-  'https://hjftm.github.io/uvod/pages/0%20Uvod/2_Geomapa', 
+  'https://hjftm.github.io/uvod/pages/0%20Uvod/2_Geomapa',
   'https://hjftm.github.io/uvod/pages/0%20Uvod/3_Jularic',
   'https://hjftm.github.io/uvod/pages/0%20Uvod/4_Ilaric',
   'https://hjftm.github.io/uvod/pages/0%20Uvod/5_Rodovi_obitelji',
   'https://hjftm.github.io/uvod/pages/0%20Uvod/6_Dogadjaji',
-  
   'https://hjftm.github.io/uvod/pages/1_Jularic/01.1.prezime_ilaric',
   'https://hjftm.github.io/uvod/pages/1_Jularic/01.2.evolucija',
   'https://hjftm.github.io/uvod/pages/1_Prezime/prezime_slicno',
@@ -74,15 +74,18 @@ const urls = [
 
   html += '</body></html>';
 
-  if (!fs.existsSync('public')) fs.mkdirSync('public');
-  const path = 'public/uvod.html';
-  fs.writeFileSync(path, html);
+  const outputDir = path.join(__dirname, '..', 'public');
+  const htmlPath = path.join(outputDir, 'uvod.html');
+  const pdfPath = path.join(outputDir, 'uvod.pdf');
+
+  if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir);
+  fs.writeFileSync(htmlPath, html);
 
   const now = new Date().toLocaleString('hr-HR');
 
-  await page.goto(`file://${process.cwd()}/${path}`, { waitUntil: 'networkidle0' });
+  await page.goto(`file://${htmlPath}`, { waitUntil: 'networkidle0' });
   await page.pdf({
-    path: 'public/uvod.pdf',
+    path: pdfPath,
     format: 'A4',
     printBackground: true,
     displayHeaderFooter: true,
@@ -105,5 +108,5 @@ const urls = [
   });
 
   await browser.close();
-  console.log("📄 PDF generiran: public/uvod.pdf");
+  console.log("📄 PDF generiran:", pdfPath);
 })();
