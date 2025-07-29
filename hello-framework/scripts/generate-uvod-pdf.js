@@ -1,16 +1,18 @@
 import puppeteer from 'puppeteer';
 import fs from 'fs';
 import path from 'path';
-import fetch from 'node-fetch';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
-// Omogućuje __dirname i __filename u ES modu
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const baseURL = "https://hjftm.github.io/uvod";
-const rawURL = "https://raw.githubusercontent.com/hjftm/uvod/main/hello-framework/observablehq.uvod.js";
+// Output folder: gh-pages/ ako je definirano, inače fallback na public/
+const outputDir = process.env.OUTPUT_DIR
+  ? path.resolve(__dirname, '..', '..', process.env.OUTPUT_DIR)
+  : path.join(__dirname, '..', 'public');
+
+const pdfPath = path.join(outputDir, 'uvod.pdf');
 
 const urls = [
   'https://hjftm.github.io/uvod/pages/0%20Uvod/1_Naslovnica',
@@ -58,6 +60,7 @@ const urls = [
   });
 
   const page = await browser.newPage();
+
   let html = '<html><head><style>body { font-family: sans-serif; }</style></head><body>';
 
   for (const url of urls) {
@@ -67,23 +70,23 @@ const urls = [
       html += `<div style="page-break-after: always;">${main}</div>`;
       console.log(`✔ Dodano: ${url}`);
     } catch (e) {
-      console.error(`❌ Greška pri dohvaćanju ${url}: ${e.message}`);
+      console.error(`❌ Greška pri ${url}: ${e.message}`);
       html += `<div style="page-break-after: always;"><p>⚠️ Neuspješno dohvaćeno: ${url}</p></div>`;
     }
   }
 
   html += '</body></html>';
 
-  const outputDir = path.join(__dirname, '..', 'public');
-  const htmlPath = path.join(outputDir, 'uvod.html');
-  const pdfPath = path.join(outputDir, 'uvod.pdf');
+  // Osiguraj da output folder postoji
+  if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
-  if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir);
-  fs.writeFileSync(htmlPath, html);
+  const now = new Date().toLocaleString('hr-HR', {
+    timeZone: 'Europe/Zagreb',
+    hour12: false
+  });
 
-  const now = new Date().toLocaleString('hr-HR');
+  await page.setContent(html, { waitUntil: 'networkidle0' });
 
-  await page.goto(`file://${htmlPath}`, { waitUntil: 'networkidle0' });
   await page.pdf({
     path: pdfPath,
     format: 'A4',
@@ -108,5 +111,5 @@ const urls = [
   });
 
   await browser.close();
-  console.log("📄 PDF generiran:", pdfPath);
+  console.log(`📄 PDF generiran: ${pdfPath}`);
 })();
