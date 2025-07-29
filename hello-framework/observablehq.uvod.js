@@ -11,13 +11,6 @@ export const uvodPages = [
     ]
   },
   {
-    name: "Istaživanje",
-    pages: [
-      { name: "Cilj i metodologija",   path: "/pages/0 Uvod/7_Cilj" },
-  
-    ]
-  },
-  {
     name: "Prezime",
     pages: [
       { name: "Prezime Jular-ić", path: "/pages/1_Jularic/01.1.prezime_ilaric" },
@@ -72,14 +65,6 @@ export const uvodPages = [
       { name: "Kućedomaćini",     path: "/pages/KONCEPT/Kucedomacin_K" },
       { name: "Katastar",         path: "/pages/KONCEPT/Katastar_K" },
       { name: "Stanovnici",       path: "/pages/KONCEPT/Popis_stanovnika_K" },
-    ]
-  },
-    {
-    name: "---------",
-    pages: [
-      { name: "Alati",   path: "/pages/alati" },
-      { name: "Autor",   path: "/pages/autor" },
-      { name: "Sadržaj", path: "/pages/KONCEPT/Navigacija" }
     ]
   }
 ];
