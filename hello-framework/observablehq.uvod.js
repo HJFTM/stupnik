@@ -10,8 +10,8 @@ export const uvodPages = [
     name: "Prezime",
     pages: [
       { name: "Prezime Jular-ić", path: "/pages/1_Jularic/01.1.prezime_ilaric" },
-      { name: "Evolucija zapisa", path: "/pages/1_Jularic/01.2.evolucija" },
-      { name: "Prezime Jularić",  path: "/pages/0 Uvod/3_Jularic" },
+      { name: "Jularić - Ilarić", path: "/pages/1_Jularic/01.2.evolucija" },
+      { name: "Ilarić",           path: "/pages/0 Uvod/3_Jularic" },
       { name: "Rodovi Ilarić",    path: "/pages/0 Uvod/4_Ilaric" },      
       { name: "Slična prezimena", path: "/pages/1_Prezime/prezime_slicno" },
     ]
