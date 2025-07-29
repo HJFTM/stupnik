@@ -87,7 +87,7 @@ const urls = [...flattenPages, ...extraPages];
     margin: {
       top: '20mm',
       right: '20mm',
-      bottom: '2ßmm',
+      bottom: '20mm',
       left: '20mm'
     }
   });
