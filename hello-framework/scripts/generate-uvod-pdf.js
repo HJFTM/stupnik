@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import { uvodPages } from '../observablehq.uvod.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -14,44 +15,22 @@ const outputDir = process.env.OUTPUT_DIR
 
 const pdfPath = path.join(outputDir, 'uvod.pdf');
 
-const urls = [
-  'https://hjftm.github.io/uvod/pages/0%20Uvod/1_Naslovnica',
-  'https://hjftm.github.io/uvod/',
-  'https://hjftm.github.io/uvod/pages/0%20Uvod/2_Geomapa',
-  'https://hjftm.github.io/uvod/pages/0%20Uvod/3_Jularic',
-  'https://hjftm.github.io/uvod/pages/0%20Uvod/4_Ilaric',
-  'https://hjftm.github.io/uvod/pages/0%20Uvod/5_Rodovi_obitelji',
-  'https://hjftm.github.io/uvod/pages/0%20Uvod/6_Dogadjaji',
-  'https://hjftm.github.io/uvod/pages/1_Jularic/01.1.prezime_ilaric',
-  'https://hjftm.github.io/uvod/pages/1_Jularic/01.2.evolucija',
-  'https://hjftm.github.io/uvod/pages/1_Prezime/prezime_slicno',
-  'https://hjftm.github.io/uvod/pages/KONCEPT/Drzava_K',
-  'https://hjftm.github.io/uvod/pages/KONCEPT/Zupe_K',
-  'https://hjftm.github.io/uvod/pages/KONCEPT/Mjesta_K',
-  'https://hjftm.github.io/uvod/pages/KONCEPT/Generacije_K',
-  'https://hjftm.github.io/uvod/pages/KONCEPT/Obitelji_K',
-  'https://hjftm.github.io/uvod/pages/KONCEPT/Brakovi_K',
-  'https://hjftm.github.io/uvod/pages/KONCEPT/Obitelji_povezane_K',
-  'https://hjftm.github.io/uvod/pages/KONCEPT/Zapisi_K',
-  'https://hjftm.github.io/uvod/pages/KONCEPT/Bolesti_K',
-  'https://hjftm.github.io/uvod/pages/KONCEPT/Groblje_K',
-  'https://hjftm.github.io/uvod/pages/KONCEPT/Migracije_K',
-  'https://hjftm.github.io/uvod/pages/KONCEPT/Migracije_masovne_K',
-  'https://hjftm.github.io/uvod/pages/KONCEPT/Izvori_K',
-  'https://hjftm.github.io/uvod/pages/KONCEPT/Izvori_Crkveni',
-  'https://hjftm.github.io/uvod/pages/KONCEPT/Izvori_Drzavni',
-  'https://hjftm.github.io/uvod/pages/KONCEPT/Izvori_Gradski',
-  'https://hjftm.github.io/uvod/pages/KONCEPT/Izvori_Radovi',
-  'https://hjftm.github.io/uvod/pages/KONCEPT/Izvori_Groblja',
-  'https://hjftm.github.io/uvod/pages/KONCEPT/Pismo_K',
-  'https://hjftm.github.io/uvod/pages/KONCEPT/Izvori_zapisi_K',
-  'https://hjftm.github.io/uvod/pages/KONCEPT/Kucedomacin_K',
-  'https://hjftm.github.io/uvod/pages/KONCEPT/Katastar_K',
-  'https://hjftm.github.io/uvod/pages/KONCEPT/Popis_stanovnika_K',
-  'https://hjftm.github.io/uvod/pages/alati',
-  'https://hjftm.github.io/uvod/pages/autor',
-  'https://hjftm.github.io/uvod/pages/KONCEPT/Navigacija'
-];
+const BASE_URL = 'https://hjftm.github.io/uvod';
+
+// Pretvori uvodPages u flat listu URL-ova
+const flattenPages = uvodPages.flatMap(group =>
+  group.pages.map(page => `${BASE_URL}${page.path}`)
+);
+
+// Dodatne stranice koje nisu u uvodPages
+const extraPages = [
+  '/pages/alati',
+  '/pages/autor',
+  '/pages/KONCEPT/Navigacija'
+].map(path => `${BASE_URL}${path}`);
+
+// Konačna lista URL-ova
+const urls = [...flattenPages, ...extraPages];
 
 (async () => {
   const browser = await puppeteer.launch({
