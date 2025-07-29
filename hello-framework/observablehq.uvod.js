@@ -4,8 +4,6 @@ export const uvodPages = [
     pages: [
       { name: "Naslovnica",   path: "/pages/0 Uvod/1_Naslovnica" },
       { name: "Mapa",         path: "/pages/0 Uvod/2_Geomapa" },
-      { name: "Prezime Jularić",      path: "/pages/0 Uvod/3_Jularic" },
-      { name: "Rodovi Ilarić",       path: "/pages/0 Uvod/4_Ilaric" },
     ]
   },
   {
@@ -13,6 +11,8 @@ export const uvodPages = [
     pages: [
       { name: "Prezime Jular-ić", path: "/pages/1_Jularic/01.1.prezime_ilaric" },
       { name: "Evolucija zapisa", path: "/pages/1_Jularic/01.2.evolucija" },
+      { name: "Prezime Jularić",  path: "/pages/0 Uvod/3_Jularic" },
+      { name: "Rodovi Ilarić",    path: "/pages/0 Uvod/4_Ilaric" },      
       { name: "Slična prezimena", path: "/pages/1_Prezime/prezime_slicno" },
     ]
   },
