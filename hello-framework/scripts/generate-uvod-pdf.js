@@ -15,6 +15,9 @@ const outputDir = process.env.OUTPUT_DIR
 
 const pdfPath = path.join(outputDir, 'uvod.pdf');
 
+// Kreiraj folder ako ne postoji
+if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
+
 const BASE_URL = 'https://hjftm.github.io/uvod';
 
 // Pretvori uvodPages u flat listu URL-ova
