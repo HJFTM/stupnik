@@ -85,10 +85,10 @@ const urls = [...flattenPages, ...extraPages];
       </div>
     `,
     margin: {
-      top: '40mm',
+      top: '20mm',
       right: '20mm',
-      bottom: '25mm',
-      left: '25mm'
+      bottom: '2ßmm',
+      left: '20mm'
     }
   });
 
