@@ -6,7 +6,6 @@ export const uvodPages = [
       { name: "Mapa",         path: "/pages/0 Uvod/2_Geomapa" },
       { name: "Prezime Jularić",      path: "/pages/0 Uvod/3_Jularic" },
       { name: "Rodovi Ilarić",       path: "/pages/0 Uvod/4_Ilaric" },
-      { name: "Obitelji",     path: "/pages/0 Uvod/5_Rodovi_obitelji" },   
       { name: "Događaji",     path: "/pages/0 Uvod/6_Dogadjaji" }
     ]
   },
