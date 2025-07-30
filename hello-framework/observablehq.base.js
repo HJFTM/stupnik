@@ -1,16 +1,29 @@
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
 
+// Riješi apsolutni direktorij ovog modula
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+// Trenutni projekt iz ENV-a
 export const CURRENT_PROJECT = process.env.CURRENT_PROJECT || "NOT_FOUND";
 
-const filePath = path.resolve("src/data/obitelji.json");
-const jsonString = fs.readFileSync(filePath, "utf-8");
-export const data = JSON.parse(jsonString);
+// Ispravno lociraj JSON unutar hello-framework/src/data/
+const dataPath = path.resolve(__dirname, "src/data/obitelji.json");
 
-export function generirajObiteljiPoMjestu(data, rod) {
-  if (rod == null) rod = "Bosna";
+let data = [];
+if (fs.existsSync(dataPath)) {
+  const jsonString = fs.readFileSync(dataPath, "utf-8");
+  data = JSON.parse(jsonString);
+} else {
+  console.warn(`⚠️ Datoteka nije pronađena: ${dataPath}`);
+}
 
-  // Sakupi samo mjesta iz atributa MJESTO
+export { data };
+
+export function generirajObiteljiPoMjestu(data, rod = "Bosna") {
   const mjestaSet = new Set();
 
   for (const o of data) {
@@ -19,8 +32,6 @@ export function generirajObiteljiPoMjestu(data, rod) {
   }
 
   const mjesta = Array.from(mjestaSet);
-
-  // Za svako mjesto, obitelji koje su tu živjele ili migrirale u to mjesto
   const mapaMjesta = {};
 
   for (const mjesto of mjesta) {
@@ -45,52 +56,39 @@ export function generirajObiteljiPoMjestu(data, rod) {
   }));
 }
 
-export function generirajMjestaOdObitelji(obitelji, rod) {
-    if (rod == null) rod = "Bosna";
+export function generirajMjestaOdObitelji(obitelji, rod = "Bosna") {
+  const mjestaMap = new Map();
+  const obitelj_m = obitelji.filter(o => o.TIP === "M" && o.ROD === rod && o.OBITELJ);
 
-    const mjestaMap = new Map();
-    const obitelj_m = obitelji.filter(o => o.TIP === "M" && o.ROD === rod && o.OBITELJ);
+  const mjestaSet = new Set();
+  for (const o of obitelj_m) {
+    if (o.MJESTO) mjestaSet.add(o.MJESTO.trim());
+  }
 
-    // Prvo sakupi sva mjesta iz MJESTO
-    const mjestaSet = new Set();
+  for (const mjesto of mjestaSet) {
+    let najstarijaGodina = null;
+
     for (const o of obitelj_m) {
-        if (o.MJESTO) {
-            mjestaSet.add(o.MJESTO.trim());
-        }
+      const godina = parseInt(o.GODINA);
+      if (!isFinite(godina)) continue;
+
+      const migracije = (o.MIGRACIJA || "").split(/[,;]/).map(s => s.trim());
+      const mjestoMatch = (o.MJESTO && o.MJESTO.trim() === mjesto) || migracije.includes(mjesto);
+
+      if (mjestoMatch && (najstarijaGodina == null || godina < najstarijaGodina)) {
+        najstarijaGodina = godina;
+      }
     }
 
-    // Za svako mjesto, pronađi najstariju GODINU (iz MJESTO ili MIGRACIJA)
-    for (const mjesto of mjestaSet) {
-        let najstarijaGodina = null;
-
-        for (const o of obitelj_m) {
-            const godina = parseInt(o.GODINA);
-            if (!isFinite(godina)) continue;
-
-            const migracije = (o.MIGRACIJA || "").split(/[,;]/).map(s => s.trim());
-
-            const mjestoMatch =
-                (o.MJESTO && o.MJESTO.trim() === mjesto) ||
-                migracije.includes(mjesto);
-
-            if (mjestoMatch) {
-                if (najstarijaGodina == null || godina < najstarijaGodina) {
-                    najstarijaGodina = godina;
-                }
-            }
-        }
-
-        if (najstarijaGodina != null) {
-            mjestaMap.set(mjesto, najstarijaGodina);
-        }
+    if (najstarijaGodina != null) {
+      mjestaMap.set(mjesto, najstarijaGodina);
     }
+  }
 
-    // Vrati sortirano po godini
-    return Array.from(mjestaMap.entries())
-        .sort((a, b) => a[1] - b[1])
-        .map(([mjesto, godina]) => ({
-            name: `${godina}. ${mjesto}`,
-            path: `/pages/ENTITET/mjesto/${encodeURIComponent(mjesto)}`
-        }));
+  return Array.from(mjestaMap.entries())
+    .sort((a, b) => a[1] - b[1])
+    .map(([mjesto, godina]) => ({
+      name: `${godina}. ${mjesto}`,
+      path: `/pages/ENTITET/mjesto/${encodeURIComponent(mjesto)}`
+    }));
 }
-
