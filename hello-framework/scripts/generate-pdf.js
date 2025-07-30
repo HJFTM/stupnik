@@ -58,17 +58,26 @@ const urls = [...flattenPages, ...extraPages];
 
   let html = '<html><head><style>body { font-family: sans-serif; }</style></head><body>';
 
-  for (const url of urls) {
-    try {
-      await page.goto(url, { waitUntil: 'networkidle0' });
-      const main = await page.$eval('main', el => el.innerHTML);
-      html += `<div style="page-break-after: always;">${main}</div>`;
-      console.log(`✔ Dodano: ${url}`);
-    } catch (e) {
-      console.error(`❌ Greška pri ${url}: ${e.message}`);
-      html += `<div style="page-break-after: always;"><p>⚠️ Neuspješno dohvaćeno: ${url}</p></div>`;
-    }
+for (const url of urls) {
+  try {
+    await page.goto(url, { waitUntil: 'networkidle0' });
+
+    await page.waitForSelector('main div[id^="observablehq-"]', { timeout: 15000 });
+
+    await page.waitForFunction(() => {
+      const el = document.querySelector('main div[id^="observablehq-"]');
+      return el && el.innerText.trim().length > 20;
+    }, { timeout: 15000 });
+
+    const main = await page.$eval('main', el => el.innerHTML);
+    html += `<div style="page-break-after: always;">${main}</div>`;
+    console.log(`✔ Dodano: ${url}`);
+  } catch (e) {
+    console.error(`❌ Greška pri ${url}: ${e.message}`);
+    html += `<div style="page-break-after: always;"><p>⚠️ Neuspješno dohvaćeno: ${url}</p></div>`;
   }
+}
+
 
   html += '</body></html>';
 
