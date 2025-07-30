@@ -28,8 +28,9 @@ const outputDir = process.env.OUTPUT_DIR
   ? path.resolve(__dirname, '..', '..', process.env.OUTPUT_DIR)
   : path.join(__dirname, '..', 'public');
 
-const pdfFileName = `${CURRENT_PROJECT.toLowerCase()}.pdf`;
-const pdfPath = path.join(outputDir, pdfFileName);
+// const pdfFileName = `${CURRENT_PROJECT.toLowerCase()}.pdf`;
+const pdfPath = path.join(outputDir, `${CURRENT_PROJECT}.pdf`);
+
 
 // Osiguraj da output direktorij postoji
 if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
