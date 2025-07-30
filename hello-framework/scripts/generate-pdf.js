@@ -27,6 +27,7 @@ const outputDir = process.env.OUTPUT_DIR
 const pdfFileName = `${CURRENT_PROJECT}.pdf`;
 const pdfPath = path.join(outputDir, pdfFileName);
 
+// Osiguraj da output direktorij postoji
 if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
 const flattenPages = pages.flatMap(group =>
@@ -51,9 +52,14 @@ const urls = [...flattenPages, ...extraPages];
 
   const page = await browser.newPage();
 
-  // 👉 postavi ROD u localStorage za sve stranice
+  // 👉 Ovo postavlja i localStorage i window.location.search
   await page.evaluateOnNewDocument(rod => {
     localStorage.setItem('rod_selected_view', rod);
+    const url = new URL(window.location.href);
+    Object.defineProperty(window, 'location', {
+      value: new URL(`${url.origin}${url.pathname}?ROD=${rod}`),
+      writable: false
+    });
   }, CURRENT_PROJECT);
 
   let html = '<html><head><style>body { font-family: sans-serif; }</style></head><body>';
