@@ -44,7 +44,7 @@ jobs:
 
     # 3️⃣ Pokreni skriptu iz main/, PDF spremi direktno u gh-pages/pdf/
     - name: Generate PDF
-      run: node main/hello-framework/scripts/generate-uvod-pdf.js
+      run: node main/hello-framework/scripts/generate-pdf.js
       env:
         OUTPUT_DIR: ../gh-pages/pdf
 
