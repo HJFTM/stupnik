@@ -16,52 +16,38 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # 1️⃣ Checkout main (source kôd i skripte)
     - name: Checkout main
       uses: actions/checkout@v3
       with:
         ref: main
         path: main
 
-    # 2️⃣ Checkout gh-pages (PDF ide ovdje)
     - name: Checkout gh-pages
       uses: actions/checkout@v3
       with:
         ref: gh-pages
         path: gh-pages
 
-    # 3️⃣ Cache za Puppeteer
-    - name: Cache Puppeteer
-      uses: actions/cache@v3
-      with:
-        path: ~/.cache/puppeteer
-        key: ${{ runner.os }}-puppeteer
-
-    # 4️⃣ Node.js
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
         node-version: 20
 
-    # 5️⃣ Instaliraj Puppeteer
     - name: Install Puppeteer
       run: npm install puppeteer
       working-directory: main
 
-    # 6️⃣ Generiraj PDF
     - name: Generate PDF
       run: node main/hello-framework/scripts/generate-pdf.js
       env:
         OUTPUT_DIR: ../gh-pages/pdf
         CURRENT_PROJECT: ${{ env.CURRENT_PROJECT }}
 
-    # 7️⃣ Dodaj PDF čak i ako je ignoriran
-    - name: Commit PDF to gh-pages
+    - name: Commit PDF (force overwrite)
       run: |
         cd gh-pages
         git config user.name "github-actions"
         git config user.email "actions@github.com"
-        git pull --rebase origin gh-pages || true
-        git add -f pdf/${{ env.CURRENT_PROJECT }}.pdf || echo "⚠️ PDF nije pronađen"
-        git commit -m "📄 Dodan PDF za ${{ env.CURRENT_PROJECT }}" || echo "⚠️ No commit (no changes)"
-        git push origin gh-pages
+        git add pdf/${{ env.CURRENT_PROJECT }}.pdf
+        git commit -m "📄 Dodan PDF za ${{ env.CURRENT_PROJECT }}" || echo "No changes"
+        git push origin gh-pages --force
