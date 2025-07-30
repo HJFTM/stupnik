@@ -1,0 +1,36 @@
+# .github/workflows/generate-static-html.yml
+name: Generate Static HTML
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Puppeteer dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libx11-dev libxkbcommon-x11-0 libnss3 libxss1 libasound2 fonts-liberation libappindicator3-1 xdg-utils
+
+      - name: Install dependencies
+        run: npm install puppeteer
+
+      - name: Generate static HTML with Puppeteer
+        run: node generate-static-html.js
+
+      - name: Deploy to GitHub Pages
+        if: success()
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
