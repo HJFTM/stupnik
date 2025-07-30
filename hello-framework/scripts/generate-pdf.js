@@ -4,39 +4,42 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import { uvodPages } from '../observablehq.uvod.js';
-import { rodEntitetiIzvoriPages } from '../observablehq.rodovi.js
+import { rodEntitetiIzvoriPages } from '../observablehq.rodovi.js';
 import { CURRENT_PROJECT, data, generirajObiteljiPoMjestu, generirajMjestaOdObitelji } from "../observablehq.base.js";
 
-
-const BASE_URL = 'https://hjftm.github.io/uvod';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// Output folder: gh-pages/ ako je definirano, inače fallback na public/
+// Odaberi stranice i URL ovisno o projektu
+const isUvod = CURRENT_PROJECT === "Uvod";
+const pages = isUvod ? uvodPages : rodEntitetiIzvoriPages;
+const BASE_URL = isUvod
+  ? 'https://hjftm.github.io/uvod'
+  : `https://hjftm.github.io/${CURRENT_PROJECT.toLowerCase()}`;
+
+// Output folder
 const outputDir = process.env.OUTPUT_DIR
   ? path.resolve(__dirname, '..', '..', process.env.OUTPUT_DIR)
   : path.join(__dirname, '..', 'public');
 
-const pdfPath = path.join(outputDir, 'uvod.pdf');
+const pdfPath = path.join(outputDir, `${CURRENT_PROJECT.toLowerCase()}.pdf`);
 
-// Kreiraj folder ako ne postoji
 if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
-
-
-// Pretvori uvodPages u flat listu URL-ova
-const flattenPages = uvodPages.flatMap(group =>
+// Pretvori pages u listu URL-ova
+const flattenPages = pages.flatMap(group =>
   group.pages.map(page => `${BASE_URL}${page.path}`)
 );
 
-// Dodatne stranice koje nisu u uvodPages
-const extraPages = [
-  '/pages/alati',
-  '/pages/autor',
-  '/pages/KONCEPT/Navigacija'
-].map(path => `${BASE_URL}${path}`);
+// Dodatne stranice ako je "Uvod"
+const extraPages = isUvod
+  ? [
+      '/pages/alati',
+      '/pages/autor',
+      '/pages/KONCEPT/Navigacija'
+    ].map(path => `${BASE_URL}${path}`)
+  : [];
 
-// Konačna lista URL-ova
 const urls = [...flattenPages, ...extraPages];
 
 (async () => {
@@ -62,9 +65,6 @@ const urls = [...flattenPages, ...extraPages];
   }
 
   html += '</body></html>';
-
-  // Osiguraj da output folder postoji
-  if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
   const now = new Date().toLocaleString('hr-HR', {
     timeZone: 'Europe/Zagreb',
