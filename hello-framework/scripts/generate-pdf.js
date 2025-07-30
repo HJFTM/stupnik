@@ -48,9 +48,12 @@ const urls = [...flattenPages, ...extraPages];
   const page = await browser.newPage();
 
   // ⚠️ Ovo je ključno: postavi ROD u localStorage za sve stranice
-  await page.evaluateOnNewDocument(rod => {
-    localStorage.setItem('rod_selected_view', rod);
-  }, CURRENT_PROJECT);
+await page.goto('about:blank'); // 🧼 prazna stranica
+await page.evaluate((rod) => {
+  localStorage.setItem('rod_selected_view', rod);
+}, CURRENT_PROJECT);
+await page.goto(url, { waitUntil: 'networkidle0' }); // 🧭 sad kad je rod postavljen
+
 
   let html = '<html><head><style>body { font-family: sans-serif; }</style></head><body>';
 
