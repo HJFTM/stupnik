@@ -1,8 +1,7 @@
-
 import { CURRENT_PROJECT, data } from "./observablehq.base.js";
 import { uvodPages } from "./observablehq.uvod.js";
-import { rodEntitetiIzvoriPages } from "./observablehq.rodovi.js";
-import { obiteljiPages } from "./observablehq.obitelji.js"; // ➕ Dodaj ovo
+import { getRodEntitetiIzvoriPages } from "./observablehq.rodovi.js"; // ⬅️ koristi dinamičku funkciju
+import { obiteljiPages } from "./observablehq.obitelji.js";
 
 let pages;
 
@@ -11,16 +10,15 @@ if (CURRENT_PROJECT === "Uvod") {
 } else if (CURRENT_PROJECT === "Obitelji") {
   pages = obiteljiPages;
 } else {
-  pages = rodEntitetiIzvoriPages;
+  pages = getRodEntitetiIzvoriPages(CURRENT_PROJECT, data);
 }
 
 export default {
-  // layout: "./src/layout.js",
   title: `${CURRENT_PROJECT}`,
   pages,
   dynamicPaths: () => {
     return data
-      .filter(o => o.ROD === "Bosna" && o.OBITELJ)
+      .filter(o => o.ROD === CURRENT_PROJECT && o.OBITELJ)
       .map(o => `/pages/ENTITET/obitelj/${encodeURIComponent(o.OBITELJ)}`);
   },
   head: '<link rel="icon" href="observable.png" type="image/png" sizes="32x32">',
