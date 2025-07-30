@@ -5,12 +5,10 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
 import { uvodPages } from '../observablehq.uvod.js';
-import { rodEntitetiIzvoriPages } from '../observablehq.rodovi.js';
+import { getRodEntitetiIzvoriPages } from '../observablehq.rodovi.js';
 import {
   CURRENT_PROJECT,
-  data,
-  generirajObiteljiPoMjestu,
-  generirajMjestaOdObitelji
+  data
 } from "../observablehq.base.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -18,7 +16,7 @@ const __dirname = dirname(__filename);
 
 // Odaberi stranice i URL ovisno o projektu
 const isUvod = CURRENT_PROJECT === "Uvod";
-const pages = isUvod ? uvodPages : rodEntitetiIzvoriPages;
+const pages = isUvod ? uvodPages : getRodEntitetiIzvoriPages(CURRENT_PROJECT, data);
 const BASE_URL = isUvod
   ? 'https://hjftm.github.io/uvod'
   : `https://hjftm.github.io/${CURRENT_PROJECT.toLowerCase()}`;
@@ -29,8 +27,7 @@ const outputDir = process.env.OUTPUT_DIR
   : path.join(__dirname, '..', 'public');
 
 const pdfFileName = `${CURRENT_PROJECT}.pdf`;
-const pdfPath = path.join(outputDir, `${CURRENT_PROJECT}.pdf`);
-
+const pdfPath = path.join(outputDir, pdfFileName);
 
 // Osiguraj da output direktorij postoji
 if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
@@ -111,15 +108,4 @@ const urls = [...flattenPages, ...extraPages];
 
   try {
     if (fs.existsSync(targetDir)) {
-      fs.copyFileSync(pdfPath, targetPath);
-      console.log(`📁 PDF kopiran u: ${targetPath}`);
-    } else {
-      console.warn(`⚠️ Ciljni direktorij ne postoji: ${targetDir}`);
-    }
-  } catch (err) {
-    console.error(`❌ Greška pri kopiranju PDF-a: ${err.message}`);
-  }
-
-  await browser.close();
-  console.log(`📄 PDF generiran: ${pdfPath}`);
-})();
+      fs.copyFileSync(pd
