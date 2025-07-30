@@ -5,6 +5,7 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import { uvodPages } from '../observablehq.uvod.js';
 
+const BASE_URL = 'https://hjftm.github.io/uvod';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -18,7 +19,7 @@ const pdfPath = path.join(outputDir, 'uvod.pdf');
 // Kreiraj folder ako ne postoji
 if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
-const BASE_URL = 'https://hjftm.github.io/uvod';
+
 
 // Pretvori uvodPages u flat listu URL-ova
 const flattenPages = uvodPages.flatMap(group =>
