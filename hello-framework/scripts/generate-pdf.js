@@ -14,14 +14,12 @@ import {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// Odaberi stranice i URL ovisno o projektu
 const isUvod = CURRENT_PROJECT === "Uvod";
 const pages = isUvod ? uvodPages : getRodEntitetiIzvoriPages(CURRENT_PROJECT, data);
 const BASE_URL = isUvod
   ? 'https://hjftm.github.io/uvod'
   : `https://hjftm.github.io/${CURRENT_PROJECT.toLowerCase()}`;
 
-// Output folder
 const outputDir = process.env.OUTPUT_DIR
   ? path.resolve(__dirname, '..', '..', process.env.OUTPUT_DIR)
   : path.join(__dirname, '..', 'public');
@@ -29,15 +27,12 @@ const outputDir = process.env.OUTPUT_DIR
 const pdfFileName = `${CURRENT_PROJECT}.pdf`;
 const pdfPath = path.join(outputDir, pdfFileName);
 
-// Osiguraj da output direktorij postoji
 if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
-// Pretvori pages u listu URL-ova
 const flattenPages = pages.flatMap(group =>
   group.pages.map(page => `${BASE_URL}${page.path}`)
 );
 
-// Dodatne stranice samo za Uvod
 const extraPages = isUvod
   ? [
       '/pages/alati',
@@ -55,6 +50,11 @@ const urls = [...flattenPages, ...extraPages];
   });
 
   const page = await browser.newPage();
+
+  // 👉 postavi ROD u localStorage za sve stranice
+  await page.evaluateOnNewDocument(rod => {
+    localStorage.setItem('rod_selected_view', rod);
+  }, CURRENT_PROJECT);
 
   let html = '<html><head><style>body { font-family: sans-serif; }</style></head><body>';
 
@@ -102,7 +102,7 @@ const urls = [...flattenPages, ...extraPages];
     }
   });
 
-  // Kopiraj u gh-pages/pdf/ ako postoji
+  // 📁 Kopiraj u gh-pages/pdf/
   const targetDir = path.resolve(__dirname, '..', '..', 'gh-pages', 'pdf');
   const targetPath = path.join(targetDir, pdfFileName);
 
