@@ -1,0 +1,65 @@
+name: Generate PDF (Puppeteer)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1️⃣ Checkout MAIN branch – tu se nalazi skripta
+    - name: Checkout main
+      uses: actions/checkout@v3
+      with:
+        ref: main
+        path: main
+
+    # 2️⃣ Checkout GH-PAGES branch – gdje šaljemo PDF
+    - name: Checkout gh-pages
+      uses: actions/checkout@v3
+      with:
+        ref: gh-pages
+        path: gh-pages
+
+    - name: Cache Puppeteer
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/puppeteer
+        key: ${{ runner.os }}-puppeteer
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 20
+
+    - name: Install Puppeteer
+      run: npm install puppeteer
+      working-directory: main
+
+    # 3️⃣ Pokreni skriptu iz main/, PDF spremi direktno u gh-pages/pdf/
+    - name: Generate PDF
+      run: node main/hello-framework/scripts/generate-uvod-pdf.js
+      env:
+        OUTPUT_DIR: ../gh-pages/pdf
+
+    # 4️⃣ Rebase GH-PAGES prije commita – sprječava konflikte
+    - name: Pull and rebase latest gh-pages
+      run: |
+        cd gh-pages
+        git config user.name "github-actions"
+        git config user.email "actions@github.com"
+        git pull --rebase origin gh-pages || true
+
+    # 5️⃣ Commit PDF
+    - name: Commit PDF to gh-pages
+      run: |
+        cd gh-pages
+        git add pdf/uvod.pdf
+        git commit -m "📄 Dodan PDF iz generate-pdf.yml" || echo "No changes"
+        git push origin gh-pages
