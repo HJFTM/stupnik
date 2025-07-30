@@ -6,51 +6,59 @@ on:
     branches: [main]
 
 permissions:
-  contents: read  # nije potreban write jer ne komitamo
+  contents: write
 
 env:
-  CURRENT_PROJECT: Stupnik  # ili Bosna, Uvod, itd.
+  CURRENT_PROJECT: ${{ vars.CURRENT_PROJECT }}
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    # 1️⃣ Checkout MAIN branch – tu se nalazi skripta i data
     - name: Checkout main
       uses: actions/checkout@v3
       with:
         ref: main
         path: main
 
-    # 2️⃣ Cache Puppeteer browser
+    - name: Checkout gh-pages
+      uses: actions/checkout@v3
+      with:
+        ref: gh-pages
+        path: gh-pages
+
     - name: Cache Puppeteer
       uses: actions/cache@v3
       with:
         path: ~/.cache/puppeteer
         key: ${{ runner.os }}-puppeteer
 
-    # 3️⃣ Setup Node.js
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
         node-version: 20
 
-    # 4️⃣ Install Puppeteer
     - name: Install Puppeteer
       run: npm install puppeteer
       working-directory: main
 
-    # 5️⃣ Generate PDF using your script
     - name: Generate PDF
       run: node main/hello-framework/scripts/generate-pdf.js
       env:
-        OUTPUT_DIR: main/hello-framework/public
+        OUTPUT_DIR: ../gh-pages/pdf
         CURRENT_PROJECT: ${{ env.CURRENT_PROJECT }}
 
-    # 6️⃣ Upload PDF as artifact (no versioning, just downloadable)
-    - name: Upload PDF as artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: ${{ env.CURRENT_PROJECT }}-pdf
-        path: main/hello-framework/public/${{ env.CURRENT_PROJECT }}.pdf
+    - name: Pull and rebase latest gh-pages
+      run: |
+        cd gh-pages
+        git config user.name "github-actions"
+        git config user.email "actions@github.com"
+        git pull --rebase origin gh-pages || true
+
+    - name: Commit PDF to gh-pages
+      run: |
+        cd gh-pages
+        git add pdf/${{ env.CURRENT_PROJECT }}.pdf || echo "⚠️ PDF nije pronađen"
+        git commit -m "📄 Dodan PDF za ${{ env.CURRENT_PROJECT }}" || echo "No changes"
+        git push origin gh-pages
