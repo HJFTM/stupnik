@@ -48,11 +48,11 @@ const urls = [...flattenPages, ...extraPages];
   const page = await browser.newPage();
 
   // ⚠️ Ovo je ključno: postavi ROD u localStorage za sve stranice
-await page.goto('about:blank'); // 🧼 prazna stranica
+const dummyUrl = `${BASE_URL}/pages/1_Jularic/prezime_r?ROD=${CURRENT_PROJECT}`;
+await page.goto(dummyUrl, { waitUntil: 'networkidle0' });
 await page.evaluate((rod) => {
   localStorage.setItem('rod_selected_view', rod);
 }, CURRENT_PROJECT);
-await page.goto(url, { waitUntil: 'networkidle0' }); // 🧭 sad kad je rod postavljen
 
 
   let html = '<html><head><style>body { font-family: sans-serif; }</style></head><body>';
