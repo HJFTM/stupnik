@@ -27,7 +27,6 @@ const outputDir = process.env.OUTPUT_DIR
 const pdfFileName = `${CURRENT_PROJECT}.pdf`;
 const pdfPath = path.join(outputDir, pdfFileName);
 
-// Osiguraj da output direktorij postoji
 if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
 const flattenPages = pages.flatMap(group =>
@@ -35,11 +34,7 @@ const flattenPages = pages.flatMap(group =>
 );
 
 const extraPages = isUvod
-  ? [
-      '/pages/alati',
-      '/pages/autor',
-      '/pages/KONCEPT/Navigacija'
-    ].map(path => `${BASE_URL}${path}`)
+  ? ['/pages/alati', '/pages/autor', '/pages/KONCEPT/Navigacija'].map(p => `${BASE_URL}${p}`)
   : [];
 
 const urls = [...flattenPages, ...extraPages];
@@ -52,14 +47,9 @@ const urls = [...flattenPages, ...extraPages];
 
   const page = await browser.newPage();
 
-  // 👉 Ovo postavlja i localStorage i window.location.search
+  // ⚠️ Ovo je ključno: postavi ROD u localStorage za sve stranice
   await page.evaluateOnNewDocument(rod => {
     localStorage.setItem('rod_selected_view', rod);
-    const url = new URL(window.location.href);
-    Object.defineProperty(window, 'location', {
-      value: new URL(`${url.origin}${url.pathname}?ROD=${rod}`),
-      writable: false
-    });
   }, CURRENT_PROJECT);
 
   let html = '<html><head><style>body { font-family: sans-serif; }</style></head><body>';
@@ -90,39 +80,17 @@ const urls = [...flattenPages, ...extraPages];
     format: 'A4',
     printBackground: true,
     displayHeaderFooter: true,
-    headerTemplate: `
-      <div style="font-size:10px; width:100%; padding-right:10px; text-align:right;">
-        <span>${now}</span>
-      </div>
-    `,
-    footerTemplate: `
-      <div style="font-size:10px; width:100%; text-align:center;">
-        <span class="pageNumber"></span>/<span class="totalPages"></span>
-      </div>
-    `,
-    margin: {
-      top: '20mm',
-      right: '20mm',
-      bottom: '20mm',
-      left: '20mm'
-    }
+    headerTemplate: `<div style="font-size:10px; width:100%; padding-right:10px; text-align:right;"><span>${now}</span></div>`,
+    footerTemplate: `<div style="font-size:10px; width:100%; text-align:center;"><span class="pageNumber"></span>/<span class="totalPages"></span></div>`,
+    margin: { top: '20mm', right: '20mm', bottom: '20mm', left: '20mm' }
   });
 
-  // 📁 Kopiraj u gh-pages/pdf/
+  // ✅ PDF se kopira u gh-pages/pdf/
   const targetDir = path.resolve(__dirname, '..', '..', '..', 'gh-pages', 'pdf');
+  if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
+
   const targetPath = path.join(targetDir, pdfFileName);
-
-  try {
-    if (fs.existsSync(targetDir)) {
-      fs.copyFileSync(pdfPath, targetPath);
-      console.log(`📁 PDF kopiran u: ${targetPath}`);
-    } else {
-      console.warn(`⚠️ Ciljni direktorij ne postoji: ${targetDir}`);
-    }
-  } catch (err) {
-    console.error(`❌ Greška pri kopiranju PDF-a: ${err.message}`);
-  }
-
+  fs.copyFileSync(pdfPath, targetPath);
+  console.log(`📁 PDF kopiran u: ${targetPath}`);
   await browser.close();
-  console.log(`📄 PDF generiran: ${pdfPath}`);
 })();
