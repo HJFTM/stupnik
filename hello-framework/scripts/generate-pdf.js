@@ -28,7 +28,7 @@ const outputDir = process.env.OUTPUT_DIR
   ? path.resolve(__dirname, '..', '..', process.env.OUTPUT_DIR)
   : path.join(__dirname, '..', 'public');
 
-// const pdfFileName = `${CURRENT_PROJECT}.pdf`;
+const pdfFileName = `${CURRENT_PROJECT}.pdf`;
 const pdfPath = path.join(outputDir, `${CURRENT_PROJECT}.pdf`);
 
 
