@@ -103,7 +103,7 @@ const urls = [...flattenPages, ...extraPages];
   });
 
   // 📁 Kopiraj u gh-pages/pdf/
-  const targetDir = path.resolve(__dirname, '..', '..', 'gh-pages', 'pdf');
+  const targetDir = path.resolve(__dirname, '..', '..', '..', 'gh-pages', 'pdf');
   const targetPath = path.join(targetDir, pdfFileName);
 
   try {
