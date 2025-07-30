@@ -21,7 +21,7 @@ const BASE_URL = isUvod
   ? 'https://hjftm.github.io/uvod'
   : `https://hjftm.github.io/${CURRENT_PROJECT.toLowerCase()}`;
 
-// Output folder (npr. hello-framework/public)
+// Output folder
 const outputDir = process.env.OUTPUT_DIR
   ? path.resolve(__dirname, '..', '..', process.env.OUTPUT_DIR)
   : path.join(__dirname, '..', 'public');
@@ -108,4 +108,15 @@ const urls = [...flattenPages, ...extraPages];
 
   try {
     if (fs.existsSync(targetDir)) {
-      fs.copyFileSync(pd
+      fs.copyFileSync(pdfPath, targetPath);
+      console.log(`📁 PDF kopiran u: ${targetPath}`);
+    } else {
+      console.warn(`⚠️ Ciljni direktorij ne postoji: ${targetDir}`);
+    }
+  } catch (err) {
+    console.error(`❌ Greška pri kopiranju PDF-a: ${err.message}`);
+  }
+
+  await browser.close();
+  console.log(`📄 PDF generiran: ${pdfPath}`);
+})();
