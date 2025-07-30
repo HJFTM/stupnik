@@ -21,9 +21,7 @@ export const rodEntitetiIzvoriPages = [
   },
   {
     name: "Mjesta",
-    pages: [
-      ...mjestaPages,
-    ]
+    pages: [...mjestaPages,]
   },
   {
     name: "Izvori",
