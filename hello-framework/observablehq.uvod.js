@@ -13,7 +13,7 @@ export const uvodPages = [
       { name: "Jularić - Ilarić", path: "/pages/1_Jularic/01.2.evolucija" },
       { name: "Ilarić",           path: "/pages/0 Uvod/3_Jularic" },
       { name: "Rodovi Ilarić",    path: "/pages/0 Uvod/4_Ilaric" },      
-      { name: "Slična prezimena", path: "/pages/1_Prezime/prezime_slicno" },
+      { name: "Srodna prezimena", path: "/pages/1_Prezime/prezime_srodno" },
     ]
   },
   {
