@@ -1,3 +1,4 @@
+
 // FILE: generate-pdf.js
 
 import puppeteer from 'puppeteer';
@@ -40,9 +41,22 @@ const pdfFileName = `${CURRENT_PROJECT}.pdf`;
 const pdfPath = path.join(outputDir, pdfFileName);
 if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
-const flattenPages = pages.flatMap(group =>
-  group.pages.map(page => `${BASE_URL}${page.path}?ROD=${CURRENT_PROJECT}`)
-);
+let flattenPages; 
+
+
+if (CURRENT_PROJECT === "Uvod") {
+    flattenPages = pages.flatMap(group =>
+      group.pages.map(page => `${BASE_URL}${page.path}`)
+    );
+} else if (CURRENT_PROJECT === "Obitelji") {
+    flattenPages = pages.flatMap(group =>
+      group.pages.map(page => `${BASE_URL}${page.path}`)
+    );
+} else {
+  flattenPages = pages.flatMap(group =>
+    group.pages.map(page => `${BASE_URL}${page.path}?ROD=${CURRENT_PROJECT}`)
+  );
+}
 
 const extraPages = isUvod
   ? [
