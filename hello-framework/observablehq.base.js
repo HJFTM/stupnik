@@ -22,7 +22,6 @@ if (fs.existsSync(dataPath)) {
 }
 
 export { data };
-
 export function generirajObiteljiPoMjestu(data, rod = "Bosna") {
   const mjestaSet = new Set();
 
@@ -50,6 +49,41 @@ export function generirajObiteljiPoMjestu(data, rod = "Bosna") {
         pathEncoded2: `/pages/ENTITET/obitelj/${encodeURIComponent(encodeURIComponent(o.OBITELJ))}`,
         geo_path: `/pages/ENTITET/obitelj_geo/${encodeURIComponent(o.OBITELJ)}`,
         geo_pathEncoded2: `/pages/ENTITET/obitelj_geo/${encodeURIComponent(encodeURIComponent(o.OBITELJ))}`
+        
+      }));
+  }
+
+  return Object.entries(mapaMjesta).map(([mjesto, obitelji]) => ({
+    name: mjesto,
+    pages: obitelji
+  }));
+}
+
+export function generirajObiteljiGEOpoMjestu(data, rod = "Bosna") {
+  const mjestaSet = new Set();
+
+  for (const o of data) {
+    if (!o.ROD || o.ROD !== rod || !o.MJESTO || !o.OBITELJ) continue;
+    mjestaSet.add(o.MJESTO.trim());
+  }
+
+  const mjesta = Array.from(mjestaSet);
+  const mapaMjesta = {};
+
+  for (const mjesto of mjesta) {
+    mapaMjesta[mjesto] = data
+      .filter(o =>
+        o.ROD === rod &&
+        o.OBITELJ &&
+        (
+          (o.MJESTO && o.MJESTO.trim() === mjesto) ||
+          (o.MIGRACIJA && o.MIGRACIJA.split(/[,;]/).map(s => s.trim()).includes(mjesto))
+        )
+      )
+      .map(o => ({
+        name: o.OBITELJ,
+        path: `/pages/ENTITET/obitelj_geo/${encodeURIComponent(o.OBITELJ)}`,
+        pathEncoded2: `/pages/ENTITET/obitelj_geo/${encodeURIComponent(encodeURIComponent(o.OBITELJ))}`
         
       }));
   }
