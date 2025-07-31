@@ -50,7 +50,7 @@ if (CURRENT_PROJECT === "Uvod") {
     );
 } else if (CURRENT_PROJECT === "Obitelji") {
     flattenPages = pages.flatMap(group =>
-      group.pages.map(page => `${BASE_URL}${encodeURIComponent(${page.path})}`)
+      group.pages.map(page => `${BASE_URL}${page.pathEncoded2}`)
     );
 } else {
   flattenPages = pages.flatMap(group =>
