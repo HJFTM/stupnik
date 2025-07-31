@@ -8,7 +8,7 @@ import { dirname } from 'path';
 
 import { uvodPages } from '../observablehq.uvod.js';
 import { getRodEntitetiIzvoriPages } from '../observablehq.rodovi.js';
-import { obiteljiPages } from "./observablehq.obitelji.js";
+import { obiteljiPages } from "../observablehq.obitelji.js";
 
 import {
   CURRENT_PROJECT,
