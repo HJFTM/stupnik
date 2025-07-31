@@ -21,7 +21,9 @@ export default {
         .filter(o => o.ROD === CURRENT_PROJECT && o.OBITELJ)
         .flatMap(o => [
             `/pages/ENTITET/obitelj/${encodeURIComponent(o.OBITELJ)}`,
-            `/pages/ENTITET/obitelj_geo/${encodeURIComponent(o.OBITELJ)}` // nova putanja
+            `/pages/ENTITET/obitelj_geo/${encodeURIComponent(o.OBITELJ)}`,
+            `/pages/ENTITET/obitelj_stablo/${encodeURIComponent(o.OBITELJ)}`,
+            `/pages/ENTITET/obitelj_zapis/${encodeURIComponent(o.OBITELJ)}` // nova putanja
         ]);
   },
 
