@@ -19,7 +19,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const isUvod = CURRENT_PROJECT === "Uvod";
-const pages = isUvod ? uvodPages : getRodEntitetiIzvoriPages(CURRENT_PROJECT, data);
+let pages = isUvod ? uvodPages : getRodEntitetiIzvoriPages(CURRENT_PROJECT, data);
 const BASE_URL = isUvod
   ? 'https://hjftm.github.io/uvod'
   : `https://hjftm.github.io/${CURRENT_PROJECT.toLowerCase()}`;
