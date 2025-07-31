@@ -8,6 +8,8 @@ import { dirname } from 'path';
 
 import { uvodPages } from '../observablehq.uvod.js';
 import { getRodEntitetiIzvoriPages } from '../observablehq.rodovi.js';
+import { obiteljiPages } from "./observablehq.obitelji.js";
+
 import {
   CURRENT_PROJECT,
   data
@@ -21,6 +23,14 @@ const pages = isUvod ? uvodPages : getRodEntitetiIzvoriPages(CURRENT_PROJECT, da
 const BASE_URL = isUvod
   ? 'https://hjftm.github.io/uvod'
   : `https://hjftm.github.io/${CURRENT_PROJECT.toLowerCase()}`;
+
+if (CURRENT_PROJECT === "Uvod") {
+  pages = uvodPages;
+} else if (CURRENT_PROJECT === "Obitelji") {
+  pages = obiteljiPages;
+} else {
+  pages = getRodEntitetiIzvoriPages(CURRENT_PROJECT, data);
+}
 
 const outputDir = process.env.OUTPUT_DIR
   ? path.resolve(__dirname, '..', '..', process.env.OUTPUT_DIR)
