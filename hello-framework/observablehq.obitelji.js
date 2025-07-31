@@ -14,9 +14,10 @@ from "./observablehq.base.js";
 const obiteljiBH = generirajObiteljiPoMjestu(data, "Bosna");
 const obiteljiST = generirajObiteljiPoMjestu(data, "Stupnik");
 const obiteljiDU = generirajObiteljiPoMjestu(data, "Dubrovnik");
-const obiteljiGEO = generirajObiteljiGEOpoMjestu(data, "Obitelji");
-const obiteljiZapis = generirajObiteljiZapis(data, "Obitelji");
-const obiteljiStablo = generirajObiteljiStablo(data, "Obitelji");
+
+const obiteljiGEO = generirajObiteljiGEOpoMjestu(data, "Bosna");
+const obiteljiZapis = generirajObiteljiZapis(data, "Bosna");
+const obiteljiStablo = generirajObiteljiStablo(data, "Bosna");
 
 // Test
 const mjestaPages = generirajMjestaOdObitelji(data, CURRENT_PROJECT);
