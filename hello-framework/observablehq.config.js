@@ -17,10 +17,14 @@ export default {
   title: `${CURRENT_PROJECT}`,
   pages,
   dynamicPaths: () => {
-    return data
-      .filter(o => o.ROD === CURRENT_PROJECT && o.OBITELJ)
-      .map(o => `/pages/ENTITET/obitelj/${encodeURIComponent(o.OBITELJ)}`);
+      return data
+        .filter(o => o.ROD === CURRENT_PROJECT && o.OBITELJ)
+        .flatMap(o => [
+            `/pages/ENTITET/obitelj/${encodeURIComponent(o.OBITELJ)}`,
+            `/pages/ENTITET/obitelj_geo/${encodeURIComponent(o.OBITELJ)}` // nova putanja
+        ]);
   },
+
   head: '<link rel="icon" href="observable.png" type="image/png" sizes="32x32">',
   root: "src",
 };
