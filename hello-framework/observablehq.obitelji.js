@@ -34,7 +34,7 @@ export const obiteljiPages = [
   ...obiteljiBH, ...obiteljiST, ...obiteljiDU,
   ...obiteljiGEOBH, ...obiteljiGEOST, ...obiteljiGEODU,
   ...obiteljiStabloBH, ...obiteljiStabloST, ...obiteljiStabloDU,
-  ...obiteljiZapisBH, ...obiteljiZapisST, ...obiteljiZapisDU
+  ...obiteljiZapisBH, ...obiteljiZapisST, ...obiteljiZapisDU,
   
   {
     name: "------",
