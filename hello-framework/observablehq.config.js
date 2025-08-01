@@ -23,6 +23,7 @@ if (CURRENT_PROJECT === "Uvod") {
 const entryPoints = [
   ...pages.flatMap(p => (p.pages ? p.pages : [p])).map(p => p.path),
   ...mjestaPages.map(p => p.path),
+  ...obiteljiPages.flatMap(p => (p.pages ? p.pages : [p])).map(p => p.path),
   
   // Ručno dodajemo i [obitelj] podstranice
   ...data
