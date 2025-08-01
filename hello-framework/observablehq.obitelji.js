@@ -5,15 +5,16 @@ import {
   generirajObiteljiGEOpoMjestu,
   generirajObiteljiZapis,
   generirajObiteljiStablo,
-  generirajMjestaOdObitelji } 
+  generirajMjestaOdObitelji,
+  generirajMjestaOdObiteljiSVE } 
 from "./observablehq.base.js";
 
 
 
 
-const obiteljiBH = generirajObiteljiPoMjestu(data, "Bosna");
-const obiteljiST = generirajObiteljiPoMjestu(data, "Stupnik");
-const obiteljiDU = generirajObiteljiPoMjestu(data, "Dubrovnik");
+const obiteljiBH = generirajMjestaOdObiteljiSVE(data, "Bosna");
+const obiteljiST = generirajMjestaOdObiteljiSVE(data, "Stupnik");
+const obiteljiDU = generirajMjestaOdObiteljiSVE(data, "Dubrovnik");
 
 const obiteljiGEOBH = generirajObiteljiGEOpoMjestu(data, "Bosna");
 const obiteljiGEOST = generirajObiteljiGEOpoMjestu(data, "Stupnik");
