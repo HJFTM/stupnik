@@ -28,10 +28,10 @@ const entryPoints = [
   ...data
     .filter(o => o.ROD === CURRENT_PROJECT && o.OBITELJ)
     .flatMap(o => [
-      `/pages/${CURRENT_PROJECT}/obitelj/${encodeURIComponent(o.OBITELJ)}`,
-      `/pages/${CURRENT_PROJECT}/obitelj_geo/${encodeURIComponent(o.OBITELJ)}`,
-      `/pages/${CURRENT_PROJECT}/obitelj_stablo/${encodeURIComponent(o.OBITELJ)}`,
-      `/pages/${CURRENT_PROJECT}/obitelj_zapis/${encodeURIComponent(o.OBITELJ)}`
+      `/pages/ENTITET/obitelj/${encodeURIComponent(o.OBITELJ)}`,
+      `/pages/ENTITET/obitelj_geo/${encodeURIComponent(o.OBITELJ)}`,
+      `/pages/ENTITET/obitelj_stablo/${encodeURIComponent(o.OBITELJ)}`,
+      `/pages/ENTITET/obitelj_zapis/${encodeURIComponent(o.OBITELJ)}`
     ])
 ];
 
@@ -40,10 +40,10 @@ const dynamicPaths = () => {
   return data
     .filter(o => o.ROD === CURRENT_PROJECT && o.OBITELJ)
     .flatMap(o => [
-      `/pages/${CURRENT_PROJECT}/obitelj/${encodeURIComponent(o.OBITELJ)}`,
-      `/pages/${CURRENT_PROJECT}/obitelj_geo/${encodeURIComponent(o.OBITELJ)}`,
-      `/pages/${CURRENT_PROJECT}/obitelj_stablo/${encodeURIComponent(o.OBITELJ)}`,
-      `/pages/${CURRENT_PROJECT}/obitelj_zapis/${encodeURIComponent(o.OBITELJ)}`
+      `/pages/ENTITET/obitelj/${encodeURIComponent(o.OBITELJ)}`,
+      `/pages/ENTITET/obitelj_geo/${encodeURIComponent(o.OBITELJ)}`,
+      `/pages/ENTITET/obitelj_stablo/${encodeURIComponent(o.OBITELJ)}`,
+      `/pages/ENTITET/obitelj_zapis/${encodeURIComponent(o.OBITELJ)}`
     ]);
 };
 
