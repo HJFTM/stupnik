@@ -4,17 +4,14 @@ import {
   generirajObiteljiPoMjestu, 
   generirajObiteljiGEOpoMjestu,
   generirajObiteljiZapis,
-  generirajObiteljiStablo,
-  generirajMjestaOdObitelji,
-  generirajMjestaOdObiteljiSVE } 
+  generirajObiteljiStablo} 
 from "./observablehq.base.js";
 
 
 
-
-const obiteljiBH = generirajMjestaOdObiteljiSVE(data, "Bosna");
-const obiteljiST = generirajMjestaOdObiteljiSVE(data, "Stupnik");
-const obiteljiDU = generirajMjestaOdObiteljiSVE(data, "Dubrovnik");
+const obiteljiBH = generirajObiteljiPoMjestu(data, "Bosna");
+const obiteljiST = generirajObiteljiPoMjestu(data, "Stupnik");
+const obiteljiDU = generirajObiteljiPoMjestu(data, "Dubrovnik");
 
 const obiteljiGEOBH = generirajObiteljiGEOpoMjestu(data, "Bosna");
 const obiteljiGEOST = generirajObiteljiGEOpoMjestu(data, "Stupnik");
@@ -28,8 +25,6 @@ const obiteljiStabloBH = generirajObiteljiStablo(data, "Bosna");
 const obiteljiStabloST = generirajObiteljiStablo(data, "Stupnik");
 const obiteljiStabloDU = generirajObiteljiStablo(data, "Dubrovnik");
 
-// Test
-const mjestaPages = generirajMjestaOdObitelji(data, CURRENT_PROJECT);
 
 export const obiteljiPages = [
   ...obiteljiBH, ...obiteljiST, ...obiteljiDU,
