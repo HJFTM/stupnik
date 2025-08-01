@@ -237,10 +237,10 @@ export function generirajMjestaOdObiteljiSVE(obitelji, rod = "Bosna") {
 
   // Definiraj stranice po temama
   const kategorije = [
-    { label: "Migracije", dir: "mjesta_migracije" },
-    { label: "Zapisi", dir: "mjesta_zapisi" },
-    { label: "Obitelji", dir: "mjesta_obitelji" },
-    { label: "Župe", dir: "mjesta_zupe" }
+    { label: "Migracije", dir: "mjesto_migracije" },
+    { label: "Zapisi", dir: "mjesto_zapisi" },
+    { label: "Obitelji", dir: "mjesto_obitelji" },
+    { label: "Župe", dir: "mjesto_zupe" }
   ];
 
   // Generiraj sve stranice
@@ -249,8 +249,8 @@ export function generirajMjestaOdObiteljiSVE(obitelji, rod = "Bosna") {
   for (const [mjesto, godina] of Array.from(mjestaMap.entries()).sort((a, b) => a[1] - b[1])) {
     for (const { label, dir } of kategorije) {
       stranice.push({
-        name: `${godina}. ${mjesto} – ${label}`,
-        path: `/${dir}/${encodeURIComponent(mjesto)}`
+        name: `${godina}. ${mjesto}`,
+        path: `/pages/ENTITET/${dir}/${encodeURIComponent(mjesto)}`
       });
     }
   }
