@@ -4,14 +4,12 @@ import {
   generirajObiteljiPoMjestu, 
   generirajObiteljiGEOpoMjestu,
   generirajObiteljiZapis,
-  generirajObiteljiStablo} 
+  generirajObiteljiStablo,
+  generirajMjestaOdObitelji,
+  generirajMjestaOdObiteljiSVE } 
 from "./observablehq.base.js";
 
 
-import { 
-  generirajMjestaOdObitelji,
-  generirajMjestaOdObiteljiSVE } 
-from "./observablehq.mjesta.js";
 
 
 const obiteljiBH = generirajMjestaOdObiteljiSVE(data, "Bosna");
