@@ -2,7 +2,7 @@ import { CURRENT_PROJECT, data } from "./observablehq.base.js";
 import { uvodPages } from "./observablehq.uvod.js";
 import { getRodEntitetiIzvoriPages } from "./observablehq.rodovi.js"; // ⬅️ koristi dinamičku funkciju
 
-import { obiteljiPages } from "./observablehq.obitelji.js";
+import { obiteljiPages, obiteljiPagesAll} from "./observablehq.obitelji.js";
 import { mjestaPages } from "./observablehq.mjesta.js";
 import { izvoriPages } from "./menu.izvori.js";
 
@@ -23,7 +23,7 @@ if (CURRENT_PROJECT === "Uvod") {
 const entryPoints = [
   ...pages.flatMap(p => (p.pages ? p.pages : [p])).map(p => p.path),
   ...mjestaPages.map(p => p.path),
-  ...obiteljiPages.flatMap(p => (p.pages ? p.pages : [p])).map(p => p.path),
+  ...obiteljiPagesAll.flatMap(p => (p.pages ? p.pages : [p])).map(p => p.path),
   
   // Ručno dodajemo i [obitelj] podstranice
   ...data
