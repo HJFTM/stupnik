@@ -17,9 +17,7 @@ const mjestaPages = generirajMjestaOdObitelji(data, CURRENT_PROJECT);
 
 export const obiteljiPages = [
   ...obiteljiBH, ...obiteljiST, ...obiteljiDU,
-  ...obiteljiGEOBH, ...obiteljiGEOST, ...obiteljiGEODU,
-  ...obiteljiStabloBH, ...obiteljiStabloST, ...obiteljiStabloDU,
-  ...obiteljiZapisBH, ...obiteljiZapisST, ...obiteljiZapisDU,
+
   
   {
     name: "------",
