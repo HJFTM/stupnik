@@ -3,7 +3,7 @@ import { uvodPages } from "./observablehq.uvod.js";
 import { getRodEntitetiIzvoriPages } from "./observablehq.rodovi.js"; // ⬅️ koristi dinamičku funkciju
 
 import { obiteljiPages } from "./observablehq.obitelji.js";
-import { mjestaPages } from "./menu.mjesta.js";
+import { mjestaPages } from "./observablehq.mjesta.js";
 import { izvoriPages } from "./menu.izvori.js";
 
 
