@@ -2,6 +2,8 @@ import { CURRENT_PROJECT, data } from "./observablehq.base.js";
 import { uvodPages } from "./observablehq.uvod.js";
 import { getRodEntitetiIzvoriPages } from "./observablehq.rodovi.js"; // ⬅️ koristi dinamičku funkciju
 import { obiteljiPages } from "./observablehq.obitelji.js";
+import { izvoriPages } from "./menu.izvori.js";
+
 
 let pages;
 
@@ -9,6 +11,8 @@ if (CURRENT_PROJECT === "Uvod") {
   pages = uvodPages;
 } else if (CURRENT_PROJECT === "Obitelji") {
   pages = obiteljiPages;
+} else if (CURRENT_PROJECT === "izvori") {
+  pages = izvoriPages;
 } else {
   pages = getRodEntitetiIzvoriPages(CURRENT_PROJECT, data);
 }
