@@ -13,7 +13,7 @@ const mjestaDU = generirajMjestaOdObiteljiSVE(data, "Dubrovnik");
 
 
 // Test
-const mjestaPages = generirajMjestaOdObitelji(data, CURRENT_PROJECT);
+const mjestaPagesTest = generirajMjestaOdObitelji(data, CURRENT_PROJECT);
 
 export const mjestaPages = [
   ...mjestaBH, ...mjestaST, ...mjestaDU,
