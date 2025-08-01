@@ -22,7 +22,17 @@ if (CURRENT_PROJECT === "Uvod") {
 // 2️⃣ Entry points = sve stranice koje želimo da se statički izgrade
 const entryPoints = [
   ...pages.flatMap(p => (p.pages ? p.pages : [p])).map(p => p.path),
-  ...mjestaPages.map(p => p.path)
+  ...mjestaPages.map(p => p.path),
+  
+  // Ručno dodajemo i [obitelj] podstranice
+  ...data
+    .filter(o => o.ROD === CURRENT_PROJECT && o.OBITELJ)
+    .flatMap(o => [
+      `/pages/${CURRENT_PROJECT}/obitelj/${encodeURIComponent(o.OBITELJ)}`,
+      `/pages/${CURRENT_PROJECT}/obitelj_geo/${encodeURIComponent(o.OBITELJ)}`,
+      `/pages/${CURRENT_PROJECT}/obitelj_stablo/${encodeURIComponent(o.OBITELJ)}`,
+      `/pages/${CURRENT_PROJECT}/obitelj_zapis/${encodeURIComponent(o.OBITELJ)}`
+    ])
 ];
 
 // 3️⃣ Dinamičke rute za obitelji (npr. [obitelj].md stranice)
