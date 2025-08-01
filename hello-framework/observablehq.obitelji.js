@@ -1,4 +1,5 @@
 
+
 import { 
   CURRENT_PROJECT, data, 
   generirajObiteljiPoMjestu, 
@@ -40,4 +41,11 @@ export const obiteljiPages = [
       { name: "Sadržaj", path: "/pages/KONCEPT/Navigacija" }
     ]
   }
+];
+
+export const obiteljiPagesAll = [
+  ...obiteljiBH, ...obiteljiST, ...obiteljiDU,
+  ...obiteljiGEOBH, ...obiteljiGEOST, ...obiteljiGEODU,
+  ...obiteljiStabloBH, ...obiteljiStabloST, ...obiteljiStabloDU,
+  ...obiteljiZapisBH, ...obiteljiZapisST, ...obiteljiZapisDU
 ];
