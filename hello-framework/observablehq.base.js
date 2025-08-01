@@ -198,7 +198,7 @@ export function generirajMjestaOdObitelji(obitelji, rod = "Bosna") {
     }));
 }
 
-eexport function generirajMjestaOdObiteljiSVE(obitelji, rod = "Bosna") {
+export function generirajMjestaOdObiteljiSVE(obitelji, rod = "Bosna") {
   const obitelj_m = obitelji.filter(o => o.TIP === "M" && o.ROD === rod && o.OBITELJ);
   const mjestaSet = new Set();
 
