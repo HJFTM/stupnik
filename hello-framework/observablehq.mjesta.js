@@ -1,5 +1,6 @@
 
-import { 
+import {
+  CURRENT_PROJECT, data, 
   generirajMjestaOdObitelji
 } 
 from "./observablehq.base.js";
