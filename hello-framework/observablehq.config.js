@@ -41,7 +41,7 @@ const entryPoints = [
       `/pages/ENTITET/mjesto_zupe/${encodeURIComponent(o.MJESTO)}`,
       `/pages/ENTITET/mjesto_migracije/${encodeURIComponent(o.MJESTO)}`,
       `/pages/ENTITET/mjesto_obitelji/${encodeURIComponent(o.MJESTO)}`,
-      `/pages/ENTITET/obitelj_zapis/${encodeURIComponent(o.MJESTO)}`
+      `/pages/ENTITET/mjesto_zapisi/${encodeURIComponent(o.MJESTO)}`
     ])
 ];
 
