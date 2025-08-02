@@ -39,7 +39,7 @@ const entryPoints = [
 // 3️⃣ Dinamičke rute za obitelji (npr. [obitelj].md stranice)
 const dynamicPaths = () => {
   return data
-    .filter(o => o.OBITELJ != mill)
+    .filter(o => o.OBITELJ != null)
     .flatMap(o => [
       `/pages/ENTITET/obitelj/${encodeURIComponent(o.OBITELJ)}`,
       `/pages/ENTITET/obitelj_geo/${encodeURIComponent(o.OBITELJ)}`,
