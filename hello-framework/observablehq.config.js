@@ -38,6 +38,7 @@ const entryPoints = [
   ...data
     .filter(o => o.MJESTO && o.MJESTO != null)
     .flatMap(o => [
+      `/pages/ENTITET}/mjesto/${encodeURIComponent(o.MJESTO)}`,
       `/pages/ENTITET/mjesto_zupe/${encodeURIComponent(o.MJESTO)}`,
       `/pages/ENTITET/mjesto_migracije/${encodeURIComponent(o.MJESTO)}`,
       `/pages/ENTITET/mjesto_obitelji/${encodeURIComponent(o.MJESTO)}`,
