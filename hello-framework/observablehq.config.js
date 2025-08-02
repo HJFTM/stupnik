@@ -27,7 +27,7 @@ const entryPoints = [
   
   // Ručno dodajemo i [obitelj] podstranice
   ...data
-    .filter(o => o.ROD === CURRENT_PROJECT && o.OBITELJ)
+    .filter(o => o.OBITELJ && o.OBITELJ != null)
     .flatMap(o => [
       `/pages/ENTITET/obitelj/${encodeURIComponent(o.OBITELJ)}`,
       `/pages/ENTITET/obitelj_geo/${encodeURIComponent(o.OBITELJ)}`,
