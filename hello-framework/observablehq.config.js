@@ -46,16 +46,28 @@ const entryPoints = [
 ];
 
 // 3️⃣ Dinamičke rute za obitelji (npr. [obitelj].md stranice)
-const dynamicPaths = () => {
+export const dynamicPaths = () => {
   return data
-    .filter(o => o.OBITELJ != null)
+    .filter(o => o.OBITELJ)
     .flatMap(o => [
       `/pages/ENTITET/obitelj/${encodeURIComponent(o.OBITELJ)}`,
       `/pages/ENTITET/obitelj_geo/${encodeURIComponent(o.OBITELJ)}`,
       `/pages/ENTITET/obitelj_stablo/${encodeURIComponent(o.OBITELJ)}`,
       `/pages/ENTITET/obitelj_zapis/${encodeURIComponent(o.OBITELJ)}`
-    ]);
+    ])
+    .concat(
+      data
+        .filter(o => o.MJESTO)
+        .flatMap(o => [
+          `/pages/ENTITET}/mjesto/${encodeURIComponent(o.MJESTO)}`,
+          `/pages/ENTITET}/mjesto_zupe/${encodeURIComponent(o.MJESTO)}`,
+          `/pages/ENTITET/mjesto_migracije/${encodeURIComponent(o.MJESTO)}`,
+          `/pages/ENTITET/mjesto_obitelji/${encodeURIComponent(o.MJESTO)}`,
+          `/pages/ENTITET/mjesto_zapisi/${encodeURIComponent(o.MJESTO)}`
+        ])
+    );
 };
+
 
 // 4️⃣ Finalni config
 export default {
