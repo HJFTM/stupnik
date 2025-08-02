@@ -33,6 +33,15 @@ const entryPoints = [
       `/pages/ENTITET/obitelj_geo/${encodeURIComponent(o.OBITELJ)}`,
       `/pages/ENTITET/obitelj_stablo/${encodeURIComponent(o.OBITELJ)}`,
       `/pages/ENTITET/obitelj_zapis/${encodeURIComponent(o.OBITELJ)}`
+    ]),
+    // Ručno dodajemo i [obitelj] podstranice
+  ...data
+    .filter(o => o.MJESTO && o.MJESTO != null)
+    .flatMap(o => [
+      `/pages/ENTITET/mjesto_zupe/${encodeURIComponent(o.MJESTO)}`,
+      `/pages/ENTITET/mjesto_migracije/${encodeURIComponent(o.MJESTO)}`,
+      `/pages/ENTITET/mjesto_obitelji/${encodeURIComponent(o.MJESTO)}`,
+      `/pages/ENTITET/obitelj_zapis/${encodeURIComponent(o.MJESTO)}`
     ])
 ];
 
