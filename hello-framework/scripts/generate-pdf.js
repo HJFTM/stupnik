@@ -1,4 +1,3 @@
-
 // FILE: generate-pdf.js
 
 import puppeteer from 'puppeteer';
@@ -43,15 +42,14 @@ if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
 let flattenPages; 
 
-
 if (CURRENT_PROJECT === "Uvod") {
-    flattenPages = pages.flatMap(group =>
-      group.pages.map(page => `${BASE_URL}${page.path}`)
-    );
+  flattenPages = pages.flatMap(group =>
+    group.pages.map(page => `${BASE_URL}${page.path}`)
+  );
 } else if (CURRENT_PROJECT === "Obitelji") {
-    flattenPages = pages.flatMap(group =>
-      group.pages.map(page => `${BASE_URL}${page.pathEncoded2}`)
-    );
+  flattenPages = pages.flatMap(group =>
+    group.pages.map(page => `${BASE_URL}${page.pathEncoded2}`)
+  );
 } else {
   flattenPages = pages.flatMap(group =>
     group.pages.map(page => `${BASE_URL}${page.path}?ROD=${CURRENT_PROJECT}`)
@@ -87,7 +85,6 @@ const urls = [...flattenPages, ...extraPages];
   }
 
   html += '</body></html>';
-
   await page.setContent(html, { waitUntil: 'networkidle0' });
 
   await page.pdf({
@@ -103,13 +100,15 @@ const urls = [...flattenPages, ...extraPages];
   const targetDir = path.resolve(__dirname, '..', '..', 'gh-pages', 'pdf');
   const targetPath = path.join(targetDir, pdfFileName);
 
-  if (fs.existsSync(targetDir)) {
-    fs.copyFileSync(pdfPath, targetPath);
-    console.log(`📁 PDF kopiran u: ${targetPath}`);
-  } else {
-    console.warn(`⚠️ Ciljni direktorij ne postoji: ${targetDir}`);
+  // ✅ Kreiraj ciljnu mapu ako ne postoji
+  if (!fs.existsSync(targetDir)) {
+    fs.mkdirSync(targetDir, { recursive: true });
+    console.log(`📁 Kreiran ciljni direktorij: ${targetDir}`);
   }
 
+  fs.copyFileSync(pdfPath, targetPath);
+  console.log(`📄 PDF kopiran u: ${targetPath}`);
+
   await browser.close();
-  console.log(`📄 PDF generiran: ${pdfPath}`);
+  console.log(`✅ PDF generiran: ${pdfPath}`);
 })();
