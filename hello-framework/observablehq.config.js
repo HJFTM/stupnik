@@ -1,9 +1,9 @@
 import { CURRENT_PROJECT, data } from "./observablehq.base.js";
-import { uvodPages } from "./observablehq.uvod.js";
-import { getRodEntitetiIzvoriPages } from "./observablehq.rodovi.js"; // ⬅️ koristi dinamičku funkciju
+import { uvodPages } from "./menu.uvod.js";
+import { getRodEntitetiIzvoriPages } from "./menu.rodovi.js"; // ⬅️ koristi dinamičku funkciju
 
-import { obiteljiPages, obiteljiPagesAll} from "./observablehq.obitelji.js";
-import { mjestaPages } from "./observablehq.mjesta.js";
+import { obiteljiPages, obiteljiPagesAll} from "./menu.obitelji.js";
+import { mjestaPages } from "./menu.mjesta.js";
 import { izvoriPages } from "./menu.izvori.js";
 
 
