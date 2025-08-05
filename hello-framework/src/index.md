@@ -15,19 +15,19 @@ new Runtime().module(define, name => {
 
 <div class="grid grid-cols-4">
   <div class="card">
-    <h2>United States 🇺🇸</h2>
-    <span class="big">${launches.filter((d) => d.stateId === "US").length.toLocaleString("en-US")}</span>
+    <h2>Uvod 🇺🇸</h2>
+    <span class="big">xxx</span>
   </div>
   <div class="card">
-    <h2>Russia 🇷🇺 <span class="muted">/ Soviet Union</span></h2>
-    <span class="big">${launches.filter((d) => d.stateId === "SU" || d.stateId === "RU").length.toLocaleString("en-US")}</span>
+    <h2>Bosna <span class="muted">/ Soviet Union</span></h2>
+    <span class="big">xxx</span>
   </div>
   <div class="card">
-    <h2>China 🇨🇳</h2>
-    <span class="big">${launches.filter((d) => d.stateId === "CN").length.toLocaleString("en-US")}</span>
+    <h2>Stupnik</h2>
+    <span class="big">xxx</span>
   </div>
   <div class="card">
-    <h2>Other</h2>
-    <span class="big">${launches.filter((d) => d.stateId !== "US" && d.stateId !== "SU" && d.stateId !== "RU" && d.stateId !== "CN").length.toLocaleString("en-US")}</span>
+    <h2>Dubrovnik</h2>
+    <span class="big">xxx}</span>
   </div>
 </div>
