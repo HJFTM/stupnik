@@ -19,7 +19,7 @@ new Runtime().module(define, name => {
     <span class="big">xxx</span>
   </div>
   <div class="card">
-    <h2>Bosna <span class="muted">/ Soviet Union</span></h2>
+    <h2>Bosna</h2>
     <span class="big">xxx</span>
   </div>
   <div class="card">
