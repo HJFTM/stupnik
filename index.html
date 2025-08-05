@@ -16,31 +16,7 @@
 <link rel="icon" href="./_file/observable.1af93621.png" type="image/png" sizes="32x32">
 <script type="module">
 
-import {define} from "./_observablehq/client.0f853e96.js";
-
-define({id: "92cac4f1", mode: "inline", inputs: ["launches","display"], body: async (launches,display) => {
-display(await(
-launches.filter((d) => d.stateId === "US").length.toLocaleString("en-US")
-))
-}});
-
-define({id: "f84e9749", mode: "inline", inputs: ["launches","display"], body: async (launches,display) => {
-display(await(
-launches.filter((d) => d.stateId === "SU" || d.stateId === "RU").length.toLocaleString("en-US")
-))
-}});
-
-define({id: "3f89d55f", mode: "inline", inputs: ["launches","display"], body: async (launches,display) => {
-display(await(
-launches.filter((d) => d.stateId === "CN").length.toLocaleString("en-US")
-))
-}});
-
-define({id: "d55bddad", mode: "inline", inputs: ["launches","display"], body: async (launches,display) => {
-display(await(
-launches.filter((d) => d.stateId !== "US" && d.stateId !== "SU" && d.stateId !== "RU" && d.stateId !== "CN").length.toLocaleString("en-US")
-))
-}});
+import "./_observablehq/client.0f853e96.js";
 
 </script>
 </head>
@@ -113,26 +89,26 @@ new Runtime().module(define, name => {
 </script>
 <div class="grid grid-cols-4">
   <div class="card">
-    <h2>United States 🇺🇸</h2>
-    <span class="big"><observablehq-loading></observablehq-loading><!--:92cac4f1:--></span>
+    <h2>Uvod 🇺🇸</h2>
+    <span class="big">xxx</span>
   </div>
   <div class="card">
-    <h2>Russia 🇷🇺 <span class="muted">/ Soviet Union</span></h2>
-    <span class="big"><observablehq-loading></observablehq-loading><!--:f84e9749:--></span>
+    <h2>Bosna <span class="muted">/ Soviet Union</span></h2>
+    <span class="big">xxx</span>
   </div>
   <div class="card">
-    <h2>China 🇨🇳</h2>
-    <span class="big"><observablehq-loading></observablehq-loading><!--:3f89d55f:--></span>
+    <h2>Stupnik</h2>
+    <span class="big">xxx</span>
   </div>
   <div class="card">
-    <h2>Other</h2>
-    <span class="big"><observablehq-loading></observablehq-loading><!--:d55bddad:--></span>
+    <h2>Dubrovnik</h2>
+    <span class="big">xxx}</span>
   </div>
 </div>
 </main>
 <footer id="observablehq-footer">
 <nav><a rel="next" href="./pages/1_Jularic/prezime_r?ROD=Stupnik"><span>  Prezime</span></a></nav>
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-08-05T08:44:20">Aug 5, 2025</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-08-05T08:45:57">Aug 5, 2025</a>.</div>
 </footer>
 </div>
 </body>
