@@ -67,20 +67,6 @@ export const izvoriPages = [
       { name: "Stanovnici",     path: "/pages/KONCEPT/Popis_stanovnika_K" }
     ]
   },
-  {
-  name: "Župa Komušina",
-  pages: [
-    {
-      name: "Komušina - Rođeni 1708-1723",
-      path: "/pages/ENTITET/matica/KOM.R.1708-1723"
-    },
-    {
-      name: "Komušina - Rođeni 1719-1741",
-      path: "/pages/ENTITET/matica/KOM.R.1719-1741"
-    },
-
-  ]
-},
 matice_komusina,
 matice_sivsa,
 //maticeBH,
