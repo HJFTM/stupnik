@@ -14,11 +14,11 @@ let pages;
 if (CURRENT_PROJECT === "Uvod") {
   pages = uvodPages;
 } else if (CURRENT_PROJECT === "Obitelji") {
-  pages = obiteljiPages;
+  //pages = obiteljiPages;
 } else if (CURRENT_PROJECT === "izvori") {
-  pages = izvoriPages;
+  //pages = izvoriPages;
 } else {
-  pages = getRodEntitetiIzvoriPages(CURRENT_PROJECT, data.obitelji);
+  //pages = getRodEntitetiIzvoriPages(CURRENT_PROJECT, data.obitelji);
 }
 
 // 2️⃣ Entry points = sve stranice koje želimo da se statički izgrade
