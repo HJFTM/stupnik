@@ -23,6 +23,7 @@ if (fs.existsSync(dataPath)) {
 
 console.log("observablehq.base.js - typeof data:", typeof data);
 console.log("observablehq.base.js - Array.isArray(data):", Array.isArray(data));
+console.log("hello-framework/observablehq.config.js - data.obitelj:", data.obitelj);
 
 //⚠️ obitelji
 export { data };
