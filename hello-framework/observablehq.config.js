@@ -8,6 +8,7 @@ import { uvodPages } from "./menu.uvod.js";
 
 console.log("hello-framework/observablehq.config.js - typeof data:", typeof data);
 console.log("hello-framework/observablehq.config.js - Array.isArray(data):", Array.isArray(data));
+console.log("hello-framework/observablehq.config.js - data.obitelji:", data.obitelji);
 
 let pages;
 
