@@ -29,41 +29,5 @@ console.log("Array.isArray(data):", Array.isArray(data));
 
 
 
-export function generirajMjestaOdObitelji(obitelji, rod = "Bosna") {
-  const mjestaMap = new Map();
-  const obitelj_m = obitelji.filter(o => o.TIP === "M" && o.ROD === rod && o.OBITELJ);
-
-  const mjestaSet = new Set();
-  for (const o of obitelj_m) {
-    if (o.MJESTO) mjestaSet.add(o.MJESTO.trim());
-  }
-
-  for (const mjesto of mjestaSet) {
-    let najstarijaGodina = null;
-
-    for (const o of obitelj_m) {
-      const godina = parseInt(o.GODINA);
-      if (!isFinite(godina)) continue;
-
-      const migracije = (o.MIGRACIJA || "").split(/[,;]/).map(s => s.trim());
-      const mjestoMatch = (o.MJESTO && o.MJESTO.trim() === mjesto) || migracije.includes(mjesto);
-
-      if (mjestoMatch && (najstarijaGodina == null || godina < najstarijaGodina)) {
-        najstarijaGodina = godina;
-      }
-    }
-
-    if (najstarijaGodina != null) {
-      mjestaMap.set(mjesto, najstarijaGodina);
-    }
-  }
-
-  return Array.from(mjestaMap.entries())
-    .sort((a, b) => a[1] - b[1])
-    .map(([mjesto, godina]) => ({
-      name: `${godina}. ${mjesto}`,
-      path: `/pages/ENTITET/mjesto/${encodeURIComponent(mjesto)}`
-    }));
-}
 
 
