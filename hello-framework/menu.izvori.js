@@ -100,10 +100,12 @@ export const izvoriPages = [
 {
   name: "Matice po župama",
   pages: [
-    ...maticeBH,
-    ...maticeST,
-    ...maticeDU
+    ...maticeBH.flatMap(z => z.pages),
+    ...maticeST.flatMap(z => z.pages),
+    ...maticeDU.flatMap(z => z.pages)
   ]
+}
+
 }
 
 ];
