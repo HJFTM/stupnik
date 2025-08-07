@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { dirname } from "path";
 
 // Ispravno lociraj JSON unutar hello-framework/src/data/
 const dataPath = path.resolve(__dirname, "src/data/dataCombined.json");
