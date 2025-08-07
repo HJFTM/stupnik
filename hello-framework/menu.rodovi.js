@@ -4,8 +4,8 @@ import {
 } from "./observablehq.base.js";
 
 export function getRodEntitetiIzvoriPages(rod, data) {
-  const obiteljiPoMjestuPages = generirajObiteljiPoMjestu(data, rod);
-  const mjestaPages = generirajMjestaOdObitelji(data, rod);
+  const obiteljiPoMjestuPages = generirajObiteljiPoMjestu(data.obitelji, rod);
+  const mjestaPages = generirajMjestaOdObitelji(data.obitelji, rod);
 
   return [
     {
