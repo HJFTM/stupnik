@@ -7,6 +7,7 @@ export function generirajMaticePoZupi(dataCombined, rod = "Bosna") {
   const matice = (dataCombined.matice ?? [])
     .filter(m => m.UID && m.UID != null)
     .filter(m => m.GODINA_OD < 1900);
+
   const zupeSet = new Set();
 
   for (const m of matice) {
@@ -24,6 +25,11 @@ export function generirajMaticePoZupi(dataCombined, rod = "Bosna") {
         z.ZUPA &&
         z.ZUPA.trim() === zupa
       )
+      .sort((a, b) => {
+        const aGodina = parseInt(a.GODINA_OD) || 9999;
+        const bGodina = parseInt(b.GODINA_OD) || 9999;
+        return aGodina - bGodina;
+      })
       .map(z => ({
         name: z.UID,
         path: `/pages/ENTITET/matica/${encodeURIComponent(z.UID)}`,
@@ -38,6 +44,7 @@ export function generirajMaticePoZupi(dataCombined, rod = "Bosna") {
     pages: matice
   }));
 }
+
 
 // ➕ Generiranje matica za sve rodove
 const maticeBH = generirajMaticePoZupi(data, "Bosna");
