@@ -24,6 +24,9 @@ if (fs.existsSync(dataPath)) {
 //⚠️ obitelji
 export { data };
 
+console.log("typeof data:", typeof data);
+console.log("Array.isArray(data):", Array.isArray(data));
+
 
 export function generirajObiteljiPoMjestu(data, rod = "Bosna") {
   const mjestaSet = new Set();
