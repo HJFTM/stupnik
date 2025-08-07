@@ -26,7 +26,7 @@ const entryPoints = [
   ...obiteljiPagesAll.flatMap(p => (p.pages ? p.pages : [p])).map(p => p.path),
   
   // Ručno dodajemo i [obitelj] podstranice
-  ...data
+  ...data.obitelji
     .filter(o => o.OBITELJ && o.OBITELJ != null)
     .flatMap(o => [
       `/pages/ENTITET/obitelj/${encodeURIComponent(o.OBITELJ)}`,
@@ -35,7 +35,7 @@ const entryPoints = [
       `/pages/ENTITET/obitelj_zapis/${encodeURIComponent(o.OBITELJ)}`
     ]),
     // Ručno dodajemo i [obitelj] podstranice
-  ...data
+  ...data.obitelji
     .filter(o => o.MJESTO && o.MJESTO != null)
     .flatMap(o => [
       `/pages/ENTITET/mjesto/${encodeURIComponent(o.MJESTO)}`,
@@ -48,7 +48,7 @@ const entryPoints = [
 
 // 3️⃣ Dinamičke rute za obitelji (npr. [obitelj].md stranice)
 export const dynamicPaths = () => {
-  return data
+  return data.obitelji
     .filter(o => o.OBITELJ)
     .flatMap(o => [
       `/pages/ENTITET/obitelj/${encodeURIComponent(o.OBITELJ)}`,
@@ -57,7 +57,7 @@ export const dynamicPaths = () => {
       `/pages/ENTITET/obitelj_zapis/${encodeURIComponent(o.OBITELJ)}`
     ])
     .concat(
-      data
+      data.obitelji
         .filter(o => o.MJESTO)
         .flatMap(o => [
           `/pages/ENTITET/mjesto/${encodeURIComponent(o.MJESTO)}`,
