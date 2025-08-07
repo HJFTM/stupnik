@@ -1,7 +1,7 @@
 
 
 import { 
-  CURRENT_PROJECT, data, 
+  CURRENT_PROJECT, data} 
 from "./observablehq.base.js";
 
 
