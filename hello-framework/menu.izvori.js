@@ -1,23 +1,3 @@
-import fs from "fs";
-import path from "path";
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-
-// Ispravno lociraj JSON unutar hello-framework/src/data/
-const dataPath = path.resolve(__dirname, "src/data/dataCombined.json");
-
-let data = [];
-if (fs.existsSync(dataPath)) {
-  const jsonString = fs.readFileSync(dataPath, "utf-8");
-  data = JSON.parse(jsonString);
-} else {
-  console.warn(`⚠️ Datoteka nije pronađena: ${dataPath}`);
-}
-
-export { data };
 
 // 🔁 Funkcija za generiranje matica po župi
 export function generirajMaticePoZupi(dataCombined, rod = "Bosna") {
