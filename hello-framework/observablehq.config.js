@@ -2,9 +2,9 @@ import { CURRENT_PROJECT, data } from "./observablehq.base.js";
 import { uvodPages } from "./menu.uvod.js";
 
 //import { getRodEntitetiIzvoriPages } from "./menu.rodovi.js"; // ⬅️ koristi dinamičku funkciju
- import { obiteljiPages, obiteljiPagesAll} from "./menu.obitelji.js";
+ //import { obiteljiPages, obiteljiPagesAll} from "./menu.obitelji.js";
  //import { mjestaPages } from "./menu.mjesta.js";
- //import { izvoriPages } from "./menu.izvori.js";
+ import { izvoriPages } from "./menu.izvori.js";
 
 console.log("typeof data:", typeof data);
 console.log("Array.isArray(data):", Array.isArray(data));
@@ -16,9 +16,9 @@ pages = uvodPages;
 if (CURRENT_PROJECT === "Uvod") {
   pages = uvodPages;
 } else if (CURRENT_PROJECT === "Obitelji") {
- pages = obiteljiPages;
+ //pages = obiteljiPages;
 } else if (CURRENT_PROJECT === "izvori") {
-  //pages = izvoriPages;
+  pages = izvoriPages;
 } else {
   //pages = getRodEntitetiIzvoriPages(CURRENT_PROJECT, data.obitelji);
 }
