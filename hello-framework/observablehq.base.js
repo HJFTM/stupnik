@@ -11,7 +11,7 @@ const __dirname = dirname(__filename);
 export const CURRENT_PROJECT = process.env.CURRENT_PROJECT || "NOT_FOUND";
 
 // Ispravno lociraj JSON unutar hello-framework/src/data/
-const dataPath = path.resolve(__dirname, "src/data/combinedData.json");
+const dataPath = path.resolve(__dirname, "src/data/dataGitHubExport.json");
 
 let data = [];
 if (fs.existsSync(dataPath)) {
