@@ -40,7 +40,7 @@ import "../../_observablehq/client.0f853e96.js";
     <li class="observablehq-link"><a href="./Mjesta_R?ROD=Stupnik">  Mjesta</a></li>
     <li class="observablehq-link"><a href="./Migracije_R?ROD=Stupnik">  Migracije</a></li>
     <li class="observablehq-link"><a href="./Izvori_D?ROD=Stupnik">  Izvori*</a></li>
-    <li class="observablehq-link observablehq-link-active"><a href="./Zupe_D?ROD=Stupnik">  Župe</a></li>
+    <li class="observablehq-link observablehq-link-active"><a href="./Zupe_R?ROD=Stupnik">  Župe</a></li>
     </ol>
   </section>
   <section>
@@ -75,17 +75,25 @@ import "../../_observablehq/client.0f853e96.js";
 </nav>
 </aside>
 <main id="observablehq-main" class="observablehq">
-<div id="observablehq-14594071"></div>
+<div id="observablehq-zupe_header-52af7921"></div>
+<div id="observablehq-zupe_plot-52af7921"></div>
+<div id="observablehq-zupe_geo-52af7921"></div>
+<div id="observablehq-zupe_table-52af7921"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
 import define from "https://api.observablehq.com/d/fcc44adcdb25b804.js?v=4";
-new Runtime().module(define, Inspector.into("#observablehq-14594071"));
+new Runtime().module(define, name => {
+  if (name === "zupe_header") return new Inspector(document.querySelector("#observablehq-zupe_header-52af7921"));
+  if (name === "zupe_plot") return new Inspector(document.querySelector("#observablehq-zupe_plot-52af7921"));
+  if (name === "zupe_geo") return new Inspector(document.querySelector("#observablehq-zupe_geo-52af7921"));
+  if (name === "zupe_table") return new Inspector(document.querySelector("#observablehq-zupe_table-52af7921"));
+});
 </script>
 </main>
 <footer id="observablehq-footer">
 <nav><a rel="prev" href="./Izvori_D?ROD=Stupnik"><span>  Izvori*</span></a><a rel="next" href="../ENTITET/mjesto/Stupnik"><span>1720. Stupnik</span></a></nav>
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-08-07T20:09:53">Aug 7, 2025</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-08-07T20:15:11">Aug 7, 2025</a>.</div>
 </footer>
 </div>
 </body>
