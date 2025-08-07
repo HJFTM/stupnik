@@ -26,6 +26,8 @@ const entryPoints = [
   ...pages.flatMap(p => (p.pages ? p.pages : [p])).map(p => p.path),
   //...mjestaPages.flatMap(p => (p.pages ? p.pages : [p])).map(p => p.path),
   //...obiteljiPagesAll.flatMap(p => (p.pages ? p.pages : [p])).map(p => p.path),
+];
+  const entryPoints2 = [
   
   // Ručno dodajemo i [obitelj] podstranice
   data.obitelji
@@ -49,7 +51,7 @@ const entryPoints = [
 ];
 
 // 3️⃣ Dinamičke rute za obitelji (npr. [obitelj].md stranice)
-export const dynamicPaths = () => {
+export const dynamicPaths2 = () => {
   return data.obitelji
     .filter(o => o.OBITELJ)
     .flatMap(o => [
