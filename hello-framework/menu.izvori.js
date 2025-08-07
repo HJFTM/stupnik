@@ -44,6 +44,7 @@ const maticeST = generirajMaticePoZupi(data, "Stupnik");
 const maticeDU = generirajMaticePoZupi(data, "Dubrovnik");
 const matice_komusina = maticeBH.find(m => m.name ==  "Komušina");
 const matice_sivsa = maticeBH.find(m => m.name ==  "Sivša");
+const matice_pecnik = maticeBH.find(m => m.name ==  "Pećnik");
 
 // 📦 Export struktura izvora, uključujući matice
 export const izvoriPages = [
@@ -70,6 +71,7 @@ export const izvoriPages = [
   },
 matice_komusina,
 matice_sivsa,
+matice_pecnik,  
 //maticeBH,
 //...maticeST,
 //...maticeDU
