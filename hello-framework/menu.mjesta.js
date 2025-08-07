@@ -8,13 +8,13 @@ from "./observablehq.base.js";
 
 
 
-const mjestaBH = generirajMjestaOdObiteljiSVE(data, "Bosna");
-const mjestaST = generirajMjestaOdObiteljiSVE(data, "Stupnik");
-const mjestaDU = generirajMjestaOdObiteljiSVE(data, "Dubrovnik");
+const mjestaBH = generirajMjestaOdObiteljiSVE(data.obitelji, "Bosna");
+const mjestaST = generirajMjestaOdObiteljiSVE(data.obitelji, "Stupnik");
+const mjestaDU = generirajMjestaOdObiteljiSVE(data.obitelji, "Dubrovnik");
 
 
 // Test
-const mjestaPagesTest = generirajMjestaOdObitelji(data, CURRENT_PROJECT);
+const mjestaPagesTest = generirajMjestaOdObitelji(data.obitelji, CURRENT_PROJECT);
 
 export const mjestaPages = [
   ...mjestaBH, ...mjestaST, ...mjestaDU,
