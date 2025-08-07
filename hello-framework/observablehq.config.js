@@ -16,7 +16,7 @@ if (CURRENT_PROJECT === "Uvod") {
 } else if (CURRENT_PROJECT === "izvori") {
   pages = izvoriPages;
 } else {
-  pages = getRodEntitetiIzvoriPages(CURRENT_PROJECT, data);
+  pages = getRodEntitetiIzvoriPages(CURRENT_PROJECT, data.obitelji);
 }
 
 // 2️⃣ Entry points = sve stranice koje želimo da se statički izgrade
