@@ -1,7 +1,10 @@
 import {
   generirajObiteljiPoMjestu,
-  generirajMjestaOdObitelji
 } from "./menu.obitelji.js";
+
+import {
+  generirajMjestaOdObitelji
+} from "./menu.mjesta.js";
 
 export function getRodEntitetiIzvoriPages(rod, obitelji) {
   const obiteljiPoMjestuPages = generirajObiteljiPoMjestu(obitelji, rod);
