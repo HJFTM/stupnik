@@ -80,7 +80,7 @@ export const izvoriPages = [
   ]
 },
 matice_komusina,
-maticeBH,
-  ...maticeST,
-  ...maticeDU
+//maticeBH,
+//...maticeST,
+//...maticeDU
 ];
