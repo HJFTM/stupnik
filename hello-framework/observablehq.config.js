@@ -6,8 +6,8 @@ import { uvodPages } from "./menu.uvod.js";
  //import { mjestaPages } from "./menu.mjesta.js";
  import { izvoriPages } from "./menu.izvori.js";
 
-console.log("typeof data:", typeof data);
-console.log("Array.isArray(data):", Array.isArray(data));
+console.log("hello-framework/observablehq.config.js - typeof data:", typeof data);
+console.log("hello-framework/observablehq.config.js - Array.isArray(data):", Array.isArray(data));
 
 let pages;
 
