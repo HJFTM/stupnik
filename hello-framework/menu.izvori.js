@@ -16,7 +16,7 @@ export { data };
 
 // 🔁 Funkcija za generiranje matica po župi
 export function generirajMaticePoZupi(dataCombined, rod = "Bosna") {
-  const matice = (dataCombined.matice ?? []).filter(m => m.UID && m.MATICA);
+  const matice = (dataCombined.matice ?? []).filter(m => m.UID && m.UID != null);
   const zupeSet = new Set();
 
   for (const m of matice) {
@@ -35,11 +35,11 @@ export function generirajMaticePoZupi(dataCombined, rod = "Bosna") {
         z.ZUPA.trim() === zupa
       )
       .map(z => ({
-        name: z.MATICA,
-        path: `/pages/ENTITET/matica/${encodeURIComponent(z.MATICA)}`,
-        pathEncoded2: `/pages/ENTITET/matica/${encodeURIComponent(encodeURIComponent(z.MATICA))}`,
-        geo_path: `/pages/ENTITET/matica_geo/${encodeURIComponent(z.MATICA)}`,
-        geo_pathEncoded2: `/pages/ENTITET/matica_geo/${encodeURIComponent(encodeURIComponent(z.MATICA))}`
+        name: z.UID,
+        path: `/pages/ENTITET/matica/${encodeURIComponent(z.UID)}`,
+        pathEncoded2: `/pages/ENTITET/matica/${encodeURIComponent(encodeURIComponent(z.UID))}`,
+        geo_path: `/pages/ENTITET/matica_geo/${encodeURIComponent(z.UID)}`,
+        geo_pathEncoded2: `/pages/ENTITET/matica_geo/${encodeURIComponent(encodeURIComponent(z.UID))}`
       }));
   }
 
