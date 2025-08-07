@@ -1,3 +1,4 @@
+import {data} from "./observablehq.base.js";
 
 // 🔁 Funkcija za generiranje matica po župi
 export function generirajMaticePoZupi(dataCombined, rod = "Bosna") {
