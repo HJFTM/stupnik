@@ -80,8 +80,8 @@ export const dynamicPaths2 = () => {
 export default {
   title: `${CURRENT_PROJECT}`,
   pages,
-  entryPoints,
-  dynamicPaths,
+  //entryPoints,
+  //dynamicPaths,
   head: '<link rel="icon" href="observable.png" type="image/png" sizes="32x32">',
   root: "src"
 };
