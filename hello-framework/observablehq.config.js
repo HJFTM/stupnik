@@ -1,8 +1,8 @@
 import { CURRENT_PROJECT, data } from "./observablehq.base.js";
 import { uvodPages } from "./menu.uvod.js";
 
- import { getRodEntitetiIzvoriPages } from "./menu.rodovi.js"; // ⬅️ koristi dinamičku funkciju
- //import { obiteljiPages, obiteljiPagesAll} from "./menu.obitelji.js";
+//import { getRodEntitetiIzvoriPages } from "./menu.rodovi.js"; // ⬅️ koristi dinamičku funkciju
+ import { obiteljiPages, obiteljiPagesAll} from "./menu.obitelji.js";
  //import { mjestaPages } from "./menu.mjesta.js";
  //import { izvoriPages } from "./menu.izvori.js";
 
@@ -16,11 +16,11 @@ pages = uvodPages;
 if (CURRENT_PROJECT === "Uvod") {
   pages = uvodPages;
 } else if (CURRENT_PROJECT === "Obitelji") {
-  //pages = obiteljiPages;
+ pages = obiteljiPages;
 } else if (CURRENT_PROJECT === "izvori") {
   //pages = izvoriPages;
 } else {
-  pages = getRodEntitetiIzvoriPages(CURRENT_PROJECT, data.obitelji);
+  //pages = getRodEntitetiIzvoriPages(CURRENT_PROJECT, data.obitelji);
 }
 
 // 2️⃣ Entry points = sve stranice koje želimo da se statički izgrade
