@@ -1,7 +1,7 @@
 import {
   generirajObiteljiPoMjestu,
   generirajMjestaOdObitelji
-} from "./observablehq.base.js";
+} from "./menu.obitelji.js";
 
 export function getRodEntitetiIzvoriPages(rod, obitelji) {
   const obiteljiPoMjestuPages = generirajObiteljiPoMjestu(obitelji, rod);
