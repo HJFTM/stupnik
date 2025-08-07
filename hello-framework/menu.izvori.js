@@ -1,4 +1,6 @@
 import {data} from "./observablehq.base.js";
+console.log("menu.izvor.js - typeof data:", typeof data);
+console.log("menu.izvor.js - Array.isArray(data):", Array.isArray(data));
 
 // 🔁 Funkcija za generiranje matica po župi
 export function generirajMaticePoZupi(dataCombined, rod = "Bosna") {
