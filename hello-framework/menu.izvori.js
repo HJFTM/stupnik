@@ -1,24 +1,34 @@
-export const izvoriPages = [
-  {
-    name: "Izvori",
-    pages: [
-      { name: "Izvori",    path: "/pages/KONCEPT/Izvori_K" },
-      { name: "Crkveni",   path: "/pages/KONCEPT/Izvori_Crkveni" },
-      { name: "Državni",   path: "/pages/KONCEPT/Izvori_Drzavni" },      
-      { name: "Gradski",   path: "/pages/KONCEPT/Izvori_Gradski" },  
-      { name: "Radovi",    path: "/pages/KONCEPT/Izvori_Radovi" },
-      { name: "Groblja",   path: "/pages/KONCEPT/Izvori_Groblja" },  
-      { name: "Pismo",            path: "/pages/KONCEPT/Pismo_K" },
-       ]
-  },
-  {
-    name: "Događaji - Zapisi",
-    pages: [   
-      { name: "Matice",           path: "/pages/KONCEPT/Izvori_zapisi_K" },
-      { name: "Kućedomaćini",     path: "/pages/KONCEPT/Kucedomacin_K" },
-      { name: "Katastar",         path: "/pages/KONCEPT/Katastar_K" },
-      { name: "Stanovnici",       path: "/pages/KONCEPT/Popis_stanovnika_K" },
-    ]
-  }
-];
+export function generirajMaticePoZupi(dataCombined, rod = "Bosna") {
+  const matice = dataCombined.matice.filter(m => m.UID && m.UID !== null);
+  const zupeSet = new Set();
 
+  for (const m of matice) {
+    if (!m.ROD || m.ROD !== rod || !m.ZUPA || !m.MATICA) continue;
+    zupeSet.add(m.ZUPA.trim());
+  }
+
+  const zupe = Array.from(zupeSet);
+  const mapaZupa = {};
+
+  for (const zupa of zupe) {
+    mapaZupa[zupa] = matice
+      .filter(z =>
+        z.ROD === rod &&
+        z.MATICA &&
+        z.ZUPA &&
+        z.ZUPA.trim() === zupa
+      )
+      .map(z => ({
+        name: z.MATICA,
+        path: `/pages/ENTITET/matica/${encodeURIComponent(z.MATICA)}`,
+        pathEncoded2: `/pages/ENTITET/matica/${encodeURIComponent(encodeURIComponent(z.MATICA))}`,
+        geo_path: `/pages/ENTITET/matica_geo/${encodeURIComponent(z.MATICA)}`,
+        geo_pathEncoded2: `/pages/ENTITET/matica_geo/${encodeURIComponent(encodeURIComponent(z.MATICA))}`
+      }));
+  }
+
+  return Object.entries(mapaZupa).map(([zupa, matice]) => ({
+    name: zupa,
+    pages: matice
+  }));
+}
