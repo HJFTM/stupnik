@@ -21,11 +21,13 @@ if (fs.existsSync(dataPath)) {
   console.warn(`⚠️ Datoteka nije pronađena: ${dataPath}`);
 }
 
+console.log("observablehq.base.js - typeof data:", typeof data);
+console.log("observablehq.base.js - Array.isArray(data):", Array.isArray(data));
+
 //⚠️ obitelji
 export { data };
 
-console.log("typeof data:", typeof data);
-console.log("Array.isArray(data):", Array.isArray(data));
+
 
 
 
