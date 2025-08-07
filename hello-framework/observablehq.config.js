@@ -4,7 +4,7 @@ import { uvodPages } from "./menu.uvod.js";
  //import { getRodEntitetiIzvoriPages } from "./menu.rodovi.js"; // ⬅️ koristi dinamičku funkciju
  //import { obiteljiPages, obiteljiPagesAll} from "./menu.obitelji.js";
  //import { mjestaPages } from "./menu.mjesta.js";
- import { izvoriPages } from "./menu.izvori.js";
+ //import { izvoriPages } from "./menu.izvori.js";
 
 console.log("typeof data:", typeof data);
 console.log("Array.isArray(data):", Array.isArray(data));
@@ -30,7 +30,51 @@ const entryPoints = [
   //...obiteljiPagesAll.flatMap(p => (p.pages ? p.pages : [p])).map(p => p.path),
 ];
  
+ const entryPoints2 = [
+  
+  // Ručno dodajemo i [obitelj] podstranice
+  data.obitelji
+    .filter(o => o.OBITELJ && o.OBITELJ != null)
+    .flatMap(o => [
+      `/pages/ENTITET/obitelj/${encodeURIComponent(o.OBITELJ)}`,
+      `/pages/ENTITET/obitelj_geo/${encodeURIComponent(o.OBITELJ)}`,
+      `/pages/ENTITET/obitelj_stablo/${encodeURIComponent(o.OBITELJ)}`,
+      `/pages/ENTITET/obitelj_zapis/${encodeURIComponent(o.OBITELJ)}`
+    ]),
+    // Ručno dodajemo i [obitelj] podstranice
+  data.obitelji
+    .filter(o => o.MJESTO && o.MJESTO != null)
+    .flatMap(o => [
+      `/pages/ENTITET/mjesto/${encodeURIComponent(o.MJESTO)}`,
+      `/pages/ENTITET/mjesto_zupe/${encodeURIComponent(o.MJESTO)}`,
+      `/pages/ENTITET/mjesto_migracije/${encodeURIComponent(o.MJESTO)}`,
+      `/pages/ENTITET/mjesto_obitelji/${encodeURIComponent(o.MJESTO)}`,
+      `/pages/ENTITET/mjesto_zapisi/${encodeURIComponent(o.MJESTO)}`
+    ])
+];
 
+// 3️⃣ Dinamičke rute za obitelji (npr. [obitelj].md stranice)
+export const dynamicPaths2 = () => {
+  return data.obitelji
+    .filter(o => o.OBITELJ)
+    .flatMap(o => [
+      `/pages/ENTITET/obitelj/${encodeURIComponent(o.OBITELJ)}`,
+      `/pages/ENTITET/obitelj_geo/${encodeURIComponent(o.OBITELJ)}`,
+      `/pages/ENTITET/obitelj_stablo/${encodeURIComponent(o.OBITELJ)}`,
+      `/pages/ENTITET/obitelj_zapis/${encodeURIComponent(o.OBITELJ)}`
+    ])
+    .concat(
+      data.obitelji
+        .filter(o => o.MJESTO)
+        .flatMap(o => [
+          `/pages/ENTITET/mjesto/${encodeURIComponent(o.MJESTO)}`,
+          `/pages/ENTITET/mjesto_zupe/${encodeURIComponent(o.MJESTO)}`,
+          `/pages/ENTITET/mjesto_migracije/${encodeURIComponent(o.MJESTO)}`,
+          `/pages/ENTITET/mjesto_obitelji/${encodeURIComponent(o.MJESTO)}`,
+          `/pages/ENTITET/mjesto_zapisi/${encodeURIComponent(o.MJESTO)}`
+        ])
+    );
+};
 
 // 4️⃣ Finalni config
 export default {
