@@ -85,6 +85,6 @@ maticeBH.find(m => m.name ==  "Podvučjak"),
 maticeBH.find(m => m.name ==  "Potočani"),    
 matice_pecnik,  
 //maticeBH,
-//...maticeST,
-//...maticeDU
+...maticeST,
+...maticeDU
 ];
