@@ -26,7 +26,7 @@ const entryPoints = [
   ...obiteljiPagesAll.flatMap(p => (p.pages ? p.pages : [p])).map(p => p.path),
   
   // Ručno dodajemo i [obitelj] podstranice
-  ...data.obitelji
+  data.obitelji
     .filter(o => o.OBITELJ && o.OBITELJ != null)
     .flatMap(o => [
       `/pages/ENTITET/obitelj/${encodeURIComponent(o.OBITELJ)}`,
@@ -35,7 +35,7 @@ const entryPoints = [
       `/pages/ENTITET/obitelj_zapis/${encodeURIComponent(o.OBITELJ)}`
     ]),
     // Ručno dodajemo i [obitelj] podstranice
-  ...data.obitelji
+  data.obitelji
     .filter(o => o.MJESTO && o.MJESTO != null)
     .flatMap(o => [
       `/pages/ENTITET/mjesto/${encodeURIComponent(o.MJESTO)}`,
