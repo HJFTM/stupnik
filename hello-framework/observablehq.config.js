@@ -11,6 +11,8 @@ console.log("Array.isArray(data):", Array.isArray(data));
 
 let pages;
 
+pages = uvodPages;
+
 if (CURRENT_PROJECT === "Uvod") {
   pages = uvodPages;
 } else if (CURRENT_PROJECT === "Obitelji") {
