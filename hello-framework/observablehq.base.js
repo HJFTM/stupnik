@@ -22,7 +22,7 @@ if (fs.existsSync(dataPath)) {
 }
 
 //⚠️ obitelji
-export { data.obitelji };
+export { data };
 
 
 export function generirajObiteljiPoMjestu(data, rod = "Bosna") {
