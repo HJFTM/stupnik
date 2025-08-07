@@ -58,7 +58,7 @@ export function generirajMaticePoZupi(dataCombined, rod = "Bosna") {
 const maticeBH = generirajMaticePoZupi(data, "Bosna");
 const maticeST = generirajMaticePoZupi(data, "Stupnik");
 const maticeDU = generirajMaticePoZupi(data, "Dubrovnik");
-
+const matice_komusina = maticeBH.find(m => m.name ==  "Komušina");
 // 📦 Export struktura izvora, uključujući matice
 export const izvoriPages = [
   {
@@ -83,7 +83,7 @@ export const izvoriPages = [
     ]
   },
   {
-  name: "Župa Pećnik",
+  name: "Župa Komušina",
   pages: [
     {
       name: "Komušina - Rođeni 1708-1723",
@@ -96,7 +96,7 @@ export const izvoriPages = [
 
   ]
 },
-
+...matice_komusina,
   ...maticeBH,
   ...maticeST,
   ...maticeDU
