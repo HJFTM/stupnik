@@ -10,21 +10,21 @@ from "./observablehq.base.js";
 
 
 
-const obiteljiBH = generirajObiteljiPoMjestu(data, "Bosna");
-const obiteljiST = generirajObiteljiPoMjestu(data, "Stupnik");
-const obiteljiDU = generirajObiteljiPoMjestu(data, "Dubrovnik");
+const obiteljiBH = generirajObiteljiPoMjestu(data.obitelji, "Bosna");
+const obiteljiST = generirajObiteljiPoMjestu(data.obitelji, "Stupnik");
+const obiteljiDU = generirajObiteljiPoMjestu(data.obitelji, "Dubrovnik");
 
-const obiteljiGEOBH = generirajObiteljiGEOpoMjestu(data, "Bosna");
-const obiteljiGEOST = generirajObiteljiGEOpoMjestu(data, "Stupnik");
-const obiteljiGEODU = generirajObiteljiGEOpoMjestu(data, "Dubrovnik");
+const obiteljiGEOBH = generirajObiteljiGEOpoMjestu(data.obitelji, "Bosna");
+const obiteljiGEOST = generirajObiteljiGEOpoMjestu(data.obitelji, "Stupnik");
+const obiteljiGEODU = generirajObiteljiGEOpoMjestu(data.obitelji, "Dubrovnik");
 
-const obiteljiZapisBH = generirajObiteljiZapis(data, "Bosna");
-const obiteljiZapisST = generirajObiteljiZapis(data, "Stupnik");
-const obiteljiZapisDU = generirajObiteljiZapis(data, "Dubrovnik");
+const obiteljiZapisBH = generirajObiteljiZapis(data.obitelji, "Bosna");
+const obiteljiZapisST = generirajObiteljiZapis(data.obitelji, "Stupnik");
+const obiteljiZapisDU = generirajObiteljiZapis(data.obitelji, "Dubrovnik");
 
-const obiteljiStabloBH = generirajObiteljiStablo(data, "Bosna");
-const obiteljiStabloST = generirajObiteljiStablo(data, "Stupnik");
-const obiteljiStabloDU = generirajObiteljiStablo(data, "Dubrovnik");
+const obiteljiStabloBH = generirajObiteljiStablo(data.obitelji, "Bosna");
+const obiteljiStabloST = generirajObiteljiStablo(data.obitelji, "Stupnik");
+const obiteljiStabloDU = generirajObiteljiStablo(data.obitelji, "Dubrovnik");
 
 /*
 //  ...obiteljiGEOBH, ...obiteljiGEOST, ...obiteljiGEODU,
