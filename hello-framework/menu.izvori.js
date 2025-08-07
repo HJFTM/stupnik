@@ -5,7 +5,8 @@ console.log("menu.izvor.js - Array.isArray(data):", Array.isArray(data));
 // 🔁 Funkcija za generiranje matica po župi
 export function generirajMaticePoZupi(dataCombined, rod = "Bosna") {
   const matice = (dataCombined.matice ?? [])
-    .filter(m => m.UID && m.UID != null);
+    .filter(m => m.UID && m.UID != null)
+    .filter(m => m.GODINA_OD < 1900);
   const zupeSet = new Set();
 
   for (const m of matice) {
