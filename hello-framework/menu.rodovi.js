@@ -23,6 +23,7 @@ export function getRodEntitetiIzvoriPages(rod, obitelji) {
         { name: "  Mjesta",       path: `/pages/ROD/Mjesta_R?ROD=${encodeURIComponent(rod)}` },
         { name: "  Migracije",    path: `/pages/ROD/Migracije_R?ROD=${encodeURIComponent(rod)}` },
         { name: "  Izvori*",      path: `/pages/ROD/Izvori_D?ROD=${encodeURIComponent(rod)}` },
+        { name: "  Župe",         path: `/pages/ROD/Zupe_D?ROD=${encodeURIComponent(rod)}` },
       ]
     },
     {
