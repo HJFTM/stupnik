@@ -24,7 +24,7 @@ if (CURRENT_PROJECT === "Uvod") {
 // 2️⃣ Entry points = sve stranice koje želimo da se statički izgrade
 const entryPoints = [
   ...pages.flatMap(p => (p.pages ? p.pages : [p])).map(p => p.path),
-  ...mjestaPages.map(p => p.path),
+  ...mjestaPages.flatMap(p => (p.pages ? p.pages : [p])).map(p => p.path),
   ...obiteljiPagesAll.flatMap(p => (p.pages ? p.pages : [p])).map(p => p.path),
   
   // Ručno dodajemo i [obitelj] podstranice
