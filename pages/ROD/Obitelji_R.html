@@ -28,55 +28,42 @@ import "../../_observablehq/client.0f853e96.js";
     <label id="observablehq-sidebar-close" for="observablehq-sidebar-toggle"></label>
     <li class="observablehq-link"><a href="../../">Stupnik</a></li>
   </ol>
-  <section>
-    <summary>Predgovor</summary>
-    <ol>
-    <li class="observablehq-link"><a href="../0%20Uvod/1_Naslovnica">Naslovnica</a></li>
-    <li class="observablehq-link"><a href="../izbornik">Izbornik</a></li>
-    <li class="observablehq-link"><a href="../0%20Uvod/2_Geomapa">Mapa</a></li>
-    </ol>
-  </section>
-  <section>
-    <summary>Prezime</summary>
-    <ol>
-    <li class="observablehq-link"><a href="../1_Jularic/01.1.prezime_ilaric">Prezime Jular-ić</a></li>
-    <li class="observablehq-link"><a href="../1_Jularic/01.2.evolucija">Jularić - Ilarić</a></li>
-    <li class="observablehq-link"><a href="../0%20Uvod/3_Jularic">Ilarić</a></li>
-    </ol>
-  </section>
-  <section>
-    <summary>Rodovi</summary>
-    <ol>
-    <li class="observablehq-link"><a href="../0%20Uvod/4_Ilaric">Rodovi Ilarić</a></li>
-    <li class="observablehq-link"><a href="../KONCEPT/Zupe_K">Župe</a></li>
-    <li class="observablehq-link"><a href="../KONCEPT/Mjesta_K">Mjesta</a></li>
-    </ol>
-  </section>
-  <section>
+  <section class="observablehq-section-active">
     <summary>Obitelji</summary>
     <ol>
-    <li class="observablehq-link"><a href="../KONCEPT/Generacije_K">Generacije</a></li>
-    <li class="observablehq-link"><a href="../KONCEPT/Obitelji_K">Obitelji</a></li>
-    <li class="observablehq-link"><a href="../KONCEPT/Brakovi_K">Brakovi</a></li>
-    <li class="observablehq-link"><a href="../KONCEPT/Obitelji_povezane_K">Povezane obitelji</a></li>
-    <li class="observablehq-link"><a href="../KONCEPT/Zapisi_K">Događaji - zapisi</a></li>
-    <li class="observablehq-link"><a href="../KONCEPT/Bolesti_K">Bolesti</a></li>
-    <li class="observablehq-link"><a href="../KONCEPT/Groblje_K">Groblja</a></li>
+    <li class="observablehq-link"><a href="../1_Jularic/prezime_r?ROD=Stupnik">  Prezime</a></li>
+    <li class="observablehq-link"><a href="./Generacije_R?ROD=Stupnik">  Generacije</a></li>
+    <li class="observablehq-link observablehq-link-active"><a href="./Obitelji_R?ROD=Stupnik">  Obitelji</a></li>
+    <li class="observablehq-link"><a href="./Dogadjaji_R?ROD=Stupnik">  Događaji</a></li>
+    <li class="observablehq-link"><a href="./Stablo_R?ROD=Stupnik">  Stablo</a></li>
+    <li class="observablehq-link"><a href="./Bolesti_D?ROD=Stupnik">  Bolesti</a></li>
+    <li class="observablehq-link"><a href="./Mjesta_R?ROD=Stupnik">  Mjesta</a></li>
+    <li class="observablehq-link"><a href="./Migracije_R?ROD=Stupnik">  Migracije</a></li>
+    <li class="observablehq-link"><a href="./Izvori_D?ROD=Stupnik">  Izvori*</a></li>
     </ol>
   </section>
   <section>
-    <summary>Migracije</summary>
+    <summary>Mjesta</summary>
     <ol>
-    <li class="observablehq-link"><a href="../KONCEPT/Migracije_K">Vtrste</a></li>
-    <li class="observablehq-link"><a href="../KONCEPT/Migracije_individualne_K">Individualne</a></li>
-    <li class="observablehq-link"><a href="../KONCEPT/Migracije_masovne_K">Masovne</a></li>
+    <li class="observablehq-link"><a href="../ENTITET/mjesto/Stupnik">1720. Stupnik</a></li>
+    <li class="observablehq-link"><a href="../ENTITET/mjesto/Novo%2520Selo">1732. Novo Selo</a></li>
+    <li class="observablehq-link"><a href="../ENTITET/mjesto/Lu%25C5%25BEani">1741. Lužani</a></li>
     </ol>
   </section>
   <section>
-    <summary>Ostalo</summary>
+    <summary>Izvori</summary>
     <ol>
-    <li class="observablehq-link"><a href="../1_Prezime/prezime_srodno">Srodna prezimena</a></li>
-    <li class="observablehq-link"><a href="../KONCEPT/Drzava_K">Države</a></li>
+    <li class="observablehq-link"><a href="./Izvor_Popisi?ROD=Stupnik">  Popisi</a></li>
+    <li class="observablehq-link"><a href="./Matice_D?ROD=Stupnik">  Matice</a></li>
+    <li class="observablehq-link"><a href="./Groblje_D?ROD=Stupnik">  Groblje</a></li>
+    <li class="observablehq-link"><a href="./Katastar_D?ROD=Stupnik">  Katastar</a></li>
+    <li class="observablehq-link"><a href="./Pismo_D?ROD=Stupnik">  Pismo / Jezik</a></li>
+    </ol>
+  </section>
+  <section>
+    <summary>----------</summary>
+    <ol>
+    <li class="observablehq-link"><a href="../KONCEPT/Navigacija">Sadržaj</a></li>
     </ol>
   </section>
 </nav>
@@ -100,7 +87,8 @@ new Runtime().module(define, name => {
 </script>
 </main>
 <footer id="observablehq-footer">
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-08-07T09:59:24">Aug 7, 2025</a>.</div>
+<nav><a rel="prev" href="./Generacije_R?ROD=Stupnik"><span>  Generacije</span></a><a rel="next" href="./Dogadjaji_R?ROD=Stupnik"><span>  Događaji</span></a></nav>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-08-07T10:35:30">Aug 7, 2025</a>.</div>
 </footer>
 </div>
 </body>
