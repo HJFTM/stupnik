@@ -97,7 +97,13 @@ export const izvoriPages = [
   ]
 },
 
-  ...maticeBH,
-  ...maticeST,
-  ...maticeDU
+{
+  name: "Matice po župama",
+  pages: [
+    ...maticeBH,
+    ...maticeST,
+    ...maticeDU
+  ]
+}
+
 ];
