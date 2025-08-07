@@ -11,7 +11,7 @@ const __dirname = dirname(__filename);
 export const CURRENT_PROJECT = process.env.CURRENT_PROJECT || "NOT_FOUND";
 
 // Ispravno lociraj JSON unutar hello-framework/src/data/
-const dataPath = path.resolve(__dirname, "src/data/obitelji.json");
+const dataPath = path.resolve(__dirname, "src/data/combinedData.json");
 
 let data = [];
 if (fs.existsSync(dataPath)) {
@@ -21,7 +21,10 @@ if (fs.existsSync(dataPath)) {
   console.warn(`⚠️ Datoteka nije pronađena: ${dataPath}`);
 }
 
-export { data };
+//⚠️ obitelji
+export { data.obitelji };
+
+
 export function generirajObiteljiPoMjestu(data, rod = "Bosna") {
   const mjestaSet = new Set();
 
