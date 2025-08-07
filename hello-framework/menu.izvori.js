@@ -23,11 +23,7 @@ export function generirajMaticePoZupi(dataCombined, rod = "Bosna") {
         z.ROD === rod &&
         z.ZUPA &&
         z.ZUPA.trim() === zupa
-      ).sort((a, b) => {
-        const aGodina = parseInt(a.GODINA_OD) || 9999;
-        const bGodina = parseInt(b.GODINA_OD) || 9999;
-        return aGodina - bGodina;
-      })
+      )
       .map(z => ({
         name: z.UID,
         path: `/pages/ENTITET/matica/${encodeURIComponent(z.UID)}`,
