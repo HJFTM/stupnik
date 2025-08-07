@@ -105,7 +105,4 @@ export const izvoriPages = [
     ...maticeDU.flatMap(z => z.pages)
   ]
 }
-
-}
-
 ];
