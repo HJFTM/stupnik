@@ -46,7 +46,7 @@ export function generirajMaticePoZupi(dataCombined, rod = "Bosna") {
 }
 
 // Generiraj Zupe po Drzavama
-cosnt zupeBH = generirajZupePoRodovima(data, "Bosna");
+const zupeBH = generirajZupePoRodovima(data, "Bosna");
 
 // ➕ Generiranje matica za sve rodove
 const maticeBH = generirajMaticePoZupi(data, "Bosna");
