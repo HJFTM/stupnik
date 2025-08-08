@@ -80,7 +80,7 @@ export const izvoriPages = [
     ]
   },       
 
-  ...zupeBH,
+  zupeBH,
   matice_komusina,
   matice_sivsa,
   maticeBH.find(m => m.name ==  "Plehan"),
