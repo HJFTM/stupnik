@@ -78,14 +78,9 @@ export const izvoriPages = [
       { name: "Katastar",       path: "/pages/KONCEPT/Katastar_K" },
       { name: "Stanovnici",     path: "/pages/KONCEPT/Popis_stanovnika_K" }
     ]
-  },  {
-    name: "Župe Bosna",
-    pages: [   
-      ...zupeBH,
-    ]
-  },      
+  },       
 
-  
+  ...zupeBH,
   matice_komusina,
   matice_sivsa,
   maticeBH.find(m => m.name ==  "Plehan"),
