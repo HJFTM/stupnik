@@ -102,32 +102,27 @@ export const izvoriPages = [
 function generirajZupePoRodovima(dataCombined, rod = "Bosna") {
   const src = (dataCombined.župe ?? dataCombined.zupe ?? [])
     .filter(z => z && z.ZUPA && String(z.ZUPA).trim() !== "")
-    .filter(z=>z.RELEVANT==true);
+    .filter(z => z.RELEVANT === true);
 
-  // Ako je zadan rod, filtriraj po njemu; inače uzmi sve
+  // Filtriraj po DRZAVA
   const filtrirano = rod
-    ? src.filter(z => z.DRZAVA && z.DRZAVA === rod)
+    ? src.filter(z => z.DRZAVA && String(z.DRZAVA).trim() === rod)
     : src;
 
-  // Unikatne župe (po imenu)
-  const zupeSet = new Set(
-    filtrirano.map(z => String(z.ZUPA).trim())
-  );
+  // Unikatne župe po nazivu
+  const zupeSet = new Set(filtrirano.map(z => String(z.ZUPA).trim()));
 
-  // Sort po nazivu (hr locale)
   const zupe = Array.from(zupeSet).sort((a, b) =>
     a.localeCompare(b, "hr", { sensitivity: "base" })
   );
 
-  // Ista struktura kao i generirajMaticePoZupi: { name, pages: [...] }
-  return zupe.map(zupa => ({
-    name: zupa,
-    pages: [
-      {
-        name: "Župa",
-        path: `/pages/ENTITET/zupa/${encodeURIComponent(zupa)}`,
-        pathEncoded2: `/pages/ENTITET/zupa/${encodeURIComponent(encodeURIComponent(zupa))}`,
-      }
-    ]
-  }));
+  // Vratiti jedan objekt: { name: rod, pages: [...] }
+  return {
+    name: rod, 
+    pages: zupe.map(zupa => ({
+      name: zupa,
+      path: `/pages/ENTITET/zupa/${encodeURIComponent(zupa)}`,
+      pathEncoded2: `/pages/ENTITET/zupa/${encodeURIComponent(encodeURIComponent(zupa))}`,
+    }))
+  };
 }
