@@ -1,5 +1,27 @@
 import {data} from "./observablehq.base.js";
 
+// ➕ Generiranje matica za sve rodove
+const maticeBH = generirajMaticePoZupi(data, "Bosna");
+const maticeST = generirajMaticePoZupi(data, "Stupnik");
+const maticeDU = generirajMaticePoZupi(data, "Dubrovnik");
+// const matice_komusina = maticeBH.find(m => m.name ==  "Komušina");
+// const matice_sivsa = maticeBH.find(m => m.name ==  "Sivša");
+// const matice_pecnik = maticeBH.find(m => m.name ==  "Pećnik");
+
+// 📦 Export struktura izvora, uključujući matice
+export const zapisiPages = [
+  // matice_komusina,
+  // matice_sivsa,
+  // maticeBH.find(m => m.name ==  "Plehan"),
+  // maticeBH.find(m => m.name ==  "Koraće"),  
+  // maticeBH.find(m => m.name ==  "Podvučjak"),  
+  // maticeBH.find(m => m.name ==  "Potočani"),    
+  // matice_pecnik,  
+  ...maticeBH,
+  ...maticeST,
+  ...maticeDU
+];
+
 // 🔁 Funkcija za generiranje matica po župi
 export function generirajMaticePoZupi(dataCombined, rod = "Bosna") {
   const matice = (dataCombined.matice ?? [])
@@ -41,62 +63,4 @@ export function generirajMaticePoZupi(dataCombined, rod = "Bosna") {
     name: zupa,
     pages: matice
   }));
-}
-
-// Generiraj Zupe po Drzavama
-const zupeBH = generirajZupePoRodovima(data, "Bosna");
-const zupeAU = generirajZupePoRodovima(data, "Austrougarska");
-const zupeDU = generirajZupePoRodovima(data, "Dubrovačka Republika");
-
-// ➕ Generiranje matica za sve rodove
-const maticeBH = generirajMaticePoZupi(data, "Bosna");
-const maticeST = generirajMaticePoZupi(data, "Stupnik");
-const maticeDU = generirajMaticePoZupi(data, "Dubrovnik");
-const matice_komusina = maticeBH.find(m => m.name ==  "Komušina");
-const matice_sivsa = maticeBH.find(m => m.name ==  "Sivša");
-const matice_pecnik = maticeBH.find(m => m.name ==  "Pećnik");
-
-// 📦 Export struktura izvora, uključujući matice
-export const zapisiPages = [
-   
-
-  matice_komusina,
-  matice_sivsa,
-  maticeBH.find(m => m.name ==  "Plehan"),
-  maticeBH.find(m => m.name ==  "Koraće"),  
-  maticeBH.find(m => m.name ==  "Podvučjak"),  
-  maticeBH.find(m => m.name ==  "Potočani"),    
-  matice_pecnik,  
-  //maticeBH,
-  ...maticeST,
-  ...maticeDU
-];
-
-// 🔁 Funkcija za generiranje župa po DRZAVAMA (ZUPA.DRZAVA)
-function generirajZupePoRodovima(dataCombined, rod = "Bosna") {
-  const src = (dataCombined.župe ?? dataCombined.zupe ?? [])
-    .filter(z => z && z.ZUPA && String(z.ZUPA).trim() !== "")
-    .filter(z => z.RELEVANT === true);
-
-  // Filtriraj po DRZAVA
-  const filtrirano = rod
-    ? src.filter(z => z.DRZAVA && String(z.DRZAVA).trim() === rod)
-    : src;
-
-  // Unikatne župe po nazivu
-  const zupeSet = new Set(filtrirano.map(z => String(z.ZUPA).trim()));
-
-  const zupe = Array.from(zupeSet).sort((a, b) =>
-    a.localeCompare(b, "hr", { sensitivity: "base" })
-  );
-
-  // Vratiti jedan objekt: { name: rod, pages: [...] }
-  return {
-    name: rod, 
-    pages: zupe.map(zupa => ({
-      name: zupa,
-      path: `/pages/ENTITET/zupa/${encodeURIComponent(zupa)}`,
-      pathEncoded2: `/pages/ENTITET/zupa/${encodeURIComponent(encodeURIComponent(zupa))}`,
-    }))
-  };
 }
