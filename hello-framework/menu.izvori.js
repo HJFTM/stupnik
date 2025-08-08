@@ -45,6 +45,8 @@ export function generirajMaticePoZupi(dataCombined, rod = "Bosna") {
   }));
 }
 
+// Generiraj Zupe po Drzavama
+cosnt zupeBH = generirajZupePoRodovima(data, "Bosna");
 
 // ➕ Generiranje matica za sve rodove
 const maticeBH = generirajMaticePoZupi(data, "Bosna");
@@ -77,14 +79,50 @@ export const izvoriPages = [
       { name: "Stanovnici",     path: "/pages/KONCEPT/Popis_stanovnika_K" }
     ]
   },
-matice_komusina,
-matice_sivsa,
-maticeBH.find(m => m.name ==  "Plehan"),
-maticeBH.find(m => m.name ==  "Koraće"),  
-maticeBH.find(m => m.name ==  "Podvučjak"),  
-maticeBH.find(m => m.name ==  "Potočani"),    
-matice_pecnik,  
-//maticeBH,
-...maticeST,
-...maticeDU
+  ... zupeBH,
+  
+  matice_komusina,
+  matice_sivsa,
+  maticeBH.find(m => m.name ==  "Plehan"),
+  maticeBH.find(m => m.name ==  "Koraće"),  
+  maticeBH.find(m => m.name ==  "Podvučjak"),  
+  maticeBH.find(m => m.name ==  "Potočani"),    
+  matice_pecnik,  
+  //maticeBH,
+  ...maticeST,
+  ...maticeDU
 ];
+
+// 🔁 Funkcija za generiranje župa po DRZAVAMA (ZUPA.DRZAVA)
+function generirajZupePoRodovima(dataCombined, rod = "Bosna") {
+  const src = (dataCombined.župe ?? dataCombined.zupe ?? [])
+    .filter(z => z && z.ZUPA && String(z.ZUPA).trim() !== "")
+    .filter(z=>z.RELEVANT==true);
+
+  // Ako je zadan rod, filtriraj po njemu; inače uzmi sve
+  const filtrirano = rod
+    ? src.filter(z => z.DRZAVA && z.DRZAVA === rod)
+    : src;
+
+  // Unikatne župe (po imenu)
+  const zupeSet = new Set(
+    filtrirano.map(z => String(z.ZUPA).trim())
+  );
+
+  // Sort po nazivu (hr locale)
+  const zupe = Array.from(zupeSet).sort((a, b) =>
+    a.localeCompare(b, "hr", { sensitivity: "base" })
+  );
+
+  // Ista struktura kao i generirajMaticePoZupi: { name, pages: [...] }
+  return zupe.map(zupa => ({
+    name: zupa,
+    pages: [
+      {
+        name: "Župa",
+        path: `/pages/ENTITET/zupa/${encodeURIComponent(zupa)}`,
+        pathEncoded2: `/pages/ENTITET/zupa/${encodeURIComponent(encodeURIComponent(zupa))}`,
+      }
+    ]
+  }));
+}
