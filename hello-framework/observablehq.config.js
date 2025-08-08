@@ -71,7 +71,12 @@ export const dynamicPaths = () => {
           `/pages/ENTITET/mjesto_obitelji/${encodeURIComponent(o.MJESTO)}`,
           `/pages/ENTITET/mjesto_zapisi/${encodeURIComponent(o.MJESTO)}`
         ])
-    );
+    )
+   .concat(data.župe
+    .filter(z => z.ZUPA && z.ZUPA != null)
+    .flatMap(z => [
+      `/pages/ENTITET/zupa/${encodeURIComponent(z.ZUPA)}`,
+    ]));
 };
 
 // 4️⃣ Finalni config
