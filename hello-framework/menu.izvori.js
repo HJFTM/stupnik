@@ -83,16 +83,16 @@ export const izvoriPages = [
   },       
 
   zupeBH, zupeAU, zupeDU,
-  matice_komusina,
-  matice_sivsa,
-  maticeBH.find(m => m.name ==  "Plehan"),
-  maticeBH.find(m => m.name ==  "Koraće"),  
-  maticeBH.find(m => m.name ==  "Podvučjak"),  
-  maticeBH.find(m => m.name ==  "Potočani"),    
-  matice_pecnik,  
+  // matice_komusina,
+  // matice_sivsa,
+  // maticeBH.find(m => m.name ==  "Plehan"),
+  // maticeBH.find(m => m.name ==  "Koraće"),  
+  // maticeBH.find(m => m.name ==  "Podvučjak"),  
+  //maticeBH.find(m => m.name ==  "Potočani"),    
+  //matice_pecnik,  
   //maticeBH,
-  ...maticeST,
-  ...maticeDU
+  //...maticeST,
+  //...maticeDU
 ];
 
 // 🔁 Funkcija za generiranje župa po DRZAVAMA (ZUPA.DRZAVA)
