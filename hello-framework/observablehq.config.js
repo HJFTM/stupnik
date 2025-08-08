@@ -48,6 +48,11 @@ const entryPoints = [
       `/pages/ENTITET/mjesto_migracije/${encodeURIComponent(o.MJESTO)}`,
       `/pages/ENTITET/mjesto_obitelji/${encodeURIComponent(o.MJESTO)}`,
       `/pages/ENTITET/mjesto_zapisi/${encodeURIComponent(o.MJESTO)}`
+    ]), 
+    data.župe
+    .filter(z => z.ZUPA && z.ZUPA != null)
+    .flatMap(z => [
+      `/pages/ENTITET/zupa/${encodeURIComponent(z.ZUPA)}`,
     ])
 ];
 
