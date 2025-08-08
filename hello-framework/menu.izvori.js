@@ -81,7 +81,7 @@ export const izvoriPages = [
   },  {
     name: "Župe Bosna",
     pages: [   
-      zupeBH,
+      ...zupeBH,
     ]
   },      
 
