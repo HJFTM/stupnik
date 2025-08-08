@@ -53,6 +53,7 @@ const entryPoints = [
     .filter(z => z.ZUPA && z.ZUPA != null)
     .flatMap(z => [
       `/pages/ENTITET/zupa/${encodeURIComponent(z.ZUPA)}`,
+      `/pages/ENTITET/zupa_matica/${encodeURIComponent(z.ZUPA)}`,
     ])
 ];
 
@@ -81,6 +82,7 @@ export const dynamicPaths = () => {
     .filter(z => z.ZUPA && z.ZUPA != null)
     .flatMap(z => [
       `/pages/ENTITET/zupa/${encodeURIComponent(z.ZUPA)}`,
+      `/pages/ENTITET/zupa_matica/${encodeURIComponent(z.ZUPA)}`,
     ]));
 };
 
