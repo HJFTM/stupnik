@@ -35,22 +35,26 @@ export function generirajMaticePoZupi(data, rod = "Bosna") {
     mapaZupa[zupa].push(m);
   }
 
-  // Pretvaramo u navigacijski format
-  const rezultat = Object.entries(mapaZupa).map(([zupa, zapisi]) => ({
-    name: `${zupa} (${zapisi.length})`,
-    pages: zapisi
-      .sort((a, b) => {
-        const aGodina = parseInt(a.GODINA) || 9999;
-        const bGodina = parseInt(b.GODINA) || 9999;
-        return aGodina - bGodina;
-      })
-      .map(z => ({
-        name: z.MATICA,
-        path: `/pages/ENTITET/matica/${encodeURIComponent(z.MATICA)}`,
-        geo_path: `/pages/ENTITET/matica_geo/${encodeURIComponent(z.MATICA)}`
-      }))
-  }));
+  const rezultat = Object.entries(mapaZupa).map(([zupa, zapisi]) => {
+    // Grupiraj zapise po MATICA unutar župe
+    const maticeMap = new Map();
 
-  return rezultat;
+    for (const z of zapisi) {
+      if (!maticeMap.has(z.MATICA)) {
+        maticeMap.set(z.MATICA, {
+          name: z.MATICA,
+          path: `/pages/ENTITET/matica/${encodeURIComponent(z.MATICA)}`,
+          geo_path: `/pages/ENTITET/matica_geo/${encodeURIComponent(z.MATICA)}`
+        });
+      }
+    }
+
+    return {
+      name: `${zupa} (${maticeMap.size})`,
+      pages: Array.from(maticeMap.values())
+        .sort((a, b) => a.name.localeCompare(b.name))
+    };
+  });
+
+  return rezultat.sort((a, b) => a.name.localeCompare(b.name));
 }
-
