@@ -36,7 +36,7 @@ export function generirajMaticePoZupi(data, rod = "Bosna") {
   }
 
   const rezultat = Object.entries(mapaZupa).map(([zupa, zapisi]) => {
-    // Grupiraj zapise po MATICA unutar župe
+    // Grupiraj zapise po MATICA, i uzmi prvi zapis za godinu sortiranja
     const maticeMap = new Map();
 
     for (const z of zapisi) {
@@ -44,17 +44,22 @@ export function generirajMaticePoZupi(data, rod = "Bosna") {
         maticeMap.set(z.MATICA, {
           name: z.MATICA,
           path: `/pages/ENTITET/matica/${encodeURIComponent(z.MATICA)}`,
-          geo_path: `/pages/ENTITET/matica_geo/${encodeURIComponent(z.MATICA)}`
+          geo_path: `/pages/ENTITET/matica_geo/${encodeURIComponent(z.MATICA)}`,
+          godina: parseInt(z.GODINA) || 9999
         });
       }
     }
 
+    const maticeList = Array.from(maticeMap.values())
+      .sort((a, b) => a.godina - b.godina)
+      .map(({ godina, ...rest }) => rest); // makni "godina" iz rezultata
+
     return {
-      name: `${zupa} (${maticeMap.size})`,
-      pages: Array.from(maticeMap.values())
-        .sort((a, b) => a.name.localeCompare(b.name))
+      name: `${zupa} (${maticeList.length})`,
+      pages: maticeList
     };
   });
 
   return rezultat.sort((a, b) => a.name.localeCompare(b.name));
 }
+
