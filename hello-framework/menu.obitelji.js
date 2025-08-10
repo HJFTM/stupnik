@@ -16,19 +16,14 @@ const obiteljiGEODU = generirajObiteljiGEOpoMjestu(data.obitelj, "Dubrovnik");
 const obiteljiZapisBH = generirajObiteljiZapis(data.obitelj, "Bosna");
 const obiteljiZapisST = generirajObiteljiZapis(data.obitelj, "Stupnik");
 const obiteljiZapisDU = generirajObiteljiZapis(data.obitelj, "Dubrovnik");
+
 const obiteljiStabloBH = generirajObiteljiStablo(data.obitelj, "Bosna");
 const obiteljiStabloST = generirajObiteljiStablo(data.obitelj, "Stupnik");
 const obiteljiStabloDU = generirajObiteljiStablo(data.obitelj, "Dubrovnik");
 
-/*
-//  ...obiteljiGEOBH, ...obiteljiGEOST, ...obiteljiGEODU,
-//  ...obiteljiStabloBH, ...obiteljiStabloST, ...obiteljiStabloDU,
-//  ...obiteljiZapisBH, ...obiteljiZapisST, ...obiteljiZapisDU,
-*/
 export const obiteljiPages = [
   ...obiteljiBH, ...obiteljiST, ...obiteljiDU,
-
-  
+ 
   {
     name: "------",
     pages: [
