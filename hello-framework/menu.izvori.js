@@ -96,7 +96,7 @@ export const izvoriPages = [
 ];
 
 // 🔁 Funkcija za generiranje župa po DRZAVAMA (ZUPA.DRZAVA)
-function generirajZupePoRodovima(dataCombined, rod = "Bosna") {
+function generirajZupePoRodovima_old(dataCombined, rod = "Bosna") {
   const src = (dataCombined.župe ?? dataCombined.zupe ?? [])
     .filter(z => z && z.ZUPA && String(z.ZUPA).trim() !== "")
     .filter(z => z.RELEVANT === true);
@@ -123,3 +123,76 @@ function generirajZupePoRodovima(dataCombined, rod = "Bosna") {
     }))
   };
 }
+
+/**
+ * Generira listu župa po ROD-u/DRŽAVI s labelom "(do maxGodina)",
+ * deduplicirano po NAZIV (kao u Observable zupa_list).
+ *
+ * @param {Object} dataCombined  - { župe|zupe, opis_e, ... }
+ * @param {String} rod           - npr. "Bosna" | "Stupnik" | "Dubrovnik"
+ * @returns {{ name: string, pages: Array<{name:string,label:string,value:string,path:string,pathEncoded2:string,godina?:number,maxGodina?:number,drzava?:string}> }}
+ */
+function generirajZupePoRodovima(dataCombined, rod = "Bosna") {
+  const zupeArr = (dataCombined.župe ?? dataCombined.zupe ?? []).filter(Boolean);
+  const opisi   = dataCombined.opis_e ?? [];
+
+  // 1) Izvor: ZUPE relevantne i s punim podacima
+  const src = zupeArr
+    .filter(z => z.RELEVANT === true)
+    .filter(z => z.ZUPA && String(z.ZUPA).trim() !== "")
+    .filter(z => z.NAZIV && String(z.NAZIV).trim() !== "");
+
+  // 2) Filtriraj po DRZAVA (ako je zadano)
+  const filtrirano = rod ? src.filter(z => (z.DRZAVA && String(z.DRZAVA).trim() === rod)) : src;
+
+  // 3) Mapiraj po NAZIV (deduplikacija), uz izračun maxGodina iz opis_e po ZUPA
+  //    Ako postoji više zapisa s istim NAZIV-om, zadrži prvi (ili po potrebi implementiraj logiku prioriteta)
+  const mapByNaziv = new Map();
+  for (const z of filtrirano) {
+    const naziv = String(z.NAZIV).trim();
+    if (!mapByNaziv.has(naziv)) {
+      // Nađi maksimalnu godinu iz opis_e za ovu ZUPA
+      const related = opisi.filter(o => o.ZUPA === z.ZUPA);
+      const maxGodina = related.length
+        ? Math.max(
+            ...related.map(o => {
+              const g = o.GODINA_DO ?? o.GODINA ?? 0;
+              return Number.isFinite(g) ? g : 0;
+            })
+          )
+        : 0;
+
+      mapByNaziv.set(naziv, {
+        naziv,
+        zupa: String(z.ZUPA).trim(),
+        drzava: z.DRZAVA,
+        godina: z.GODINA,
+        maxGodina: Number.isFinite(maxGodina) && maxGodina > 0 ? maxGodina : undefined
+      });
+    }
+  }
+
+  // 4) Pretvori u sortirani niz po labelu (hr)
+  const pages = Array.from(mapByNaziv.values())
+    .map(it => {
+      const label =
+        it.maxGodina ? `${it.naziv} (do ${it.maxGodina})` : it.naziv;
+
+      const path = `/pages/ENTITET/zupa/${encodeURIComponent(it.zupa)}`;
+
+      return {
+        name: it.naziv,            // prikazni naziv
+        label,                     // s "(do ...)"
+        value: it.zupa,            // vrijednost (ID ZUPA) – ekvivalent Observable value
+        path,                      // canonical path
+        pathEncoded2: `/pages/ENTITET/zupa/${encodeURIComponent(encodeURIComponent(it.zupa))}`,
+        godina: it.godina,
+        maxGodina: it.maxGodina,
+        drzava: it.drzava
+      };
+    })
+    .sort((a, b) => a.label.localeCompare(b.label, "hr", { sensitivity: "base" }));
+
+  return { name: rod, pages };
+}
+
