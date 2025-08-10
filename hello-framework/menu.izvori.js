@@ -3,6 +3,49 @@ console.log("menu.izvor.js - typeof data:", typeof data);
 console.log("menu.izvor.js - Array.isArray(data):", Array.isArray(data));
 
 // 🔁 Funkcija za generiranje matica po župi
+export function generirajMaticePoZupi(dataCombined, rod = "Bosna") {
+  const matice = (dataCombined.matice ?? [])
+    .filter(m => m.UID && m.UID != null)
+    .filter(m => m.GODINA_OD < 1900);
+
+  const zupeSet = new Set();
+
+  for (const m of matice) {
+    if (!m.ROD || m.ROD !== rod || !m.ZUPA) continue;
+    zupeSet.add(m.ZUPA.trim());
+  }
+
+  const zupe = Array.from(zupeSet);
+  const mapaZupa = {};
+
+  for (const zupa of zupe) {
+    mapaZupa[zupa] = matice
+      .filter(z =>
+        z.ROD === rod &&
+        z.ZUPA &&
+        z.ZUPA.trim() === zupa
+      )
+      .sort((a, b) => {
+        const aGodina = parseInt(a.GODINA_OD) || 9999;
+        const bGodina = parseInt(b.GODINA_OD) || 9999;
+        return aGodina - bGodina;
+      })
+      .map(z => ({
+        name: z.UID,
+        path: `/pages/ENTITET/matica/${encodeURIComponent(z.UID)}`,
+        pathEncoded2: `/pages/ENTITET/matica/${encodeURIComponent(encodeURIComponent(z.UID))}`,
+        geo_path: `/pages/ENTITET/matica_geo/${encodeURIComponent(z.UID)}`,
+        geo_pathEncoded2: `/pages/ENTITET/matica_geo/${encodeURIComponent(encodeURIComponent(z.UID))}`
+      }));
+  }
+
+  return Object.entries(mapaZupa).map(([zupa, matice]) => ({
+    name: zupa,
+    pages: matice
+  }));
+}
+
+// 🔁 Funkcija za generiranje matica po župi
 function generirajZupePoRodovima(dataCombined, rod = "Bosna") {
   const zupeArr = (dataCombined.župe ?? dataCombined.zupe ?? []).filter(Boolean);
   const opisi   = dataCombined.opis_e ?? [];
