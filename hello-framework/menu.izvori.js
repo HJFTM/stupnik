@@ -46,6 +46,7 @@ export function generirajMaticePoZupi(dataCombined, rod = "Bosna") {
 }
 
 // 🔁 Funkcija za generiranje matica po župi
+// 🔁 Župe po ROD-u, s name = "NAZIV (minGodina)" i sort po minGodina ↑
 function generirajZupePoRodovima(dataCombined, rod = "Bosna") {
   const zupeArr = (dataCombined.župe ?? dataCombined.zupe ?? []).filter(Boolean);
   const opisi   = dataCombined.opis_e ?? [];
@@ -60,46 +61,49 @@ function generirajZupePoRodovima(dataCombined, rod = "Bosna") {
     : src;
 
   const mapByNaziv = new Map();
+
   for (const z of filtrirano) {
     const naziv = String(z.NAZIV).trim();
-    if (!mapByNaziv.has(naziv)) {
-      const related = opisi.filter(o => o.ZUPA === z.ZUPA);
+    if (mapByNaziv.has(naziv)) continue;
 
-      const maxGodina = related.length
-        ? Math.max(...related.map(o => o.GODINA_DO ?? o.GODINA ?? 0))
-        : 0;
+    const related = opisi.filter(o => o.ZUPA === z.ZUPA);
 
-      const minGodina = related.length
-        ? Math.min(
-            ...related
-              .map(o => o.GODINA ?? o.GODINA_DO ?? Infinity)
-              .filter(g => Number.isFinite(g) && g > 0)
-          )
-        : undefined;
+    // prikupi sve valjane godine
+    const yearsMinCandidates = related
+      .map(o => o.GODINA ?? o.GODINA_DO)
+      .map(Number)
+      .filter(g => Number.isFinite(g) && g > 0);
 
-      mapByNaziv.set(naziv, {
-        naziv,
-        zupa: String(z.ZUPA).trim(),
-        drzava: z.DRZAVA,
-        minGodina: minGodina && minGodina !== Infinity ? minGodina : undefined,
-        maxGodina: Number.isFinite(maxGodina) && maxGodina > 0 ? maxGodina : undefined
-      });
-    }
+    const yearsMaxCandidates = related
+      .map(o => o.GODINA_DO ?? o.GODINA)
+      .map(Number)
+      .filter(g => Number.isFinite(g) && g > 0);
+
+    const minGodina = yearsMinCandidates.length
+      ? Math.min(...yearsMinCandidates)
+      : undefined;
+
+    const maxGodina = yearsMaxCandidates.length
+      ? Math.max(...yearsMaxCandidates)
+      : undefined;
+
+    mapByNaziv.set(naziv, {
+      naziv,
+      zupa: String(z.ZUPA).trim(),
+      drzava: z.DRZAVA,
+      minGodina,
+      maxGodina
+    });
   }
 
   const pages = Array.from(mapByNaziv.values())
     .map(it => {
-      const name =
-        it.minGodina ? `${it.naziv} (${it.minGodina})` : it.naziv; // ⬅️ sada min godina
-      const label =
-        it.maxGodina ? `${it.naziv} (do ${it.maxGodina})` : it.naziv;
-
-      const path = `/pages/ENTITET/zupa/${encodeURIComponent(it.zupa)}`;
+      const name  = Number.isFinite(it.minGodina) ? `${it.naziv} (${it.minGodina})` : it.naziv;
+      const label = Number.isFinite(it.maxGodina) ? `${it.naziv} (do ${it.maxGodina})` : it.naziv;
+      const path  = `/pages/ENTITET/zupa/${encodeURIComponent(it.zupa)}`;
 
       return {
-        name,
-        label,
-        value: it.zupa,
+        name, label, value: it.zupa,
         path,
         pathEncoded2: `/pages/ENTITET/zupa/${encodeURIComponent(encodeURIComponent(it.zupa))}`,
         minGodina: it.minGodina,
@@ -107,12 +111,16 @@ function generirajZupePoRodovima(dataCombined, rod = "Bosna") {
         drzava: it.drzava
       };
     })
+    // ✅ sort uzlazno po minGodina; bez godine ide na kraj; zatim po nazivu
     .sort((a, b) =>
-      a.label.localeCompare(b.label, "hr", { sensitivity: "base" })
+      ( (Number.isFinite(a.minGodina) ? a.minGodina : Infinity) -
+        (Number.isFinite(b.minGodina) ? b.minGodina : Infinity) ) ||
+      a.name.localeCompare(b.name, "hr", { sensitivity: "base" })
     );
 
   return { name: rod, pages };
 }
+
 
 
 // Generiraj Zupe po Drzavama
