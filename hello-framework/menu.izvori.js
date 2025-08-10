@@ -49,13 +49,13 @@ export function generirajMaticePoZupi(dataCombined, rod = "Bosna") {
 // 🔁 Župe po ROD-u, s name = "NAZIV (minGodina)" i sort po minGodina ↑
 function generirajZupePoRodovima(dataCombined, rod = "Bosna") {
   const zupeArr = (dataCombined.župe ?? dataCombined.zupe ?? []).filter(Boolean);
-  const opisi   = dataCombined.opis_e ?? [];
+  const zupe   = dataCombined.župe ?? [];
 
   // helper: min/max za jednu ZUPA iz opis_e
   const minMaxForZupa = (zupaId) => {
-    const rel = opisi.filter(o => o.ZUPA === zupaId);
-    const mins = rel.map(o => Number(o.GODINA ?? o.GODINA_DO)).filter(g => Number.isFinite(g) && g > 0);
-    const maxs = rel.map(o => Number(o.GODINA_DO ?? o.GODINA)).filter(g => Number.isFinite(g) && g > 0);
+    const rel = zupe.filter(o => o.ZUPA === zupaId);
+    const mins = rel.map(o => Number(o.GODINA ?? o.GODINA)).filter(g => Number.isFinite(g) && g > 0);
+    const maxs = rel.map(o => Number(o.GODINA ?? o.GODINA)).filter(g => Number.isFinite(g) && g > 0);
     const minG = mins.length ? Math.min(...mins) : undefined;
     const maxG = maxs.length ? Math.max(...maxs) : undefined;
     return { minG, maxG };
