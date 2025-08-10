@@ -117,7 +117,7 @@ function generirajZupePoRodovima(dataCombined, rod = "Bosna") {
   // 3) Mapiraj u pages + sortiraj po minGodina ↑, potom po nazivu
   const pages = items
     .map(it => {
-      const name  = it.minGodina ? `${it.naziv} (${it.minGodina})` : it.naziv;
+      const name  = it.minGodina ? `${it.minGodina}. ${it.naziv}` : it.naziv;
       const label = it.maxGodina ? `${it.naziv} (do ${it.maxGodina})` : it.naziv;
       const path  = `/pages/ENTITET/zupa/${encodeURIComponent(it.zupaLink)}`;
 
@@ -139,7 +139,6 @@ function generirajZupePoRodovima(dataCombined, rod = "Bosna") {
 
   return { name: rod, pages };
 }
-
 
 
 
