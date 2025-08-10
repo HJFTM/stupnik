@@ -159,7 +159,7 @@ function generirajZupePoRodovima_old(dataCombined, rod = "Bosna") {
  * @param {String} rod           - npr. "Bosna" | "Stupnik" | "Dubrovnik"
  * @returns {{ name: string, pages: Array<{name:string,label:string,value:string,path:string,pathEncoded2:string,godina?:number,maxGodina?:number,drzava?:string}> }}
  */
-function generirajZupePoRodovima_1(dataCombined, rod = "Bosna") {
+function generirajZupePoRodovima_x(dataCombined, rod = "Bosna") {
   const zupeArr = (dataCombined.župe ?? dataCombined.zupe ?? []).filter(Boolean);
   const opisi   = dataCombined.opis_e ?? [];
 
