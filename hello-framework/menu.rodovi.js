@@ -38,6 +38,7 @@ export function getRodEntitetiIzvoriPages(rod, obitelji) {
       pages: [
         { name: "Sadržaj",        path: "/pages/KONCEPT/Navigacija" },
         { name: "  Generacije2",  path: `/pages/ROD/generacije/${encodeURIComponent(rod)}`},
+        { name: "  Obitelji2",    path: `/pages/ROD/obitelji/${encodeURIComponent(rod)}`},
       ]
     }
   ];
