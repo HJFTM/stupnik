@@ -28,19 +28,19 @@ import "../../../_observablehq/client.0f853e96.js";
     <label id="observablehq-sidebar-close" for="observablehq-sidebar-toggle"></label>
     <li class="observablehq-link"><a href="../../../">Stupnik</a></li>
   </ol>
-  <section>
+  <section class="observablehq-section-active">
     <summary>Obitelji</summary>
     <ol>
-    <li class="observablehq-link"><a href="../prezime/prezime_r?ROD=Stupnik">  Prezime</a></li>
+    <li class="observablehq-link"><a href="../prezime/Stupnik">  Prezime</a></li>
     <li class="observablehq-link"><a href="../generacije/Stupnik">  Generacije</a></li>
     <li class="observablehq-link"><a href="../obitelji/Stupnik">  Obitelji</a></li>
-    <li class="observablehq-link"><a href="../dogadjaji/Dogadjaji_R?ROD=Stupnik">  Događaji</a></li>
-    <li class="observablehq-link"><a href="../stablo/Stablo_R?ROD=Stupnik">  Stablo</a></li>
-    <li class="observablehq-link"><a href="../bolesti/Bolesti_D?ROD=Stupnik">  Bolesti</a></li>
-    <li class="observablehq-link"><a href="../mjesta/Mjesta_R?ROD=Stupnik">  Mjesta</a></li>
-    <li class="observablehq-link"><a href="../migracije/Migracije_R?ROD=Stupnik">  Migracije</a></li>
-    <li class="observablehq-link"><a href="../izvori/Izvori_D?ROD=Stupnik">  Izvori*</a></li>
-    <li class="observablehq-link"><a href="../zupe/Zupe_R?ROD=Stupnik">  Župe</a></li>
+    <li class="observablehq-link"><a href="../dogadjaji/Stupnik">  Događaji</a></li>
+    <li class="observablehq-link"><a href="../stablo/Stupnik">  Stablo</a></li>
+    <li class="observablehq-link"><a href="../bolesti/Stupnik">  Bolesti</a></li>
+    <li class="observablehq-link observablehq-link-active"><a href="./Stupnik">  Mjesta</a></li>
+    <li class="observablehq-link"><a href="../migracije/Stupnik">  Migracije</a></li>
+    <li class="observablehq-link"><a href="../izvori/Stupnik">  Izvori*</a></li>
+    <li class="observablehq-link"><a href="../zupe/Stupnik">  Župe</a></li>
     </ol>
   </section>
   <section>
@@ -51,14 +51,14 @@ import "../../../_observablehq/client.0f853e96.js";
     <li class="observablehq-link"><a href="../../ENTITET/mjesto/Lu%25C5%25BEani">1741. Lužani</a></li>
     </ol>
   </section>
-  <section class="observablehq-section-active">
+  <section>
     <summary>Izvori</summary>
     <ol>
-    <li class="observablehq-link"><a href="../popisi/Izvor_Popisi?ROD=Stupnik">  Popisi</a></li>
-    <li class="observablehq-link"><a href="../matice/Matice_D?ROD=Stupnik">  Matice</a></li>
-    <li class="observablehq-link"><a href="../groblje/Groblje_D?ROD=Stupnik">  Groblje</a></li>
-    <li class="observablehq-link observablehq-link-active"><a href="./Katastar_D?ROD=Stupnik">  Katastar</a></li>
-    <li class="observablehq-link"><a href="../pismo/Pismo_D?ROD=Stupnik">  Pismo / Jezik</a></li>
+    <li class="observablehq-link"><a href="../popisi/Stupnik">  Popisi</a></li>
+    <li class="observablehq-link"><a href="../matice/Stupnik">  Matice</a></li>
+    <li class="observablehq-link"><a href="../groblje/Stupnik">  Groblje</a></li>
+    <li class="observablehq-link"><a href="../katastar/Stupnik">  Katastar</a></li>
+    <li class="observablehq-link"><a href="../pismo/Stupnik">  Pismo / Jezik</a></li>
     </ol>
   </section>
   <section>
@@ -75,23 +75,25 @@ import "../../../_observablehq/client.0f853e96.js";
 </nav>
 </aside>
 <main id="observablehq-main" class="observablehq">
-<div id="observablehq-katastar_header-df85ed87"></div>
-<div id="observablehq-katastar_plot-df85ed87"></div>
-<div id="observablehq-table-df85ed87"></div>
+<div id="observablehq-mjesta_header-d8acfd68"></div>
+<div id="observablehq-mjesta_plot-d8acfd68"></div>
+<div id="observablehq-mjesta_geo-d8acfd68"></div>
+<div id="observablehq-mjesta_table-d8acfd68"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 <script type="module">
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-import define from "https://api.observablehq.com/d/00ac78dced40db9f.js?v=4";
+import define from "https://api.observablehq.com/d/702564761cbe308e.js?v=4";
 new Runtime().module(define, name => {
-  if (name === "katastar_header") return new Inspector(document.querySelector("#observablehq-katastar_header-df85ed87"));
-  if (name === "katastar_plot") return new Inspector(document.querySelector("#observablehq-katastar_plot-df85ed87"));
-  if (name === "table") return new Inspector(document.querySelector("#observablehq-table-df85ed87"));
+  if (name === "mjesta_header") return new Inspector(document.querySelector("#observablehq-mjesta_header-d8acfd68"));
+  if (name === "mjesta_plot") return new Inspector(document.querySelector("#observablehq-mjesta_plot-d8acfd68"));
+  if (name === "mjesta_geo") return new Inspector(document.querySelector("#observablehq-mjesta_geo-d8acfd68"));
+  if (name === "mjesta_table") return new Inspector(document.querySelector("#observablehq-mjesta_table-d8acfd68"));
 });
 </script>
 </main>
 <footer id="observablehq-footer">
-<nav><a rel="prev" href="../groblje/Groblje_D?ROD=Stupnik"><span>  Groblje</span></a><a rel="next" href="../pismo/Pismo_D?ROD=Stupnik"><span>  Pismo / Jezik</span></a></nav>
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-08-12T20:54:06">Aug 12, 2025</a>.</div>
+<nav><a rel="prev" href="../bolesti/Stupnik"><span>  Bolesti</span></a><a rel="next" href="../migracije/Stupnik"><span>  Migracije</span></a></nav>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-08-12T21:00:03">Aug 12, 2025</a>.</div>
 </footer>
 </div>
 </body>
