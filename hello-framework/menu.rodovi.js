@@ -8,8 +8,8 @@ export function getRodEntitetiIzvoriPages(rod, obitelji) {
       name: `Obitelji`,
       pages: [
         { name: "  Prezime",      path: `/pages/1_Jularic/prezime_r?ROD=${encodeURIComponent(rod)}` },
-        { name: "  Generacije",   path: `/pages/ROD/generacije/Generacije_R?ROD=${encodeURIComponent(rod)}` },
-        { name: "  Obitelji",     path: `/pages/ROD/obitelji/Obitelji_R?ROD=${encodeURIComponent(rod)}` },
+        { name: "  Generacije",   path: `/pages/ROD/generacije/${encodeURIComponent(rod)}`},
+        { name: "  Obitelji",     path: `/pages/ROD/obitelji/${encodeURIComponent(rod)}`},
         { name: "  Događaji",     path: `/pages/ROD/dogadjaji/Dogadjaji_R?ROD=${encodeURIComponent(rod)}` },
         { name: "  Stablo",       path: `/pages/ROD/stablo/Stablo_R?ROD=${encodeURIComponent(rod)}` },
         { name: "  Bolesti",      path: `/pages/ROD/bolesti/Bolesti_D?ROD=${encodeURIComponent(rod)}` },
@@ -26,19 +26,17 @@ export function getRodEntitetiIzvoriPages(rod, obitelji) {
     {
       name: "Izvori",
       pages: [
-        { name: "  Popisi",        path: `/pages/ROD/Izvor_Popisi?ROD=${encodeURIComponent(rod)}` },
+        { name: "  Popisi",        path: `/pages/ROD/popisi/Izvor_Popisi?ROD=${encodeURIComponent(rod)}` },
         { name: "  Matice",        path: `/pages/ROD/matice/Matice_D?ROD=${encodeURIComponent(rod)}` },
         { name: "  Groblje",       path: `/pages/ROD/groblje/Groblje_D?ROD=${encodeURIComponent(rod)}` },
         { name: "  Katastar",      path: `/pages/ROD/katastar/Katastar_D?ROD=${encodeURIComponent(rod)}` },
-        { name: "  Pismo / Jezik", path: `/pages/ROD/Pismo_D?ROD=${encodeURIComponent(rod)}` },
+        { name: "  Pismo / Jezik", path: `/pages/ROD/pismo/Pismo_D?ROD=${encodeURIComponent(rod)}` },
       ]
     },
     {
       name: "----------",
       pages: [
         { name: "Sadržaj",        path: "/pages/KONCEPT/Navigacija" },
-        { name: "  Generacije2",  path: `/pages/ROD/generacije/${encodeURIComponent(rod)}`},
-        { name: "  Obitelji2",    path: `/pages/ROD/obitelji/${encodeURIComponent(rod)}`},
       ]
     }
   ];
