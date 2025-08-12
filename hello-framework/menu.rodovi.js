@@ -9,7 +9,6 @@ export function getRodEntitetiIzvoriPages(rod, obitelji) {
       pages: [
         { name: "  Prezime",      path: `/pages/1_Jularic/prezime_r?ROD=${encodeURIComponent(rod)}` },
         { name: "  Generacije",   path: `/pages/ROD/Generacije_R?ROD=${encodeURIComponent(rod)}` },
-        { name: "  Generacije2",  path: `/pages/ROD/generacije/${encodeURIComponent(rod)}`,
         { name: "  Obitelji",     path: `/pages/ROD/Obitelji_R?ROD=${encodeURIComponent(rod)}` },
         { name: "  Događaji",     path: `/pages/ROD/Dogadjaji_R?ROD=${encodeURIComponent(rod)}` },
         { name: "  Stablo",       path: `/pages/ROD/Stablo_R?ROD=${encodeURIComponent(rod)}` },
@@ -37,7 +36,8 @@ export function getRodEntitetiIzvoriPages(rod, obitelji) {
     {
       name: "----------",
       pages: [
-        { name: "Sadržaj", path: "/pages/KONCEPT/Navigacija" }
+        { name: "Sadržaj",        path: "/pages/KONCEPT/Navigacija" },
+        { name: "  Generacije2",  path: `/pages/ROD/generacije/${encodeURIComponent(rod)}`,
       ]
     }
   ];
