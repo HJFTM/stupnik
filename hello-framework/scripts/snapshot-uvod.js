@@ -1,4 +1,4 @@
-// scripts/snapshot-uvod.js
+// hello-framework/scripts/snapshot-uvod.js
 // Snapshotira sve renderirane stranice ispod /uvod/ na istoj domeni (hjftm.github.io)
 // i sprema ih kao static HTML bez <script> tagova. Interne linkove preusmjerava
 // na lokalne .html datoteke (ili /index.html po folderu).
@@ -12,18 +12,19 @@ import puppeteer from "puppeteer";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const START_URL = process.env.START_URL || "https://hjftm.github.io/uvod/";
-const OUT_DIR   = process.env.OUT_DIR   || path.resolve(__dirname, "..", "snapshot-uvod");
-const MAX_PAGES = Number(process.env.MAX_PAGES || 500);      // sigurnosna granica
-const CONCURRENCY = Number(process.env.CONCURRENCY || 4);    // paralelizam
-const WAIT_MS = Number(process.env.WAIT_MS || 800);          // dodatni ček nakon networkidle
-const NAV_TIMEOUT = Number(process.env.NAV_TIMEOUT || 45000);
+// --- Konfiguracija preko ENV varijabli (ili default) ---
+const START_URL   = process.env.START_URL   || "https://hjftm.github.io/uvod/";
+const OUT_DIR     = process.env.OUT_DIR     || path.resolve(__dirname, "..", "snapshot-uvod");
+const MAX_PAGES   = Number(process.env.MAX_PAGES || 500);      // sigurnosna granica
+const CONCURRENCY = Number(process.env.CONCURRENCY || 4);      // paralelizam
+const WAIT_MS     = Number(process.env.WAIT_MS || 800);        // dodatni ček nakon networkidle
+const NAV_TIMEOUT = Number(process.env.NAV_TIMEOUT || 45000);  // ms
 
 const start = new URL(START_URL);
 const ORIGIN = start.origin;                    // https://hjftm.github.io
 const PATH_PREFIX = start.pathname.replace(/\/+$/, "") || "/uvod"; // /uvod
 
-// Pomoćne
+// --- Pomoćne funkcije ---
 function isInternalAllowed(urlStr) {
   try {
     const u = new URL(urlStr, ORIGIN);
@@ -40,13 +41,13 @@ function toLocalPath(u) {
   const url = new URL(u);
   let p = url.pathname;
 
-  // Skini trailing slash, ali zapamti je li direktorij
   const isDir = p.endsWith("/");
   if (isDir) p = p.replace(/\/+$/, "");
 
-  // Ako nema ekstenziju, koristi index.html u toj mapi
   const base = path.join(OUT_DIR, p);
-  if (isDir || !path.extname(p)) {
+  const hasExt = path.extname(p);
+
+  if (isDir || !hasExt) {
     return path.join(base, "index.html");
   }
   return path.join(OUT_DIR, p);
@@ -67,14 +68,7 @@ function normalizeLinkHref(href) {
   }
 }
 
-function makeRelative(fromUrl, toUrl) {
-  // Pretvori apsolutni interni URL u relativni link između lokalnih datoteka
-  const fromLocal = toLocalPath(fromUrl);
-  const toLocal   = toLocalPath(toUrl);
-  const rel = path.relative(path.dirname(fromLocal), toLocal) || "index.html";
-  return rel.replace(/\\/g, "/");
-}
-
+// --- Glavna logika snapshotiranja jedne stranice ---
 async function snapshotPage(browser, pageUrl) {
   const page = await browser.newPage();
   page.setDefaultNavigationTimeout(NAV_TIMEOUT);
@@ -108,22 +102,9 @@ async function snapshotPage(browser, pageUrl) {
     return Array.from(out);
   }, ORIGIN, PATH_PREFIX);
 
-  // Preusmjeri A.href za interne linkove na relativne lokalne putanje
+  // Preusmjeri A.href za interne linkove na relativne lokalne putanje (da radi offline)
   await page.evaluate((origin, prefix) => {
-    function toLocal(uStr) {
-      const u = new URL(uStr, origin);
-      let p = u.pathname;
-      const isDir = p.endsWith("/");
-      if (isDir) p = p.replace(/\/+$/, "");
-      const hasExt = /\.[a-z0-9]+$/i.test(p);
-      let local = p;
-      if (!hasExt) local = p + "/index.html";
-      // makni leading slash za relativu
-      if (local.startsWith("/")) local = local.slice(1);
-      return local;
-    }
     function makeRel(fromPath, toPath) {
-      // gruba relativizacija na razini URL patha; točne relativne radi Node.js dio
       const fromParts = fromPath.split("/").filter(Boolean);
       const toParts   = toPath.split("/").filter(Boolean);
       while (fromParts.length && toParts.length && fromParts[0] === toParts[0]) {
@@ -133,7 +114,10 @@ async function snapshotPage(browser, pageUrl) {
       return [...up, ...toParts].join("/") || "index.html";
     }
 
-    const fromPath = location.pathname;
+    const fromPath = location.pathname.endsWith("/")
+      ? location.pathname + "index.html"
+      : location.pathname;
+
     document.querySelectorAll("a[href]").forEach(a => {
       const raw = a.getAttribute("href");
       if (!raw) return;
@@ -157,7 +141,9 @@ async function snapshotPage(browser, pageUrl) {
   return { html, links: links.map(normalizeLinkHref) };
 }
 
+// --- Runner s paralelnim radnicima ---
 async function run() {
+  // Čisti izlazni direktorij
   fs.rmSync(OUT_DIR, { recursive: true, force: true });
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
@@ -169,7 +155,7 @@ async function run() {
   try {
     const queue = [START_URL];
     const seen = new Set(queue);
-    const saved = new Set();
+    const savedFiles = new Set();
 
     async function worker() {
       while (queue.length) {
@@ -178,14 +164,14 @@ async function run() {
         if (!isInternalAllowed(url)) continue;
 
         const outFile = toLocalPath(url);
-        if (saved.has(outFile)) continue;
+        if (savedFiles.has(outFile)) continue;
 
         console.log("▶ Snapshot:", url);
         try {
           const { html, links } = await snapshotPage(browser, url);
           ensureDirFor(outFile);
           fs.writeFileSync(outFile, html, "utf8");
-          saved.add(outFile);
+          savedFiles.add(outFile);
 
           for (const l of links) {
             if (seen.size >= MAX_PAGES) break;
@@ -195,19 +181,23 @@ async function run() {
             }
           }
         } catch (e) {
-          console.error("✖ Error on", url, e.message);
+          console.error("✖ Error on", url, e && e.message ? e.message : e);
         }
       }
     }
 
-    const workers = Array.from({ length: CONCURRENCY }, () => worker());
+    const workers = Array.from({ length: Math.max(1, CONCURRENCY) }, () => worker());
     await Promise.all(workers);
 
     // Dodaj trivialni index ako start nije završio na /index.html
     const startIndex = toLocalPath(START_URL);
     if (!fs.existsSync(startIndex)) {
       ensureDirFor(startIndex);
-      fs.writeFileSync(startIndex, "<!doctype html><meta charset='utf-8'><title>uvod</title><p>Prazno.</p>");
+      fs.writeFileSync(
+        startIndex,
+        "<!doctype html><meta charset='utf-8'><title>uvod</title><p>Prazno.</p>",
+        "utf8"
+      );
     }
 
     console.log(`Done. Saved into: ${OUT_DIR}`);
@@ -216,6 +206,7 @@ async function run() {
   }
 }
 
+// --- Start ---
 run().catch(err => {
   console.error(err);
   process.exit(1);
