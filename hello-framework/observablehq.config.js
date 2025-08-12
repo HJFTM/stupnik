@@ -58,6 +58,7 @@ const entryPoints = [
       `/pages/ENTITET/zupa/${encodeURIComponent(z.ZUPA)}`,
       `/pages/ENTITET/zupa_matica/${encodeURIComponent(z.ZUPA)}`,
       `/pages/ENTITET/zupa_stablo/${encodeURIComponent(z.ZUPA)}`,
+      `/pages/ENTITET/zupa_popis/${encodeURIComponent(z.ZUPA)}`,
     ])
 ];
 
@@ -87,7 +88,8 @@ export const dynamicPaths = () => {
     .flatMap(z => [
       `/pages/ENTITET/zupa/${encodeURIComponent(z.ZUPA)}`,
       `/pages/ENTITET/zupa_matica/${encodeURIComponent(z.ZUPA)}`,
-      `/pages/ENTITET/zupa_stablo/${encodeURIComponent(z.ZUPA)}`,      
+      `/pages/ENTITET/zupa_stablo/${encodeURIComponent(z.ZUPA)}`,  
+      `/pages/ENTITET/zupa_popis/${encodeURIComponent(z.ZUPA)}`,
     ]));
 };
 
