@@ -13,16 +13,23 @@ const menuDU = generirajMjestaOdObitelji(data.obitelj, "Dubrovnik");
 export const mjestaMenu = [
   //...mjestaST, ...mjestaDU,
   {
-    name: "Bosna",
+    name: "Rod Bosna",
     pages: [
       ...menuBH,
     ]
-  },
-{
-      name: "Bosna",
-      pages: [...menuBH]
-    },
-  
+  },  
+  {
+    name: "Rod Stupnik (Austrougarska)",
+    pages: [
+      ...menuST,
+    ]
+  }, 
+  {
+    name: "Rod Dubrovnik",
+    pages: [
+      ...menuDU,
+    ]
+  },   
   {
     name: "------",
     pages: [
