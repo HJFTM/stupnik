@@ -33,7 +33,7 @@ export function generirajMaticePoZupi(data, rod = "Bosna") {
       if (!maticeMap.has(z.MATICA)) {
         maticeMap.set(z.MATICA, {
           name: z.MATICA,
-          path: `/pages/ENTITET/matica/${encodeURIComponent(z.MATICA)}`,
+          path: `/pages/ENTITET/matica_zapisi/${encodeURIComponent(z.MATICA)}`,
           geo_path: `/pages/ENTITET/matica_geo/${encodeURIComponent(z.MATICA)}`,
           godina: parseInt(z.GODINA) || 9999
         });
