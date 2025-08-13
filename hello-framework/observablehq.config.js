@@ -3,7 +3,7 @@ import { uvodPages } from "./menu.uvod.js";
 
 import { getRodEntitetiIzvoriPages } from "./menu.rodovi.js"; // ⬅️ koristi dinamičku funkciju
 import { obiteljiPages, obiteljiPagesAll} from "./menu.obitelji.js";
-import { mjestaPages } from "./menu.mjesta.js";
+import { mjestaPages, mjestaMenu } from "./menu.mjesta.js";
 import { zapisiPages } from "./menu.zapisi.js";
 import { izvoriPages } from "./menu.izvori.js";
 
@@ -18,7 +18,7 @@ pages = uvodPages;
 if (CURRENT_PROJECT === "Uvod") {
   pages = uvodPages;
 } else if (CURRENT_PROJECT === "mjesta") {
-  pages = mjestaPages; 
+  pages = mjestaMenu; 
 } else if (CURRENT_PROJECT === "Obitelji") {
  pages = obiteljiPages;
 } else if (CURRENT_PROJECT === "izvori") {
