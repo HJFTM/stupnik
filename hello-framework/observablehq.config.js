@@ -52,6 +52,7 @@ const entryPoints = [
       `/pages/ENTITET/mjesto_zupe/${encodeURIComponent(o.MJESTO)}`,
       `/pages/ENTITET/mjesto_migracije/${encodeURIComponent(o.MJESTO)}`,
       `/pages/ENTITET/mjesto_obitelji/${encodeURIComponent(o.MJESTO)}`,
+      `/pages/ENTITET/mjesto_stablo/${encodeURIComponent(o.MJESTO)}`,
       `/pages/ENTITET/mjesto_zapisi/${encodeURIComponent(o.MJESTO)}`
     ]), 
     data.župe
@@ -88,6 +89,7 @@ export const dynamicPaths = () => {
           `/pages/ENTITET/mjesto_zupe/${encodeURIComponent(o.MJESTO)}`,
           `/pages/ENTITET/mjesto_migracije/${encodeURIComponent(o.MJESTO)}`,
           `/pages/ENTITET/mjesto_obitelji/${encodeURIComponent(o.MJESTO)}`,
+          `/pages/ENTITET/mjesto_stablo/${encodeURIComponent(o.MJESTO)}`,
           `/pages/ENTITET/mjesto_zapisi/${encodeURIComponent(o.MJESTO)}`
         ])
     )
