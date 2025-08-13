@@ -9,8 +9,13 @@ const mjestaST = generirajMjestaOdObiteljiSVE(data.obitelj, "Stupnik");
 const mjestaDU = generirajMjestaOdObiteljiSVE(data.obitelj, "Dubrovnik");
 
 export const mjestaMenu = [
-  ...mjestaBH, ...mjestaST, ...mjestaDU,
-
+  //...mjestaST, ...mjestaDU,
+  {
+    name: "Bosna",
+    pages: [
+      ...mjestaBH,
+    ]
+  },
   
   {
     name: "------",
