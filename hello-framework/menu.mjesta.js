@@ -8,6 +8,18 @@ const mjestaBH = generirajMjestaOdObiteljiSVE(data.obitelj, "Bosna");
 const mjestaST = generirajMjestaOdObiteljiSVE(data.obitelj, "Stupnik");
 const mjestaDU = generirajMjestaOdObiteljiSVE(data.obitelj, "Dubrovnik");
 
+export const mjestaMenu = [
+  ...mjestaBH, ...mjestaST, ...mjestaDU,
+
+  
+  {
+    name: "------",
+    pages: [
+      { name: "Sadržaj", path: "/pages/KONCEPT/Navigacija" }
+    ]
+  }
+];
+
 export const mjestaPages = [
   ...mjestaBH, ...mjestaST, ...mjestaDU,
 
