@@ -61,6 +61,12 @@ const entryPoints = [
       `/pages/ENTITET/zupa_matica/${encodeURIComponent(z.ZUPA)}`,
       `/pages/ENTITET/zupa_stablo/${encodeURIComponent(z.ZUPA)}`,
       `/pages/ENTITET/zupa_popis/${encodeURIComponent(z.ZUPA)}`,
+    ]),
+    data.zapisi_matice 
+    .filter(z => z.MATICA && z.MATICA != null)
+    .flatMap(z => [
+      `/pages/ENTITET/matica/${encodeURIComponent(z.MATICA)}`,
+      `/pages/ENTITET/matica_zapisi/${encodeURIComponent(z.MATICA)}`,
     ])
 ];
 
@@ -92,7 +98,14 @@ export const dynamicPaths = () => {
       `/pages/ENTITET/zupa_matica/${encodeURIComponent(z.ZUPA)}`,
       `/pages/ENTITET/zupa_stablo/${encodeURIComponent(z.ZUPA)}`,  
       `/pages/ENTITET/zupa_popis/${encodeURIComponent(z.ZUPA)}`,
-    ]));
+    ])).concat (    data.zapisi_matice 
+    .filter(z => z.MATICA && z.MATICA != null)
+    .flatMap(z => [
+      `/pages/ENTITET/matica/${encodeURIComponent(z.MATICA)}`,
+      `/pages/ENTITET/matica_zapisi/${encodeURIComponent(z.MATICA)}`,
+    ]))
+    
+    ;
 };
 
 // 4️⃣ Finalni config
