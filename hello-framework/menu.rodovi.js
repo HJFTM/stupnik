@@ -42,7 +42,7 @@ export function getRodEntitetiIzvoriPages(rod, obitelji) {
   ];
 }
 
-function generirajMjestaOdObitelji(obitelji, rod = "Bosna") {
+export function generirajMjestaOdObitelji(obitelji, rod = "Bosna") {
   const mjestaMap = new Map();
   const obitelj_m = obitelji.filter(o => o.TIP === "M" && o.ROD === rod && o.OBITELJ);
 
