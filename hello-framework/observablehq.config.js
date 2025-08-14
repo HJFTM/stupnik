@@ -29,7 +29,7 @@ if (CURRENT_PROJECT === "Uvod") {
   pages = getRodEntitetiIzvoriPages(CURRENT_PROJECT, data.obitelj);
 }
 
-pages = uvodPages
+let pages_all = uvodPages
         .concat(getRodEntitetiIzvoriPages("Bosna", data.obitelj))
         .concat(getRodEntitetiIzvoriPages("Stupnik", data.obitelj))
         .concat(getRodEntitetiIzvoriPages("Dubrovnik", data.obitelj))
