@@ -29,7 +29,14 @@ if (CURRENT_PROJECT === "Uvod") {
   pages = getRodEntitetiIzvoriPages(CURRENT_PROJECT, data.obitelj);
 }
 
-pages = uvodPages.concat(obiteljiPages);
+pages = uvodPages
+        .concat(getRodEntitetiIzvoriPages("Bosna", data.obitelj))
+        .concat(getRodEntitetiIzvoriPages("Stupnik", data.obitelj))
+        .concat(getRodEntitetiIzvoriPages("Dubrovnik", data.obitelj))
+        .concat(mjestaMenu)
+        .concat(obiteljiPages)
+        .concat(zapisiPages)
+        .concat(izvoriPages);
 
 // 2️⃣ Entry points = sve stranice koje želimo da se statički izgrade
 const entryPoints = [
