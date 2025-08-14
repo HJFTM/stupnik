@@ -29,6 +29,8 @@ if (CURRENT_PROJECT === "Uvod") {
   pages = getRodEntitetiIzvoriPages(CURRENT_PROJECT, data.obitelj);
 }
 
+pages = uvodPages.concat(obiteljiPages);
+
 // 2️⃣ Entry points = sve stranice koje želimo da se statički izgrade
 const entryPoints = [
   ...pages.flatMap(p => (p.pages ? p.pages : [p])).map(p => p.path),
